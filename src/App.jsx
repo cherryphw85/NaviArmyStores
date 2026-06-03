@@ -211,7 +211,7 @@ export default function NaviArmyStore() {
 
       {/* ── HERO BANNER (your uploaded image) ── */}
       <div style={{ position:"relative", width:"100%", background:C.dark }}>
-        <img src={IMG_BANNER} alt="Trusted Uniforms for Real Heroes" style={{ width:"100%", display:"block", maxHeight:420, objectFit:"cover", objectPosition:"top" }} />
+        <img src={IMG_BANNER} alt="Trusted Uniforms for Real Heroes" className="hero-img" />
         {/* Overlay Shop Now button */}
         <div style={{ position:"absolute", bottom:16, left:"50%", transform:"translateX(-50%)" }}>
           <button style={{ ...btnGold, padding:"11px 32px", fontSize:14, letterSpacing:1, textTransform:"uppercase", boxShadow:"0 4px 16px rgba(0,0,0,.5)" }}
@@ -222,10 +222,10 @@ export default function NaviArmyStore() {
       </div>
 
       {/* ── CATEGORIES ── */}
-      <div style={{ padding:"22px 14px 8px" }} id="cats">
+      <div className="page-wrap" style={{ padding:"22px 0 8px" }} id="cats">
         <div style={{ fontFamily:"Georgia,serif", fontSize:18, fontWeight:700, color:C.dark, marginBottom:4 }}>Shop by Category</div>
         <div style={{ color:"#888", fontSize:12, marginBottom:16 }}>Choose from our 5 product categories</div>
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:12 }}>
+        <div className="cat-grid">
           {CATEGORIES.map((cat,i) => {
             const cnt = products.filter(p=>p.categoryId===cat.id).length;
             const isLast = i===4;
@@ -257,16 +257,16 @@ export default function NaviArmyStore() {
       </div>
 
       {/* ── FEATURED PRODUCTS ── */}
-      <div style={{ background:"#fff", padding:"20px 14px", marginTop:8 }}>
+      <div style={{ background:"#fff", padding:"20px 0", marginTop:8 }}><div className="page-wrap">
         <div style={{ fontFamily:"Georgia,serif", fontSize:18, fontWeight:700, color:C.dark, marginBottom:4 }}>Featured Products</div>
         <div style={{ color:"#888", fontSize:12, marginBottom:16 }}>Our best-selling uniforms & gear</div>
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:12 }}>
-          {products.filter((_,i)=>i<6).map(prod=><ProdCard key={prod.id} prod={prod}/>)}
+        <div className="prod-grid">
+          {products.filter((_,i)=>i<6).map(prod=><ProdCard key={prod.id} prod={prod}/>)}</div>
         </div>
       </div>
 
       {/* ── WHY US ── */}
-      <div style={{ padding:"20px 14px" }}>
+      <div className="page-wrap" style={{ padding:"20px 0" }}>
         <div style={{ fontFamily:"Georgia,serif", fontSize:18, fontWeight:700, color:C.dark, marginBottom:14 }}>Why Navi Army Store?</div>
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:10 }}>
           {[["🏅","Authentic Quality","All uniforms meet official military specs"],
@@ -332,7 +332,7 @@ export default function NaviArmyStore() {
       <div style={{ padding:"16px 14px" }}>
         {catItems.length===0
           ? <div style={{ textAlign:"center",padding:"48px 0",color:"#bbb" }}><div style={{ fontSize:36 }}>📦</div><p style={{ marginTop:10,fontWeight:600 }}>No products yet</p><p style={{ fontSize:12,marginTop:6 }}>Add from Admin panel</p></div>
-          : <div style={{ display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:12 }}>
+          : <div className="prod-grid">
               {catItems.map(p=><ProdCard key={p.id} prod={p}/>)}
             </div>
         }
@@ -592,8 +592,8 @@ export default function NaviArmyStore() {
 
   // ─── ROOT RENDER ──────────────────────────────────────────────────────────
   return (
-    <div ref={wrapRef} style={{ fontFamily:"'Segoe UI',system-ui,sans-serif",background:"#f4f2ed",minHeight:"100vh",maxWidth:480,margin:"0 auto",position:"relative",overflowX:"hidden" }}>
-      <style>{`@keyframes fadeUp{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}*{box-sizing:border-box;margin:0;padding:0}::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:#c8b87a;border-radius:2px}`}</style>
+    <div ref={wrapRef} style={{ fontFamily:"'Segoe UI',system-ui,sans-serif",background:"#f4f2ed",minHeight:"100vh",maxWidth:"100%",margin:"0 auto",position:"relative",overflowX:"hidden" }}>
+      <style>{`@keyframes fadeUp{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}*{box-sizing:border-box;margin:0;padding:0}::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:#c8b87a;border-radius:2px}.prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(min-width:600px){.prod-grid{grid-template-columns:repeat(3,1fr)}}@media(min-width:900px){.prod-grid{grid-template-columns:repeat(4,1fr)}}.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(min-width:600px){.cat-grid{grid-template-columns:repeat(3,1fr)}}@media(min-width:900px){.cat-grid{grid-template-columns:repeat(5,1fr)}}.page-wrap{max-width:1200px;margin:0 auto;padding:0 16px}.hero-img{width:100%;max-height:520px;object-fit:cover;object-position:top;display:block}`}</style>
 
       {page!=="admin" && <Navbar/>}
       {cartOpen && <CartDrawer/>}
