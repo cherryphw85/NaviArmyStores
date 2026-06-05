@@ -373,7 +373,7 @@ export default function Force5Store() {
   const CategoryPage = () => (
     <div>
       <div style={{ background:catProds?.color||C.dark, padding:"0 14px 18px" }}>
-        <button style={{ background:"none",border:"none",color:"rgba(255,255,255,.7)",fontSize:12,fontWeight:700,cursor:"pointer",padding:"14px 0 8px" }} onClick={navHome}>← Back</button>
+        <button style={{ background:"rgba(255,255,255,.15)",border:"1px solid rgba(255,255,255,.4)",color:"#fff",fontSize:15,fontWeight:700,cursor:"pointer",padding:"8px 20px",borderRadius:6,margin:"12px 0 8px",display:"inline-block" }} onClick={navHome}>← Back</button>
         <div style={{ fontSize:28 }}>{catProds?.icon}</div>
         <div style={{ fontFamily:"Georgia,serif",fontSize:20,fontWeight:700,color:C.gold,marginTop:4 }}>{catProds?.name}</div>
         <div style={{ color:"rgba(255,255,255,.55)",fontSize:12,marginTop:3 }}>{catItems.length} products</div>
@@ -396,7 +396,7 @@ export default function Force5Store() {
     const imgs = prod.images||[prod.image||""];
     return (
       <div>
-        <button style={{ background:"none",border:"none",color:C.olive,fontSize:13,fontWeight:700,cursor:"pointer",padding:"12px 14px 4px" }}
+        <button style={{ background:"#f0f4ec",border:"1.5px solid "+C.olive,color:C.olive,fontSize:15,fontWeight:700,cursor:"pointer",padding:"9px 20px",borderRadius:6,margin:"12px 14px 4px",display:"inline-block" }}
           onClick={()=>{ if(activeCatId) setPage("category"); else navHome(); scrollTop(); }}>← {cat?.name||"Back"}</button>
         {/* Image gallery */}
         <div style={{ position:"relative" }}>
@@ -447,8 +447,8 @@ export default function Force5Store() {
   const CheckoutPage = () => (
     <div>
       <div style={{ background:C.dark,padding:"16px 14px 12px" }}>
-        <button style={{ background:"none",border:"none",color:"rgba(255,255,255,.6)",fontSize:12,fontWeight:700,cursor:"pointer",padding:"0 0 8px" }} onClick={()=>{ setCartOpen(true); setPage("home"); }}>← Back</button>
-        <div style={{ color:C.gold,fontFamily:"Georgia,serif",fontSize:18,fontWeight:700 }}>Place Your Order</div>
+        <button style={{ background:"rgba(255,255,255,.15)",border:"1px solid rgba(255,255,255,.4)",color:"#fff",fontSize:15,fontWeight:700,cursor:"pointer",padding:"8px 20px",borderRadius:6,margin:"8px 0" }} onClick={()=>{ setCartOpen(true); setPage("home"); }}>← Back to Cart</button>
+        <div style={{ color:C.gold,fontFamily:"Georgia,serif",fontSize:18,fontWeight:700,marginTop:8 }}>Place Your Order</div>
       </div>
       {/* Order Summary */}
       <div style={{ background:"#fff",margin:"12px 14px",borderRadius:8,padding:"14px",boxShadow:"0 1px 4px rgba(0,0,0,.07)" }}>
@@ -484,26 +484,37 @@ export default function Force5Store() {
       {/* Form */}
       <div style={{ background:"#fff",margin:"0 14px 12px",borderRadius:8,padding:"16px",boxShadow:"0 1px 4px rgba(0,0,0,.07)" }}>
         <div style={{ fontWeight:700,fontSize:14,marginBottom:14,color:C.dark }}>Delivery Details</div>
-        {[["name","Full Name *","text","Your full name"],["phone","Phone *","tel","9XXXXXXXXX"],["address","Delivery Address *","text","Full address with PIN"]].map(([fld,lbl,tp,ph])=>(
-          <div key={fld} style={{ marginBottom:12 }}>
-            <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>{lbl}</label>
-            <input style={{ width:"100%",padding:"10px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:14,fontFamily:"inherit",boxSizing:"border-box" }}
-              type={tp} placeholder={ph} value={orderForm[fld]} onChange={e=>setOrderForm(f=>({...f,[fld]:e.target.value}))} />
+        <div style={{ marginBottom:12 }}>
+            <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Full Name *</label>
+            <input id="co-name" style={{ width:"100%",padding:"10px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:14,fontFamily:"inherit",boxSizing:"border-box" }}
+              type="text" placeholder="Your full name" defaultValue={orderForm.name} onBlur={e=>setOrderForm(f=>({...f,name:e.target.value}))} onChange={e=>setOrderForm(f=>({...f,name:e.target.value}))} />
           </div>
-        ))}
+          <div style={{ marginBottom:12 }}>
+            <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Phone *</label>
+            <input id="co-phone" style={{ width:"100%",padding:"10px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:14,fontFamily:"inherit",boxSizing:"border-box" }}
+              type="tel" placeholder="9XXXXXXXXX" defaultValue={orderForm.phone} onBlur={e=>setOrderForm(f=>({...f,phone:e.target.value}))} onChange={e=>setOrderForm(f=>({...f,phone:e.target.value}))} />
+          </div>
+          <div style={{ marginBottom:12 }}>
+            <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Delivery Address *</label>
+            <textarea id="co-addr" style={{ width:"100%",padding:"10px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:14,fontFamily:"inherit",boxSizing:"border-box",height:72,resize:"vertical" }}
+              placeholder="Full address with PIN" defaultValue={orderForm.address} onBlur={e=>setOrderForm(f=>({...f,address:e.target.value}))} onChange={e=>setOrderForm(f=>({...f,address:e.target.value}))} />
+          </div>
         <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:12 }}>
-          {[["city","City"],["state","State"]].map(([fld,lbl])=>(
-            <div key={fld}>
-              <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>{lbl}</label>
+          <div>
+              <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>City</label>
               <input style={{ width:"100%",padding:"10px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:14,fontFamily:"inherit",boxSizing:"border-box" }}
-                placeholder={lbl} value={orderForm[fld]} onChange={e=>setOrderForm(f=>({...f,[fld]:e.target.value}))} />
+                type="text" placeholder="City" defaultValue={orderForm.city} onBlur={e=>setOrderForm(f=>({...f,city:e.target.value}))} onChange={e=>setOrderForm(f=>({...f,city:e.target.value}))} />
             </div>
-          ))}
+            <div>
+              <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>State</label>
+              <input style={{ width:"100%",padding:"10px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:14,fontFamily:"inherit",boxSizing:"border-box" }}
+                type="text" placeholder="State" defaultValue={orderForm.state} onBlur={e=>setOrderForm(f=>({...f,state:e.target.value}))} onChange={e=>setOrderForm(f=>({...f,state:e.target.value}))} />
+            </div>
         </div>
         {/* PAYMENT */}
         <div style={{ marginBottom:16 }}>
           <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:8 }}>Payment Method</label>
-          {[["cod","Cash on Delivery (COD)"],["upi","UPI / PhonePe / GPay"],["neft","NEFT / Bank Transfer"],["card","Credit / Debit Card"]].map(([val,label])=>(
+          {[["cod","Cash on Delivery (COD)"],["upi","UPI / PhonePe / GPay"]].map(([val,label])=>(
             <label key={val} style={{ display:"flex",alignItems:"center",gap:8,marginBottom:8,cursor:"pointer",fontSize:13 }}>
               <input type="radio" name="payment" value={val} checked={orderForm.payment===val} onChange={e=>setOrderForm(f=>({...f,payment:e.target.value}))} />
               <span style={{ fontWeight:600 }}>{label}</span>
@@ -516,9 +527,7 @@ export default function Force5Store() {
               <div style={{ fontWeight:700,fontSize:18,color:C.dark,marginBottom:6 }}>₹{cartTotal.toLocaleString()}</div>
               <div style={{ fontSize:11,color:"#666" }}>Scan QR or pay to UPI: <strong>9654496474@upi</strong></div>
               {/* QR representation */}
-              <div style={{ margin:"10px auto", width:120, height:120, background:"#fff", border:"2px solid #333", borderRadius:4, display:"flex", alignItems:"center", justifyContent:"center", fontSize:10, color:"#333", textAlign:"center", padding:8 }}>
-                QR Code<br/>9654496474<br/>@upi<br/>₹{cartTotal.toLocaleString()}
-              </div>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeAQAAAAB6HIMaAAAB9klEQVR4nO2YMY7dMAxEnz5/T98gR5FvkCMt9mb0Uf4N6PIDMiaF7J8U2U0VLItlYUNgMyBGM0M18WEdt4978N38VxMlgCV4KPtwQQegj3Job9ClC6GHPdYBJikLzvYGtLbiMejsa1uwhL3dvxDQh3U///vPzWkgaCcTCqK9mv6uRzNFW7bJ5K8G9PdSdkkmKbspcNl1LHnLttYa+3oH9jd7rOzr0VpbSs52VvbXbKdKSKo3W5QdD1y4pBhg2U0xKuotyj4uybXLHUwq6Q4omddquExhCaCys51Q6ZbgsikRSUlNQMnwACz78DDpJG3V2Q66FFIoga7sw2N4SU2QJhksmdlGyXBZRQW7sbfW1uey4bLEkmMBtmMp6Q7ZB30SAA88Jo2LKti0LRcwLu2CXhRt8oric8KTD9S8ZclwDQ9LTHHZGVVzAlKcdkC3PNeckppwusNw8ce3bk6YC6OHKUwx483MNvXQ3mBrC3q8HQvP9na0VQl7G18H6JPSFQ9OGtB/+29BtOfuME99plwlVhHtdN52p08pGP7+XLjT8ajHhNv1VsNgO36EPVZgQNmccK42HpouNquil13NfYV+d40ZGhV6rPVm+2pu9mjPBdjwaAv3irx9vdUEMNfzMcNYRU14vd92XGey9TgVuBza9v2S/9+avwDwoJqVfodx/AAAAABJRU5ErkJggg==" alt="UPI QR" style={{ width:160, height:160, margin:"10px auto", display:"block", border:"2px solid #333", borderRadius:4 }} />
               <div style={{ fontSize:11,color:"#888",marginTop:6 }}>After payment, share screenshot on WhatsApp: 9654496474</div>
             </div>
           )}
@@ -555,8 +564,8 @@ export default function Force5Store() {
     return (
       <div>
         <div style={{ background:C.dark,padding:"16px 14px 12px" }}>
-          <button style={{ background:"none",border:"none",color:"rgba(255,255,255,.6)",fontSize:12,fontWeight:700,cursor:"pointer",padding:"0 0 8px" }} onClick={navHome}>← Back</button>
-          <div style={{ color:C.gold,fontFamily:"Georgia,serif",fontSize:18,fontWeight:700 }}>{titles[infoPage]}</div>
+          <button style={{ background:"rgba(255,255,255,.15)",border:"1px solid rgba(255,255,255,.4)",color:"#fff",fontSize:15,fontWeight:700,cursor:"pointer",padding:"8px 20px",borderRadius:6,margin:"8px 0" }} onClick={navHome}>← Back</button>
+          <div style={{ color:C.gold,fontFamily:"Georgia,serif",fontSize:18,fontWeight:700,marginTop:8 }}>{titles[infoPage]}</div>
         </div>
         <div style={{ padding:"20px 16px",fontSize:13,lineHeight:1.9,color:"#333",whiteSpace:"pre-line" }}>{content}</div>
       </div>
@@ -650,14 +659,35 @@ export default function Force5Store() {
             </div>
             {/* MULTI IMAGE UPLOAD */}
             <div style={{ marginBottom:12 }}>
-              <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Product Images (one URL per line) *</label>
-              <textarea style={{ width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",height:80,resize:"vertical",boxSizing:"border-box" }}
+              <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Product Images *</label>
+              {/* Upload from device */}
+              <div style={{ background:"#f0f4ec",border:"2px dashed #7cb342",borderRadius:8,padding:"12px",marginBottom:8,textAlign:"center" }}>
+                <div style={{ fontSize:12,fontWeight:700,color:"#444",marginBottom:6 }}>📁 Upload from Device</div>
+                <input type="file" accept="image/*" multiple style={{ fontSize:12 }}
+                  onChange={e=>{
+                    const files=Array.from(e.target.files);
+                    const readers=files.map(file=>new Promise(res=>{
+                      const r=new FileReader();
+                      r.onload=ev=>res(ev.target.result);
+                      r.readAsDataURL(file);
+                    }));
+                    Promise.all(readers).then(urls=>{
+                      setAdminImgUrls(prev=>[prev,urls.join("\n")].filter(Boolean).join("\n"));
+                    });
+                  }} />
+                <div style={{ fontSize:10,color:"#888",marginTop:4 }}>Select multiple images at once</div>
+              </div>
+              {/* Or enter URLs */}
+              <div style={{ fontSize:11,fontWeight:700,color:"#888",marginBottom:4,textAlign:"center" }}>— OR enter image URLs —</div>
+              <textarea style={{ width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",height:60,resize:"vertical",boxSizing:"border-box" }}
                 placeholder={"https://example.com/img1.jpg\nhttps://example.com/img2.jpg"}
                 value={adminImgUrls} onChange={e=>setAdminImgUrls(e.target.value)} />
-              <div style={{ fontSize:10,color:"#888",marginTop:4 }}>Enter one image URL per line. First image will be the main/cover image.</div>
+              <div style={{ fontSize:10,color:"#888",marginTop:4 }}>First image = cover image. Previews below:</div>
+              <div style={{ display:"flex",flexWrap:"wrap",gap:6,marginTop:6 }}>
               {adminImgUrls.split("\n").filter(u=>u.trim()).map((url,i)=>(
-                <img key={i} src={url.trim()} alt="" style={{ width:60,height:60,objectFit:"cover",borderRadius:5,marginTop:6,marginRight:6,border:"1px solid #ddd" }} onError={e=>e.target.style.display="none"} />
+                <img key={i} src={url.trim()} alt="" style={{ width:70,height:70,objectFit:"cover",borderRadius:5,border:"2px solid "+(i===0?"#3a4f1a":"#ddd") }} onError={e=>e.target.style.display="none"} />
               ))}
+              </div>
             </div>
             <div style={{ marginBottom:12 }}>
               <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Sizes (comma separated)</label>
