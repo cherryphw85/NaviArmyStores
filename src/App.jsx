@@ -10,93 +10,152 @@ const IMG_TACTICAL= "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA4K
 
 // ─── SEED DATA ────────────────────────────────────────────────────────────────
 const CATEGORIES = [
-  { id:"c1", name:"Combat Dress",     icon:"🪖", img:IMG_SOLDIER,  color:"#3a4f1a", desc:"Army & Paramilitary combat dress uniforms" },
-  { id:"c2", name:"Combat Shoes",     icon:"👢", img:IMG_BOOTS,    color:"#2c1a0e", desc:"Military combat boots & parade shoes" },
-  { id:"c3", name:"Combat Belts",     icon:"🔗", img:IMG_BELT,     color:"#5d2a0e", desc:"Sam Browne, tactical & PT belts" },
-  { id:"c4", name:"Combat Caps",      icon:"🧢", img:IMG_CAPS,     color:"#1a3a1a", desc:"Berets, caps & camouflage headgear" },
-  { id:"c5", name:"Combat Packages",  icon:"🎒", img:IMG_TACTICAL, color:"#1a2a3a", desc:"Full uniform packages & tactical bundles" },
+  { id:"c1", name:"Combat Dress",       icon:"🪖", img:IMG_SOLDIER,  color:"#3a4f1a" },
+  { id:"c2", name:"Combat Shoes",       icon:"👢", img:IMG_BOOTS,    color:"#2c1a0e" },
+  { id:"c3", name:"Combat Belts",       icon:"🔗", img:IMG_BELT,     color:"#5d2a0e" },
+  { id:"c4", name:"Combat Caps",        icon:"🧢", img:IMG_CAPS,     color:"#1a3a1a" },
+  { id:"c5", name:"Combat Packages",    icon:"🎒", img:IMG_TACTICAL, color:"#1a2a3a" },
+  { id:"c6", name:"Tactical Jackets",   icon:"🧥", img:IMG_TACTICAL, color:"#2a3a1a" },
+  { id:"c7", name:"Tshirt & Lower",     icon:"👕", img:IMG_SOLDIER,  color:"#1a3a2a" },
+  { id:"c8", name:"Track Suits",        icon:"🏃", img:IMG_SOLDIER,  color:"#2a1a3a" },
+  { id:"c9", name:"Thermal Wear",       icon:"🧤", img:IMG_TACTICAL, color:"#3a2a1a" },
 ];
 
 const SEED_PRODUCTS = [
-  // Combat Dress
-  { id:"p1",  name:"Indian Army BDU Combat Uniform",    categoryId:"c1", price:2499, mrp:3200, badge:"Best Seller", image:IMG_SOLDIER, desc:"Official DPM camouflage BDU. 65/35 poly-cotton ripstop. Shirt + Trousers set. All sizes.", sizes:["S","M","L","XL","2XL","3XL"], stock:50, isNew:false },
-  { id:"p2",  name:"CRPF Khaki Uniform Set",            categoryId:"c1", price:1899, mrp:2400, badge:"",            image:IMG_SOLDIER, desc:"CRPF khaki full uniform set. ISI marked fabric. Reinforced stitching.", sizes:["S","M","L","XL","2XL"], stock:60, isNew:false },
-  { id:"p3",  name:"BSF Olive Green Combat Dress",      categoryId:"c1", price:2199, mrp:2800, badge:"New",         image:IMG_SOLDIER, desc:"Border Security Force OG combat dress. Field-duty specification.", sizes:["S","M","L","XL","2XL"], stock:40, isNew:true  },
-  { id:"p4",  name:"Air Force Blue-Grey Service Dress", categoryId:"c1", price:3499, mrp:4500, badge:"Premium",     image:IMG_SOLDIER, desc:"IAF blue-grey service dress. Tunic + trousers. Official spec.", sizes:["S","M","L","XL","Custom"], stock:30, isNew:false },
-  { id:"p5",  name:"Navy White Tropical Dress Uniform", categoryId:"c1", price:3999, mrp:5000, badge:"",            image:IMG_SOLDIER, desc:"Indian Navy white tropical dress. Premium cotton, with epaulettes.", sizes:["S","M","L","XL","Custom"], stock:25, isNew:false },
-  // Combat Shoes
-  { id:"p6",  name:"DMS Combat Boots (Direct Moulded)", categoryId:"c2", price:1899, mrp:2600, badge:"Best Seller", image:IMG_BOOTS,   desc:"Standard issue DMS boots. Genuine leather upper. Oil-resistant sole.", sizes:["6","7","8","9","10","11","12"], stock:80, isNew:false },
-  { id:"p7",  name:"Hi-Ankle Para Commando Boots",      categoryId:"c2", price:3299, mrp:4500, badge:"Premium",     image:IMG_BOOTS,   desc:"High ankle boots for Para SF. Speed lacing. Composite toe cap. Desert/jungle variants.", sizes:["7","8","9","10","11"], stock:40, isNew:false },
-  { id:"p8",  name:"Black Parade Shoes (High Gloss)",   categoryId:"c2", price:1299, mrp:1800, badge:"",            image:IMG_BOOTS,   desc:"Bull-nosed parade shoes. Mirror-polish compatible leather. Rubber sole.", sizes:["6","7","8","9","10","11","12"], stock:90, isNew:false },
-  { id:"p9",  name:"Jungle Combat Boots (Breathable)",  categoryId:"c2", price:2599, mrp:3400, badge:"New",         image:IMG_BOOTS,   desc:"Lightweight jungle boots. Mesh panels for breathability. Anti-slip sole.", sizes:["7","8","9","10","11"], stock:55, isNew:true  },
-  // Combat Belts
-  { id:"p10", name:"Sam Browne Officer Belt Set",       categoryId:"c3", price:1499, mrp:2000, badge:"",            image:IMG_BELT,    desc:"Full leather Sam Browne belt + shoulder strap. Brass fittings. Officers standard.", sizes:["26\"","28\"","30\"","32\"","34\"","36\""], stock:60, isNew:false },
-  { id:"p11", name:"MOLLE Tactical Battle Belt",        categoryId:"c3", price:1199, mrp:1600, badge:"Best Seller", image:IMG_BELT,    desc:"Nylon MOLLE webbing battle belt. Adjustable. Compatible with all pouches.", sizes:["S/M","L/XL"], stock:75, isNew:false },
-  { id:"p12", name:"OG PT Web Belt",                   categoryId:"c3", price:299,  mrp:450,  badge:"",            image:IMG_BELT,    desc:"Standard olive green PT/working belt. Brass buckle. Military spec.", sizes:["One Size"], stock:200, isNew:false },
-  { id:"p13", name:"Full 58-Pattern Webbing Set",       categoryId:"c3", price:2199, mrp:3000, badge:"",            image:IMG_BELT,    desc:"Complete 58-pat webbing: yoke, pouches, water bottle holder, entrenching tool.", sizes:["One Size"], stock:35, isNew:false },
-  // Combat Caps
-  { id:"p14", name:"Olive Green Army Beret",            categoryId:"c4", price:449,  mrp:650,  badge:"",            image:IMG_CAPS,    desc:"Pure wool OG beret. Metal badge-plate holder stitched. Sizes 54–60 cm.", sizes:["54cm","56cm","58cm","60cm"], stock:150, isNew:false },
-  { id:"p15", name:"DPM Camouflage Baseball Cap",       categoryId:"c4", price:399,  mrp:600,  badge:"New",         image:IMG_CAPS,    desc:"Disruptive Pattern Material field cap. 6-panel structured crown. Velcro adjuster.", sizes:["Free Size"], stock:120, isNew:true  },
-  { id:"p16", name:"Maroon Para SF Beret",              categoryId:"c4", price:599,  mrp:850,  badge:"Special",     image:IMG_CAPS,    desc:"Maroon beret as worn by Parachute Regiment. Merino wool. Dye-fast, shrink-resistant.", sizes:["54cm","56cm","58cm","60cm"], stock:70, isNew:false },
-  { id:"p17", name:"Steel Combat Helmet (Mk2)",         categoryId:"c4", price:2299, mrp:3200, badge:"Premium",     image:IMG_CAPS,    desc:"Steel Mk2 combat helmet. Standard issue pattern. Removable liner. Adjustable chin strap.", sizes:["S","M","L"], stock:30, isNew:false },
-  // Combat Packages
-  { id:"p18", name:"Infantry Combat Full Package",      categoryId:"c5", price:5999, mrp:8500, badge:"Best Value",  image:IMG_TACTICAL, desc:"Complete infantry package: BDU uniform + DMS boots + OG beret + web belt + tactical bag.", sizes:["S","M","L","XL"], stock:30, isNew:false },
-  { id:"p19", name:"Officer Ceremonial Package",        categoryId:"c5", price:9999, mrp:14000,badge:"Premium",     image:IMG_TACTICAL, desc:"Full officer set: service dress + Sam Browne belt + parade shoes + peaked cap.", sizes:["Custom"], stock:15, isNew:false },
-  { id:"p20", name:"Para SF Commando Package",          categoryId:"c5", price:7499, mrp:10500,badge:"Special",     image:IMG_TACTICAL, desc:"Para commando bundle: OG combat dress + hi-ankle boots + maroon beret + MOLLE belt + 60L rucksack.", sizes:["M","L","XL"], stock:20, isNew:true  },
-  { id:"p21", name:"Paramilitary Duty Package",         categoryId:"c5", price:4499, mrp:6200, badge:"New",         image:IMG_TACTICAL, desc:"CRPF/BSF complete duty set: khaki/OG uniform + DMS boots + web belt + field cap.", sizes:["S","M","L","XL","2XL"], stock:40, isNew:true  },
+  { id:"p1", name:"Indian Army BDU Combat Uniform", categoryId:"c1", price:2499, mrp:3200, badge:"Best Seller", images:[IMG_SOLDIER], desc:"Official DPM camouflage BDU. 65/35 poly-cotton ripstop. Shirt + Trousers set.", sizes:["S","M","L","XL","2XL","3XL"], stock:50, isNew:false },
+  { id:"p2", name:"CRPF Khaki Uniform Set",         categoryId:"c1", price:1899, mrp:2400, badge:"",            images:[IMG_SOLDIER], desc:"CRPF khaki full uniform set. ISI marked fabric. Reinforced stitching.",          sizes:["S","M","L","XL","2XL"], stock:60, isNew:false },
+  { id:"p3", name:"BSF Olive Green Combat Dress",   categoryId:"c1", price:2199, mrp:2800, badge:"New",         images:[IMG_SOLDIER], desc:"Border Security Force OG combat dress. Field-duty specification.",               sizes:["S","M","L","XL","2XL"], stock:40, isNew:true },
+  { id:"p6", name:"DMS Combat Boots",               categoryId:"c2", price:1899, mrp:2600, badge:"Best Seller", images:[IMG_BOOTS],   desc:"Standard issue DMS boots. Genuine leather upper. Oil-resistant sole.",          sizes:["6","7","8","9","10","11","12"], stock:80, isNew:false },
+  { id:"p7", name:"Hi-Ankle Para Commando Boots",   categoryId:"c2", price:3299, mrp:4500, badge:"Premium",     images:[IMG_BOOTS],   desc:"High ankle boots for Para SF. Speed lacing. Composite toe cap.",                sizes:["7","8","9","10","11"], stock:40, isNew:false },
+  { id:"p10",name:"Sam Browne Officer Belt Set",    categoryId:"c3", price:1499, mrp:2000, badge:"",            images:[IMG_BELT],    desc:"Full leather Sam Browne belt + shoulder strap. Brass fittings.",               sizes:["26\"","28\"","30\"","32\"","34\""], stock:60, isNew:false },
+  { id:"p11",name:"MOLLE Tactical Battle Belt",     categoryId:"c3", price:1199, mrp:1600, badge:"Best Seller", images:[IMG_BELT],    desc:"Nylon MOLLE webbing battle belt. Adjustable. Compatible with all pouches.",    sizes:["S/M","L/XL"], stock:75, isNew:false },
+  { id:"p14",name:"Olive Green Army Beret",         categoryId:"c4", price:449,  mrp:650,  badge:"",            images:[IMG_CAPS],    desc:"Pure wool OG beret. Metal badge-plate holder stitched. Sizes 54–60 cm.",      sizes:["54cm","56cm","58cm","60cm"], stock:150, isNew:false },
+  { id:"p15",name:"DPM Camouflage Baseball Cap",    categoryId:"c4", price:399,  mrp:600,  badge:"New",         images:[IMG_CAPS],    desc:"Disruptive Pattern Material field cap. 6-panel structured crown.",             sizes:["Free Size"], stock:120, isNew:true },
+  { id:"p18",name:"Infantry Combat Full Package",   categoryId:"c5", price:5999, mrp:8500, badge:"Best Value",  images:[IMG_TACTICAL],desc:"Complete infantry package: BDU + DMS boots + OG beret + web belt.",             sizes:["S","M","L","XL"], stock:30, isNew:false },
+  { id:"p19",name:"Officer Ceremonial Package",     categoryId:"c5", price:9999, mrp:14000,badge:"Premium",     images:[IMG_TACTICAL],desc:"Full officer set: service dress + Sam Browne belt + parade shoes + peaked cap.", sizes:["Custom"], stock:15, isNew:false },
+  { id:"p22",name:"Military Tactical Jacket",       categoryId:"c6", price:2999, mrp:4000, badge:"New",         images:[IMG_TACTICAL],desc:"Heavy duty windproof tactical jacket with multi-pocket design. OG/Camo available.", sizes:["S","M","L","XL","2XL"], stock:45, isNew:true },
+  { id:"p23",name:"Army PT T-Shirt & Lower Set",    categoryId:"c7", price:799,  mrp:1100, badge:"",            images:[IMG_SOLDIER], desc:"Standard PT half-sleeve t-shirt + lower set. Cotton blend. OG colour.",       sizes:["S","M","L","XL","2XL"], stock:100, isNew:false },
+  { id:"p24",name:"Military Track Suit",            categoryId:"c8", price:1499, mrp:2000, badge:"",            images:[IMG_SOLDIER], desc:"Full track suit – jacket + trousers. Fleece lined. Ideal for PT and field.",   sizes:["S","M","L","XL","2XL"], stock:80, isNew:false },
+  { id:"p25",name:"Army Thermal Inner Wear Set",    categoryId:"c9", price:899,  mrp:1300, badge:"Best Seller", images:[IMG_TACTICAL],desc:"Full-sleeve thermal top + thermal lower. High-altitude rated. Anti-moisture.",  sizes:["S","M","L","XL","2XL"], stock:120, isNew:false },
 ];
 
-// ─── STORAGE HELPERS ──────────────────────────────────────────────────────────
+const DELIVERY_OPTIONS = [
+  { id:"dtdc", name:"DTDC Courier",    fee:150, days:"3-7 business days" },
+  { id:"ipost", name:"Indian Post",    fee:100, days:"5-15 business days" },
+];
+
+const PAGES_CONTENT = {
+  returns: `Return Policy
+
+If you are not happy with your purchase, we will accept a return of an unused product within 14 days from the date of delivery of the products. Some items are non returnable as explained in product description.
+
+Once we receive the returned item, refund process will start (excluding shipping as we are unable to refund the initial shipping cost of your order) and razorpay gateway charges 3% after post verification of the product at our warehouse. Refund shall be processed as per the applicable guidelines/notification/law passed by RBI from time to time and it may take 07-14 additional business days to reflect the same in your account.
+
+For returning or exchanging an item you have to send items back at your own cost.
+
+You Can Return item and Take Refund. You Can Also Exchange Items With Same Items Or With other Items except coverall. Coverall will be replaceable only with Coveralls. Customer have to pay all shipping charges for exchange of product.
+
+NOTE: 3 percent of total Order Billing amount and shipping amount will be deducted if you raise for Refund or cancellation of order or For return of product and shipping cost of sending items are not refundable. Coupon Code amount is not refundable if applied to any product. If you want to exchange then only shipping amount is non refundable.
+
+For saving your return items shipping cost you can send us product from cheapest courier service Indian post.
+
+WRONG PRODUCT DELIVERED: In Case Of delivery of wrong product maximum liability of company is to refund you full amount with shipping charges. For returning of wrong product you have to send back the items by registered post service and upon receivable of product refund process will start. After receiving items back, company will refund all amount of order as well as all shipping charges beared by customer. After the refund is approved, amount will be credited within 7-10 days. Return or exchange is applicable within maximum 1 month after delivery of items.
+
+For Damaged Product: For Exchange of any damaged products you have to provide video of unboxing of item. And if the exchange is approved, we will dispatch product within 2-3 days. Store holds the final authority to decide about refund policy for any other return scenario not discussed above.`,
+
+  terms: `Terms & Conditions
+
+General Terms: By accessing and placing an order with Force5Collection, you confirm that you are in agreement with and bound by the terms of service contained in the Terms & Conditions outlined below. These terms apply to the entire website and any email or other type of communication between you and Force5collection. Under no circumstances shall Force5collection team be liable for any direct, indirect, special, incidental, or consequential damages, including, but not limited to, loss of data or profit, arising out of the use, or the inability to use, the materials on this site, even if Force5collection team or an authorized representative has been advised of the possibility of such damages. Force5collection will not be responsible for any outcome that may occur during the course of usage of our resources. We reserve the right to change prices and revise the resources usage policy at any moment without any prior intimation/notice.
+
+License: Force5collection grants you a revocable, non-exclusive, non-transferable, limited license to download, install and use the website strictly in accordance with the terms of this Agreement.
+
+Definitions: Cookie: small amount of data generated by a website and saved by your web browser. Company: when these terms mention "Company," "we," "us," or "our," it refers to Force5collection. Country: India. Device: any internet-connected device. Service: refers to the service provided by Force5collection. Website: Force5collection.in
+
+ORDER CANCELLATIONS: if you cancel your order before shipping and packing then the 2.5 percent of order amount will be deducted from your order value and rest amount will be refunded to you. Refund will be done within 7-10 working Days.
+
+In case of NOT ABLE TO SEND AN ITEMS the Maximum Liability of the Company's shall be limited up to return of Product/Items charges only.`,
+
+  privacy: `Privacy Policy
+
+We take security and privacy with the utmost regard. By visiting this Website you agree to be bound by the terms and conditions of this Privacy Policy. By use of the Website, you expressly consent to our use and disclosure of your personal information in accordance with this Privacy Policy.
+
+Scope: This Privacy Policy does not apply to the practices of third parties that we do not own or control.
+
+Information Collection: We collect information to enable us to provide a safe, personalized, and optimized experience to our users. We only collect information that we consider necessary. Once you give us your personal information, you are not anonymous to us. We use "cookies" for data collection. We collect information on buying behaviour on purchases being made on the website. We also collect additional information, such as a billing address, a credit/debit card number, and tracking information.
+
+Account Information: When you create an Account, you will provide information that could be Personal Information, such as your username, password, and email address.
+
+Use of Information: We use your personal information to resolve disputes; troubleshoot problems; help promote a safe service; collect money; measure consumer interest in our products and services; inform you about online and offline offers, products, services, and updates; customize your experience; detect and protect us against error, fraud, and other criminal activity.
+
+Sharing: We may share personal information with our other corporate entities and affiliates to help detect and prevent identity theft, fraud, and other potentially illegal acts. We may disclose personal information if required to do so by law or in the good faith belief that such disclosure is reasonably necessary.
+
+Links: Our website links to other websites that may collect personally identifiable information about you. Force5Collection is not responsible for the privacy practices or the content of those linked websites.`,
+
+  shipping: `Shipping & Payment Info
+
+We endeavour to dispatch all products ordered within 96 hrs if all items are available after the order has been placed and accepted by us. Orders May be dispatched in two parts — some items of your order will dispatch early and some after getting ready.
+
+DELIVERY CHARGES (based on selection): Our Delivery charges or Shipping Charges included Other Overhead Charges Also Like Booking Charges, Packing Charges, Pickup Charges. Please Note Delivery Charges Are non refundable for shipping and also for return shipping as well as customer have to bear shipping charges for return or exchange of items. Company will pay only if mistake is from company side like wrong product or damaged product. Sealed pack Items will Come In sealed packing which will have no damage guaranty.
+
+ADDITIONAL CHARGES: There are no additional charges. The total payable amount is indicated on the individual items.
+
+DELIVERY TIME: This may vary depending on the delivery location and services of our logistics partner. However, we endeavour to deliver orders within 4 to 15 Business days depending upon distance of your location (excludes public holidays). In very rare chances Order Can Be Delayed 4-5 days or max 10 days if your ordered items are not ready.
+
+DELIVERY AREAS: We deliver PAN India. For further information please call us on 9654496474 10 AM to 5 PM, Monday to Saturday on business days.
+
+PAYMENT MODE: You can pay Online through Internet banking, Visa, Master Card, American Express, Maestro, Debit cards, IMPS, UPI/PhonePe/GPay.
+
+UPI Payment: Pay directly to UPI ID: 9654496474@upi or scan the QR code at checkout.`
+};
+
 const load = (k, fb) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : fb; } catch { return fb; } };
 const save = (k, v)  => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
 
-// ─── TOAST ─────────────────────────────────────────────────────────────────────
 function Toast({ msg, onClose }) {
   useEffect(() => { const t = setTimeout(onClose, 2600); return () => clearTimeout(t); }, [msg]);
   if (!msg) return null;
-  return (
-    <div style={{ position:"fixed", bottom:24, left:"50%", transform:"translateX(-50%)",
-      background:"#1a1f0e", color:"#fff", padding:"11px 22px", borderRadius:6,
-      fontSize:13, fontWeight:700, zIndex:9999, borderLeft:"4px solid #f0c040",
-      boxShadow:"0 4px 20px rgba(0,0,0,.5)", whiteSpace:"nowrap",
-      animation:"fadeUp .3s ease" }}>{msg}</div>
-  );
+  return <div style={{ position:"fixed", bottom:24, left:"50%", transform:"translateX(-50%)", background:"#1a1f0e", color:"#fff", padding:"11px 22px", borderRadius:6, fontSize:13, fontWeight:700, zIndex:9999, borderLeft:"4px solid #f0c040", boxShadow:"0 4px 20px rgba(0,0,0,.5)", whiteSpace:"nowrap", animation:"fadeUp .3s ease" }}>{msg}</div>;
 }
 
-// ─── STAR RATING ──────────────────────────────────────────────────────────────
 const Stars = ({ n=4 }) => <span style={{ color:"#f9a825", fontSize:11 }}>{"★".repeat(n)}{"☆".repeat(5-n)}</span>;
 
-// ═══════════════════════════════════════════════════════════════════════════════
-export default function NaviArmyStore() {
-  const [products, setProducts] = useState(() => load("nas_products", SEED_PRODUCTS));
-  const [cart, setCart]         = useState(() => load("nas_cart", []));
+export default function Force5Store() {
+  const [products, setProducts] = useState(() => load("f5_products", SEED_PRODUCTS));
+  const [cart, setCart]         = useState(() => load("f5_cart", []));
   const [page, setPage]         = useState("home");
   const [activeCatId, setActiveCatId] = useState(null);
   const [activeProd,  setActiveProd]  = useState(null);
   const [selSize,     setSelSize]     = useState("");
+  const [selImgIdx,   setSelImgIdx]   = useState(0);
   const [toast,       setToast]       = useState("");
   const [cartOpen,    setCartOpen]    = useState(false);
   const [adminTab,    setAdminTab]    = useState("products");
   const [editP,       setEditP]       = useState(null);
-  const [orderForm,   setOrderForm]   = useState({ name:"", phone:"", email:"", address:"", city:"", state:"", pin:"", payment:"cod" });
+  const [delivery,    setDelivery]    = useState("dtdc");
+  const [orderForm,   setOrderForm]   = useState({ name:"", phone:"", address:"", city:"", state:"", payment:"cod" });
   const [orderDone,   setOrderDone]   = useState(null);
+  const [infoPage,    setInfoPage]    = useState(null);
+  const [adminImgUrls,setAdminImgUrls]= useState("");
   const wrapRef = useRef();
 
-  useEffect(() => { save("nas_products", products); }, [products]);
-  useEffect(() => { save("nas_cart", cart); }, [cart]);
+  useEffect(() => { save("f5_products", products); }, [products]);
+  useEffect(() => { save("f5_cart", cart); }, [cart]);
 
   const showToast = msg => setToast(msg);
   const scrollTop = () => wrapRef.current?.scrollTo({ top:0, behavior:"smooth" });
 
-  const cartCount = cart.reduce((s,i) => s+i.qty, 0);
-  const cartTotal = cart.reduce((s,i) => s+i.price*i.qty, 0);
+  const selectedDelivery = DELIVERY_OPTIONS.find(d=>d.id===delivery) || DELIVERY_OPTIONS[0];
+  const cartSubtotal = cart.reduce((s,i) => s+i.price*i.qty, 0);
+  const cartTotal    = cartSubtotal + (cart.length > 0 ? selectedDelivery.fee : 0);
+  const cartCount    = cart.reduce((s,i) => s+i.qty, 0);
 
   const addToCart = (prod, size) => {
     const sz = size || prod.sizes?.[0] || "";
+    const img = prod.images?.[0] || "";
     setCart(c => {
       const ex = c.find(x => x.id===prod.id && x.size===sz);
       if (ex) return c.map(x => x.id===prod.id&&x.size===sz ? {...x,qty:x.qty+1} : x);
-      return [...c, { id:prod.id, name:prod.name, price:prod.price, image:prod.image, size:sz, qty:1 }];
+      return [...c, { id:prod.id, name:prod.name, price:prod.price, image:img, size:sz, qty:1 }];
     });
     showToast("✅ Added to cart!");
   };
@@ -104,59 +163,52 @@ export default function NaviArmyStore() {
   const changeQty   = (id,sz,d) => setCart(c => c.map(x => x.id===id&&x.size===sz ? {...x,qty:Math.max(1,x.qty+d)} : x));
 
   const navCategory = catId => { setActiveCatId(catId); setPage("category"); scrollTop(); };
-  const navProduct  = prod  => { setActiveProd(prod); setSelSize(prod.sizes?.[0]||""); setPage("product"); scrollTop(); };
+  const navProduct  = prod  => { setActiveProd(prod); setSelSize(prod.sizes?.[0]||""); setSelImgIdx(0); setPage("product"); scrollTop(); };
   const navHome     = ()    => { setPage("home"); scrollTop(); };
+  const navInfo     = pg    => { setInfoPage(pg); setPage("info"); scrollTop(); };
 
-  const catProds    = CATEGORIES.find(c=>c.id===activeCatId);
-  const catItems    = products.filter(p=>p.categoryId===activeCatId);
+  const catProds = CATEGORIES.find(c=>c.id===activeCatId);
+  const catItems = products.filter(p=>p.categoryId===activeCatId);
 
-  // Admin ops
   const saveProduct = prod => {
-    if (prod.id) { setProducts(ps => ps.map(p => p.id===prod.id ? prod : p)); showToast("✅ Updated!"); }
+    if (prod.id && products.find(p=>p.id===prod.id)) { setProducts(ps => ps.map(p => p.id===prod.id ? prod : p)); showToast("✅ Updated!"); }
     else { setProducts(ps => [...ps, {...prod, id:"p"+Date.now(), isNew:true}]); showToast("✅ Product added!"); }
     setEditP(null); setAdminTab("products");
   };
-  const delProduct  = id => { setProducts(ps => ps.filter(p=>p.id!==id)); showToast("🗑️ Deleted"); };
+  const delProduct = id => { setProducts(ps => ps.filter(p=>p.id!==id)); showToast("🗑️ Deleted"); };
 
   const placeOrder = () => {
     if (!orderForm.name||!orderForm.phone||!orderForm.address) { showToast("⚠️ Fill required fields"); return; }
-    const oid = "NAS"+Date.now().toString().slice(-6);
-    setOrderDone({ orderId:oid, items:[...cart], total:cartTotal, ...orderForm });
+    const oid = "F5-"+Date.now().toString().slice(-6);
+    setOrderDone({ orderId:oid, items:[...cart], subtotal:cartSubtotal, deliveryFee:selectedDelivery.fee, deliveryName:selectedDelivery.name, total:cartTotal, ...orderForm });
     setCart([]); setPage("success"); scrollTop();
   };
 
-  // ─── PALETTE & SHARED STYLES ──────────────────────────────────────────────
   const C = { dark:"#0f1309", olive:"#3a4f1a", gold:"#f0c040", tan:"#c8b87a", cream:"#f5f0e8", mid:"#e8e3d5", red:"#b22222", white:"#fff" };
+  const btnGold  = { background:C.gold, color:C.dark, border:"none", fontWeight:800, cursor:"pointer", borderRadius:5 };
+  const btnDark  = { background:C.dark, color:C.white, border:"none", fontWeight:700, cursor:"pointer", borderRadius:5 };
+  const btnOlive = { background:C.olive, color:C.white, border:"none", fontWeight:700, cursor:"pointer", borderRadius:5 };
 
-  const btnGold   = { background:C.gold, color:C.dark, border:"none", fontWeight:800, cursor:"pointer", borderRadius:5 };
-  const btnDark   = { background:C.dark, color:C.white, border:"none", fontWeight:700, cursor:"pointer", borderRadius:5 };
-  const btnOlive  = { background:C.olive, color:C.white, border:"none", fontWeight:700, cursor:"pointer", borderRadius:5 };
-  const btnOutline= { background:"transparent", color:C.white, border:"1.5px solid rgba(255,255,255,.45)", fontWeight:600, cursor:"pointer", borderRadius:5 };
-
-  // ─── NAVBAR ───────────────────────────────────────────────────────────────
+  // NAVBAR
   const Navbar = () => (
-    <nav style={{ background:C.dark, height:56, display:"flex", alignItems:"center", justifyContent:"space-between",
-      padding:"0 14px", position:"sticky", top:0, zIndex:200, boxShadow:"0 2px 10px rgba(0,0,0,.6)" }}>
-      {/* Logo */}
+    <nav style={{ background:C.dark, height:56, display:"flex", alignItems:"center", justifyContent:"space-between", padding:"0 14px", position:"sticky", top:0, zIndex:200, boxShadow:"0 2px 10px rgba(0,0,0,.6)" }}>
       <div onClick={navHome} style={{ display:"flex", alignItems:"center", gap:8, cursor:"pointer" }}>
         <span style={{ fontSize:22 }}>🪖</span>
         <div>
-          <div style={{ color:C.gold, fontSize:14, fontWeight:900, letterSpacing:1, lineHeight:1, fontFamily:"Georgia,serif" }}>NAVI ARMY</div>
-          <div style={{ color:"rgba(255,255,255,.5)", fontSize:9, letterSpacing:3, textTransform:"uppercase" }}>STORE</div>
+          <div style={{ color:C.gold, fontSize:14, fontWeight:900, letterSpacing:1, lineHeight:1, fontFamily:"Georgia,serif" }}>FORCE5</div>
+          <div style={{ color:"rgba(255,255,255,.5)", fontSize:9, letterSpacing:3, textTransform:"uppercase" }}>COLLECTION</div>
         </div>
       </div>
-      {/* Right */}
       <div style={{ display:"flex", gap:8, alignItems:"center" }}>
-        <button onClick={()=>setPage("admin")} style={{ background:"none", border:"1px solid "+C.tan, color:C.tan, fontSize:10, padding:"4px 8px", borderRadius:3, cursor:"pointer", letterSpacing:.5 }}>⚙ ADMIN</button>
+        <button onClick={()=>setPage("admin")} style={{ background:"none", border:"1px solid "+C.tan, color:C.tan, fontSize:10, padding:"4px 8px", borderRadius:3, cursor:"pointer" }}>⚙ ADMIN</button>
         <button onClick={()=>setCartOpen(true)} style={{ ...btnOlive, padding:"7px 13px", fontSize:13, display:"flex", alignItems:"center", gap:5 }}>
-          🛒
-          {cartCount>0 && <span style={{ background:C.red, color:"#fff", borderRadius:"50%", width:17, height:17, fontSize:10, fontWeight:800, display:"flex", alignItems:"center", justifyContent:"center" }}>{cartCount}</span>}
+          🛒{cartCount>0&&<span style={{ background:C.red, color:"#fff", borderRadius:"50%", width:17, height:17, fontSize:10, fontWeight:800, display:"flex", alignItems:"center", justifyContent:"center" }}>{cartCount}</span>}
         </button>
       </div>
     </nav>
   );
 
-  // ─── CART DRAWER ──────────────────────────────────────────────────────────
+  // CART DRAWER
   const CartDrawer = () => (
     <>
       <div style={{ position:"fixed",inset:0,background:"rgba(0,0,0,.55)",zIndex:300 }} onClick={()=>setCartOpen(false)} />
@@ -176,9 +228,9 @@ export default function NaviArmyStore() {
                   <div style={{ fontSize:10,color:"#888",marginTop:2 }}>Size: {item.size}</div>
                   <div style={{ fontSize:13,fontWeight:800,color:C.olive,marginTop:3 }}>₹{(item.price*item.qty).toLocaleString()}</div>
                   <div style={{ display:"flex", alignItems:"center", gap:7, marginTop:6 }}>
-                    <button onClick={()=>changeQty(item.id,item.size,-1)} style={{ width:24,height:24,border:"1.5px solid #ddd",borderRadius:4,background:"#f9f9f9",cursor:"pointer",fontSize:13,display:"flex",alignItems:"center",justifyContent:"center" }}>−</button>
+                    <button onClick={()=>changeQty(item.id,item.size,-1)} style={{ width:24,height:24,border:"1.5px solid #ddd",borderRadius:4,background:"#f9f9f9",cursor:"pointer",fontSize:13 }}>−</button>
                     <span style={{ fontSize:13,fontWeight:700,minWidth:18,textAlign:"center" }}>{item.qty}</span>
-                    <button onClick={()=>changeQty(item.id,item.size,1)}  style={{ width:24,height:24,border:"1.5px solid #ddd",borderRadius:4,background:"#f9f9f9",cursor:"pointer",fontSize:13,display:"flex",alignItems:"center",justifyContent:"center" }}>+</button>
+                    <button onClick={()=>changeQty(item.id,item.size,1)} style={{ width:24,height:24,border:"1.5px solid #ddd",borderRadius:4,background:"#f9f9f9",cursor:"pointer",fontSize:13 }}>+</button>
                     <button onClick={()=>removeItem(item.id,item.size)} style={{ background:"none",border:"none",color:C.red,fontSize:10,cursor:"pointer",textDecoration:"underline",marginLeft:"auto" }}>Remove</button>
                   </div>
                 </div>
@@ -186,93 +238,108 @@ export default function NaviArmyStore() {
             ))
           }
         </div>
-        {cart.length>0 && (
+        {cart.length>0&&(
           <div style={{ padding:"14px 16px", borderTop:"2px solid #f0eeea", background:"#fafaf8" }}>
-            <div style={{ display:"flex",justifyContent:"space-between",fontFamily:"Georgia,serif",fontSize:17,fontWeight:700,marginBottom:12 }}>
-              <span>Total</span><span>₹{cartTotal.toLocaleString()}</span>
-            </div>
-            <button style={{ ...btnOlive, width:"100%",padding:"12px",fontSize:14 }}
-              onClick={()=>{ setCartOpen(false); setPage("checkout"); scrollTop(); }}>
-              Proceed to Checkout →
-            </button>
+            <div style={{ fontSize:11, color:"#888", marginBottom:8 }}>Select Delivery Partner:</div>
+            {DELIVERY_OPTIONS.map(d=>(
+              <label key={d.id} style={{ display:"flex", alignItems:"center", gap:8, marginBottom:6, cursor:"pointer", fontSize:12 }}>
+                <input type="radio" name="delivery" checked={delivery===d.id} onChange={()=>setDelivery(d.id)} />
+                <span style={{ fontWeight:600 }}>{d.name}</span>
+                <span style={{ color:C.olive, fontWeight:700 }}>₹{d.fee}</span>
+                <span style={{ color:"#999" }}>({d.days})</span>
+              </label>
+            ))}
+            <div style={{ display:"flex", justifyContent:"space-between", fontSize:12, marginBottom:4, marginTop:8 }}><span>Subtotal</span><span>₹{cartSubtotal.toLocaleString()}</span></div>
+            <div style={{ display:"flex", justifyContent:"space-between", fontSize:12, marginBottom:8 }}><span>Delivery ({selectedDelivery.name})</span><span>₹{selectedDelivery.fee}</span></div>
+            <div style={{ display:"flex", justifyContent:"space-between", fontFamily:"Georgia,serif", fontSize:17, fontWeight:700, marginBottom:12 }}><span>Total</span><span>₹{cartTotal.toLocaleString()}</span></div>
+            <button style={{ ...btnOlive, width:"100%", padding:"12px", fontSize:14 }} onClick={()=>{ setCartOpen(false); setPage("checkout"); scrollTop(); }}>Proceed to Checkout →</button>
           </div>
         )}
       </div>
     </>
   );
 
-  // ─── HOME PAGE ────────────────────────────────────────────────────────────
+  // PRODUCT CARD
+  const ProdCard = ({ prod }) => (
+    <div style={{ background:"#fff",borderRadius:10,overflow:"hidden",cursor:"pointer",boxShadow:"0 1px 6px rgba(0,0,0,.09)",transition:"transform .2s" }}
+      onClick={()=>navProduct(prod)}
+      onMouseEnter={e=>e.currentTarget.style.transform="translateY(-3px)"}
+      onMouseLeave={e=>e.currentTarget.style.transform="none"}>
+      <div style={{ position:"relative" }}>
+        <img src={prod.images?.[0]||""} alt={prod.name} style={{ width:"100%",height:150,objectFit:"cover",background:C.mid,display:"block" }} />
+        {prod.badge&&<span style={{ position:"absolute",top:8,left:8,background:C.red,color:"#fff",fontSize:9,fontWeight:800,padding:"3px 7px",borderRadius:2,letterSpacing:.8,textTransform:"uppercase" }}>{prod.badge}</span>}
+      </div>
+      <div style={{ padding:"10px" }}>
+        <div style={{ fontSize:12,fontWeight:700,color:C.dark,lineHeight:1.3,marginBottom:4 }}>{prod.name}</div>
+        <Stars n={4}/>
+        <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:7 }}>
+          <div>
+            <span style={{ fontSize:14,fontWeight:800,color:C.olive,fontFamily:"Georgia,serif" }}>₹{prod.price.toLocaleString()}</span>
+            {prod.mrp>prod.price&&<div style={{ fontSize:10,color:"#bbb",textDecoration:"line-through" }}>₹{prod.mrp.toLocaleString()}</div>}
+          </div>
+          <button style={{ ...btnDark,padding:"6px 10px",fontSize:10 }} onClick={e=>{e.stopPropagation();addToCart(prod);}}>+Cart</button>
+        </div>
+      </div>
+    </div>
+  );
+
+  // HOME
   const HomePage = () => (
     <div>
-      {/* Announce */}
       <div style={{ background:C.olive, color:"#e8d98a", textAlign:"center", padding:"7px 12px", fontSize:11, letterSpacing:1, fontWeight:600 }}>
-        🚚 FREE Delivery on Orders above ₹2,999 &nbsp;|&nbsp; Bulk Orders Welcome &nbsp;|&nbsp; 📞 +91-98765-43210
+        🚚 FREE Delivery on Orders above ₹2,999 &nbsp;|&nbsp; 📞 9654496474 &nbsp;|&nbsp; 📍 Behlana, Chandigarh
       </div>
-
-      {/* ── HERO BANNER (your uploaded image) ── */}
       <div style={{ position:"relative", width:"100%", background:C.dark }}>
-        <img src={IMG_BANNER} alt="Trusted Uniforms for Real Heroes" className="hero-img" />
-        {/* Overlay Shop Now button */}
+        <img src={IMG_BANNER} alt="Force5 Collection" className="hero-img" />
         <div style={{ position:"absolute", bottom:16, left:"50%", transform:"translateX(-50%)" }}>
           <button style={{ ...btnGold, padding:"11px 32px", fontSize:14, letterSpacing:1, textTransform:"uppercase", boxShadow:"0 4px 16px rgba(0,0,0,.5)" }}
-            onClick={()=>{ document.getElementById("cats")?.scrollIntoView({behavior:"smooth"}); }}>
-            Shop Now ↓
-          </button>
+            onClick={()=>document.getElementById("cats")?.scrollIntoView({behavior:"smooth"})}>Shop Now ↓</button>
         </div>
       </div>
 
-      {/* ── CATEGORIES ── */}
+      {/* CATEGORIES */}
       <div className="page-wrap" style={{ padding:"22px 0 8px" }} id="cats">
         <div style={{ fontFamily:"Georgia,serif", fontSize:18, fontWeight:700, color:C.dark, marginBottom:4 }}>Shop by Category</div>
-        <div style={{ color:"#888", fontSize:12, marginBottom:16 }}>Choose from our 5 product categories</div>
+        <div style={{ color:"#888", fontSize:12, marginBottom:16 }}>Choose from our product categories</div>
         <div className="cat-grid">
-          {CATEGORIES.map((cat,i) => {
+          {CATEGORIES.map(cat => {
             const cnt = products.filter(p=>p.categoryId===cat.id).length;
-            const isLast = i===4;
             return (
-              <div key={cat.id}
-                style={{ gridColumn: isLast ? "1/-1" : "auto",
-                  borderRadius:12, overflow:"hidden", cursor:"pointer", boxShadow:"0 2px 8px rgba(0,0,0,.12)",
-                  position:"relative", height: isLast ? 140 : 160, background:C.dark }}
+              <div key={cat.id} style={{ borderRadius:12, overflow:"hidden", cursor:"pointer", boxShadow:"0 2px 8px rgba(0,0,0,.12)", position:"relative", height:160, background:C.dark }}
                 onClick={()=>navCategory(cat.id)}
                 onMouseEnter={e=>e.currentTarget.style.transform="scale(1.02)"}
-                onMouseLeave={e=>e.currentTarget.style.transform="none"}
-              >
+                onMouseLeave={e=>e.currentTarget.style.transform="none"}>
                 <img src={cat.img} alt={cat.name} style={{ width:"100%",height:"100%",objectFit:"cover",opacity:.55,display:"block" }} />
                 <div style={{ position:"absolute",inset:0,background:`linear-gradient(to top, ${cat.color}ee 0%, transparent 60%)` }} />
                 <div style={{ position:"absolute",bottom:0,left:0,right:0,padding:"10px 12px" }}>
-                  <div style={{ display:"flex",alignItems:"center",gap:6 }}>
-                    <span style={{ fontSize:18 }}>{cat.icon}</span>
-                    <div>
-                      <div style={{ color:"#fff",fontWeight:800,fontSize:13,letterSpacing:.5 }}>{cat.name}</div>
-                      <div style={{ color:"rgba(255,255,255,.6)",fontSize:10 }}>{cnt} products</div>
-                    </div>
-                  </div>
+                  <span style={{ fontSize:18 }}>{cat.icon}</span>
+                  <div style={{ color:"#fff",fontWeight:800,fontSize:13 }}>{cat.name}</div>
+                  <div style={{ color:"rgba(255,255,255,.6)",fontSize:10 }}>{cnt} products</div>
                 </div>
-                <div style={{ position:"absolute",top:10,right:10,background:C.gold,color:C.dark,fontSize:9,fontWeight:800,padding:"3px 8px",borderRadius:3,letterSpacing:1 }}>SHOP →</div>
+                <div style={{ position:"absolute",top:10,right:10,background:C.gold,color:C.dark,fontSize:9,fontWeight:800,padding:"3px 8px",borderRadius:3 }}>SHOP →</div>
               </div>
             );
           })}
         </div>
       </div>
 
-      {/* ── FEATURED PRODUCTS ── */}
-      <div style={{ background:"#fff", padding:"20px 0", marginTop:8 }}><div className="page-wrap">
-        <div style={{ fontFamily:"Georgia,serif", fontSize:18, fontWeight:700, color:C.dark, marginBottom:4 }}>Featured Products</div>
-        <div style={{ color:"#888", fontSize:12, marginBottom:16 }}>Our best-selling uniforms & gear</div>
-        <div className="prod-grid">
-          {products.filter((_,i)=>i<6).map(prod=><ProdCard key={prod.id} prod={prod}/>)}</div>
+      {/* FEATURED */}
+      <div style={{ background:"#fff", padding:"20px 0", marginTop:8 }}>
+        <div className="page-wrap">
+          <div style={{ fontFamily:"Georgia,serif", fontSize:18, fontWeight:700, color:C.dark, marginBottom:4 }}>Featured Products</div>
+          <div style={{ color:"#888", fontSize:12, marginBottom:16 }}>Our best-selling uniforms & gear</div>
+          <div className="prod-grid">{products.filter((_,i)=>i<8).map(p=><ProdCard key={p.id} prod={p}/>)}</div>
         </div>
       </div>
 
-      {/* ── WHY US ── */}
+      {/* CONTACT + WHATSAPP */}
       <div className="page-wrap" style={{ padding:"20px 0" }}>
-        <div style={{ fontFamily:"Georgia,serif", fontSize:18, fontWeight:700, color:C.dark, marginBottom:14 }}>Why Navi Army Store?</div>
+        <div style={{ fontFamily:"Georgia,serif", fontSize:18, fontWeight:700, color:C.dark, marginBottom:14 }}>Why Force5 Collection?</div>
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:10 }}>
           {[["🏅","Authentic Quality","All uniforms meet official military specs"],
-            ["🚚","Pan India Delivery","Fast & secure across all states in India"],
-            ["💰","Bulk Discounts","Special rates for regiments & battalions"],
-            ["🔄","Easy Returns","30-day returns, free size exchange"]].map(([icon,title,sub])=>(
+            ["🚚","Pan India Delivery","Fast & secure across all states"],
+            ["💬","WhatsApp Support","Chat with us at 9654496474"],
+            ["📍","Located in Chandigarh","Behlana, Chandigarh – visit or call"]].map(([icon,title,sub])=>(
             <div key={title} style={{ background:"#fff",borderRadius:8,padding:"14px 12px",boxShadow:"0 1px 4px rgba(0,0,0,.07)" }}>
               <div style={{ fontSize:22,marginBottom:6 }}>{icon}</div>
               <div style={{ fontWeight:700,fontSize:12,color:C.dark,marginBottom:3 }}>{title}</div>
@@ -282,85 +349,72 @@ export default function NaviArmyStore() {
         </div>
       </div>
 
-      {/* Footer */}
+      {/* WHATSAPP FLOATING */}
+      <a href="https://wa.me/919654496474" target="_blank" rel="noreferrer"
+        style={{ position:"fixed",bottom:80,right:16,background:"#25d366",color:"#fff",borderRadius:"50%",width:52,height:52,display:"flex",alignItems:"center",justifyContent:"center",fontSize:26,boxShadow:"0 4px 16px rgba(0,0,0,.3)",zIndex:150,textDecoration:"none" }}>
+        💬
+      </a>
+
+      {/* FOOTER */}
       <div style={{ background:C.dark, padding:"24px 16px", textAlign:"center" }}>
-        <div style={{ color:C.gold, fontFamily:"Georgia,serif", fontSize:16, marginBottom:8, fontWeight:700 }}>🪖 NAVI ARMY STORE</div>
-        <p style={{ color:"#666", fontSize:11, lineHeight:1.9 }}>India's trusted supplier of authentic military uniforms since 2008.<br/>📞 +91-98765-43210 &nbsp;|&nbsp; 📧 info@navimilitarystore.in<br/>📍 New Delhi, India</p>
-        <div style={{ display:"flex",justifyContent:"center",gap:16,marginTop:12 }}>
-          {["Combat Dress","Combat Shoes","Combat Belts","Combat Caps","Packages"].map(n=>(
-            <span key={n} style={{ color:"#555",fontSize:10,cursor:"pointer" }} onClick={()=>{ const c=CATEGORIES.find(x=>x.name.includes(n.split(" ")[1]||n)); if(c)navCategory(c.id); }}>{n}</span>
+        <div style={{ color:C.gold, fontFamily:"Georgia,serif", fontSize:16, marginBottom:8, fontWeight:700 }}>🪖 FORCE5 COLLECTION</div>
+        <p style={{ color:"#666", fontSize:11, lineHeight:1.9 }}>📞 9654496474 &nbsp;|&nbsp; 📍 Behlana, Chandigarh</p>
+        <div style={{ display:"flex", justifyContent:"center", flexWrap:"wrap", gap:14, marginTop:14 }}>
+          {[["Terms & Conditions","terms"],["Return Policy","returns"],["Privacy Policy","privacy"],["Shipping Info","shipping"]].map(([label,pg])=>(
+            <span key={pg} style={{ color:"#888",fontSize:11,cursor:"pointer",textDecoration:"underline" }} onClick={()=>navInfo(pg)}>{label}</span>
           ))}
         </div>
-        <p style={{ fontSize:10,marginTop:14,color:"#333" }}>© 2024 Navi Army Store — All Rights Reserved</p>
+        <p style={{ fontSize:10,marginTop:12,color:"#333" }}>© 2024 Force5Collection — All Rights Reserved</p>
       </div>
     </div>
   );
 
-  // ─── PRODUCT CARD ─────────────────────────────────────────────────────────
-  const ProdCard = ({ prod }) => (
-    <div style={{ background:"#fff",borderRadius:10,overflow:"hidden",cursor:"pointer",boxShadow:"0 1px 6px rgba(0,0,0,.09)",transition:"transform .2s" }}
-      onClick={()=>navProduct(prod)}
-      onMouseEnter={e=>e.currentTarget.style.transform="translateY(-3px)"}
-      onMouseLeave={e=>e.currentTarget.style.transform="none"}>
-      <div style={{ position:"relative" }}>
-        <img src={prod.image} alt={prod.name} style={{ width:"100%",height:150,objectFit:"cover",background:C.mid,display:"block" }} />
-        {prod.badge && <span style={{ position:"absolute",top:8,left:8,background:C.red,color:"#fff",fontSize:9,fontWeight:800,padding:"3px 7px",borderRadius:2,letterSpacing:.8,textTransform:"uppercase" }}>{prod.badge}</span>}
-      </div>
-      <div style={{ padding:"10px" }}>
-        <div style={{ fontSize:12,fontWeight:700,color:C.dark,lineHeight:1.3,marginBottom:4 }}>{prod.name}</div>
-        <Stars n={4} />
-        <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:7 }}>
-          <div>
-            <span style={{ fontSize:14,fontWeight:800,color:C.olive,fontFamily:"Georgia,serif" }}>₹{prod.price.toLocaleString()}</span>
-            {prod.mrp>prod.price && <div style={{ fontSize:10,color:"#bbb",textDecoration:"line-through" }}>₹{prod.mrp.toLocaleString()}</div>}
-          </div>
-          <button style={{ ...btnDark,padding:"6px 10px",fontSize:10 }} onClick={e=>{e.stopPropagation();addToCart(prod);}}>+Cart</button>
-        </div>
-      </div>
-    </div>
-  );
-
-  // ─── CATEGORY PAGE ────────────────────────────────────────────────────────
+  // CATEGORY PAGE
   const CategoryPage = () => (
     <div>
       <div style={{ background:catProds?.color||C.dark, padding:"0 14px 18px" }}>
-        <button style={{ background:"none",border:"none",color:"rgba(255,255,255,.7)",fontSize:12,fontWeight:700,cursor:"pointer",padding:"14px 0 8px",display:"flex",alignItems:"center",gap:5 }} onClick={navHome}>← Back</button>
+        <button style={{ background:"none",border:"none",color:"rgba(255,255,255,.7)",fontSize:12,fontWeight:700,cursor:"pointer",padding:"14px 0 8px" }} onClick={navHome}>← Back</button>
         <div style={{ fontSize:28 }}>{catProds?.icon}</div>
         <div style={{ fontFamily:"Georgia,serif",fontSize:20,fontWeight:700,color:C.gold,marginTop:4 }}>{catProds?.name}</div>
-        <div style={{ color:"rgba(255,255,255,.55)",fontSize:12,marginTop:3 }}>{catItems.length} products available</div>
+        <div style={{ color:"rgba(255,255,255,.55)",fontSize:12,marginTop:3 }}>{catItems.length} products</div>
       </div>
       <div style={{ padding:"16px 14px" }}>
         {catItems.length===0
-          ? <div style={{ textAlign:"center",padding:"48px 0",color:"#bbb" }}><div style={{ fontSize:36 }}>📦</div><p style={{ marginTop:10,fontWeight:600 }}>No products yet</p><p style={{ fontSize:12,marginTop:6 }}>Add from Admin panel</p></div>
-          : <div className="prod-grid">
-              {catItems.map(p=><ProdCard key={p.id} prod={p}/>)}
-            </div>
+          ? <div style={{ textAlign:"center",padding:"48px 0",color:"#bbb" }}><div style={{ fontSize:36 }}>📦</div><p style={{ marginTop:10,fontWeight:600 }}>No products yet</p></div>
+          : <div className="prod-grid">{catItems.map(p=><ProdCard key={p.id} prod={p}/>)}</div>
         }
       </div>
     </div>
   );
 
-  // ─── PRODUCT DETAIL ───────────────────────────────────────────────────────
+  // PRODUCT DETAIL
   const ProductPage = () => {
     const prod = activeProd;
     if(!prod) return null;
     const cat  = CATEGORIES.find(c=>c.id===prod.categoryId);
-    const save = prod.mrp>prod.price ? Math.round((prod.mrp-prod.price)/prod.mrp*100) : 0;
+    const sv   = prod.mrp>prod.price ? Math.round((prod.mrp-prod.price)/prod.mrp*100) : 0;
+    const imgs = prod.images||[prod.image||""];
     return (
       <div>
-        <button style={{ background:"none",border:"none",color:C.olive,fontSize:13,fontWeight:700,cursor:"pointer",padding:"12px 14px 4px",display:"flex",alignItems:"center",gap:5 }}
-          onClick={()=>{ if(activeCatId) setPage("category"); else navHome(); scrollTop(); }}>← {cat?.name}</button>
-        <img src={prod.image} alt={prod.name} style={{ width:"100%",height:270,objectFit:"cover",background:C.mid,display:"block" }} />
+        <button style={{ background:"none",border:"none",color:C.olive,fontSize:13,fontWeight:700,cursor:"pointer",padding:"12px 14px 4px" }}
+          onClick={()=>{ if(activeCatId) setPage("category"); else navHome(); scrollTop(); }}>← {cat?.name||"Back"}</button>
+        {/* Image gallery */}
+        <div style={{ position:"relative" }}>
+          <img src={imgs[selImgIdx]||""} alt={prod.name} style={{ width:"100%",height:270,objectFit:"cover",background:C.mid,display:"block" }} />
+          {imgs.length>1&&<div style={{ display:"flex",gap:6,padding:"8px 14px",overflowX:"auto" }}>
+            {imgs.map((img,i)=>(
+              <img key={i} src={img} alt="" onClick={()=>setSelImgIdx(i)}
+                style={{ width:52,height:52,objectFit:"cover",borderRadius:4,cursor:"pointer",border:i===selImgIdx?`2px solid ${C.olive}`:"2px solid transparent",flexShrink:0 }} />
+            ))}
+          </div>}
+        </div>
         <div style={{ padding:"16px 14px" }}>
-          {prod.badge && <span style={{ background:C.red,color:"#fff",fontSize:9,fontWeight:800,padding:"3px 8px",borderRadius:2,letterSpacing:1,textTransform:"uppercase",display:"inline-block",marginBottom:8 }}>{prod.badge}</span>}
+          {prod.badge&&<span style={{ background:C.red,color:"#fff",fontSize:9,fontWeight:800,padding:"3px 8px",borderRadius:2,letterSpacing:1,textTransform:"uppercase",display:"inline-block",marginBottom:8 }}>{prod.badge}</span>}
           <div style={{ color:C.olive,fontSize:11,fontWeight:700,letterSpacing:1,textTransform:"uppercase",marginBottom:6 }}>{cat?.icon} {cat?.name}</div>
           <h2 style={{ fontFamily:"Georgia,serif",fontSize:20,fontWeight:700,color:C.dark,lineHeight:1.3,marginBottom:10 }}>{prod.name}</h2>
           <div style={{ display:"flex",alignItems:"baseline",gap:8,marginBottom:14 }}>
             <span style={{ fontFamily:"Georgia,serif",fontSize:22,fontWeight:800,color:C.olive }}>₹{prod.price.toLocaleString()}</span>
-            {prod.mrp>prod.price && <>
-              <span style={{ fontSize:13,color:"#bbb",textDecoration:"line-through" }}>₹{prod.mrp.toLocaleString()}</span>
-              <span style={{ fontSize:12,color:C.red,fontWeight:700 }}>{save}% OFF</span>
-            </>}
+            {prod.mrp>prod.price&&<><span style={{ fontSize:13,color:"#bbb",textDecoration:"line-through" }}>₹{prod.mrp.toLocaleString()}</span><span style={{ fontSize:12,color:C.red,fontWeight:700 }}>{sv}% OFF</span></>}
           </div>
           <Stars n={4}/><span style={{ fontSize:11,color:"#888",marginLeft:6 }}>(124 reviews)</span>
           <p style={{ color:"#555",fontSize:13.5,lineHeight:1.7,margin:"14px 0 16px" }}>{prod.desc}</p>
@@ -371,10 +425,14 @@ export default function NaviArmyStore() {
                 onClick={()=>setSelSize(sz)}>{sz}</button>
             ))}
           </div>
-          <button style={{ ...btnDark,width:"100%",padding:"13px",fontSize:14,marginBottom:10,letterSpacing:.5 }} onClick={()=>addToCart(prod,selSize)}>🛒 Add to Cart</button>
+          <button style={{ ...btnDark,width:"100%",padding:"13px",fontSize:14,marginBottom:10 }} onClick={()=>addToCart(prod,selSize)}>🛒 Add to Cart</button>
           <button style={{ ...btnOlive,width:"100%",padding:"13px",fontSize:14 }} onClick={()=>{ addToCart(prod,selSize); setCartOpen(true); }}>⚡ Buy Now</button>
+          <a href="https://wa.me/919654496474" target="_blank" rel="noreferrer"
+            style={{ ...btnDark, width:"100%", padding:"13px", fontSize:14, marginTop:10, display:"flex", alignItems:"center", justifyContent:"center", gap:8, textDecoration:"none", background:"#25d366" }}>
+            💬 Chat on WhatsApp
+          </a>
           <div style={{ marginTop:18,borderTop:"1px solid #eee",paddingTop:14 }}>
-            {[["🚚","Free delivery above ₹2,999"],["🔄","30-day returns & size exchange"],["✅","100% authentic military-grade"],["📞","Call +91-98765-43210 for bulk"]].map(([ic,tx])=>(
+            {[["🚚","Free delivery above ₹2,999"],["✅","100% authentic military-grade"],["📞","Call/WhatsApp: 9654496474"],["📍","Behlana, Chandigarh"]].map(([ic,tx])=>(
               <div key={tx} style={{ display:"flex",gap:8,alignItems:"center",marginBottom:7 }}>
                 <span style={{ fontSize:14 }}>{ic}</span><span style={{ fontSize:12,color:"#555" }}>{tx}</span>
               </div>
@@ -385,13 +443,14 @@ export default function NaviArmyStore() {
     );
   };
 
-  // ─── CHECKOUT ─────────────────────────────────────────────────────────────
+  // CHECKOUT
   const CheckoutPage = () => (
     <div>
       <div style={{ background:C.dark,padding:"16px 14px 12px" }}>
-        <button style={{ background:"none",border:"none",color:"rgba(255,255,255,.6)",fontSize:12,fontWeight:700,cursor:"pointer",padding:"0 0 8px",display:"flex",alignItems:"center",gap:5 }} onClick={()=>{ setCartOpen(true); setPage("home"); }}>← Back</button>
+        <button style={{ background:"none",border:"none",color:"rgba(255,255,255,.6)",fontSize:12,fontWeight:700,cursor:"pointer",padding:"0 0 8px" }} onClick={()=>{ setCartOpen(true); setPage("home"); }}>← Back</button>
         <div style={{ color:C.gold,fontFamily:"Georgia,serif",fontSize:18,fontWeight:700 }}>Place Your Order</div>
       </div>
+      {/* Order Summary */}
       <div style={{ background:"#fff",margin:"12px 14px",borderRadius:8,padding:"14px",boxShadow:"0 1px 4px rgba(0,0,0,.07)" }}>
         <div style={{ fontWeight:700,fontSize:13,marginBottom:10,color:C.dark }}>Order Summary</div>
         {cart.map(it=>(
@@ -400,24 +459,38 @@ export default function NaviArmyStore() {
             <span style={{ fontWeight:700,color:C.olive,flexShrink:0 }}>₹{(it.price*it.qty).toLocaleString()}</span>
           </div>
         ))}
-        <div style={{ display:"flex",justifyContent:"space-between",marginTop:10,fontWeight:800,fontSize:15,color:C.dark }}>
+        {/* Delivery selection in checkout */}
+        <div style={{ marginTop:12 }}>
+          <div style={{ fontWeight:700,fontSize:12,marginBottom:8,color:C.dark }}>Delivery Partner</div>
+          {DELIVERY_OPTIONS.map(d=>(
+            <label key={d.id} style={{ display:"flex",alignItems:"center",gap:8,marginBottom:8,cursor:"pointer" }}>
+              <input type="radio" name="deliveryCO" checked={delivery===d.id} onChange={()=>setDelivery(d.id)} />
+              <span style={{ fontSize:13,fontWeight:600 }}>{d.name}</span>
+              <span style={{ fontSize:12,color:C.olive,fontWeight:700 }}>₹{d.fee}</span>
+              <span style={{ fontSize:11,color:"#888" }}>({d.days})</span>
+            </label>
+          ))}
+        </div>
+        <div style={{ display:"flex",justifyContent:"space-between",marginTop:8,fontSize:12,paddingTop:8,borderTop:"1px solid #eee" }}>
+          <span>Subtotal</span><span>₹{cartSubtotal.toLocaleString()}</span>
+        </div>
+        <div style={{ display:"flex",justifyContent:"space-between",fontSize:12,marginTop:4 }}>
+          <span>Delivery ({selectedDelivery.name})</span><span>₹{selectedDelivery.fee}</span>
+        </div>
+        <div style={{ display:"flex",justifyContent:"space-between",marginTop:10,fontWeight:800,fontSize:16,color:C.dark }}>
           <span>Total</span><span>₹{cartTotal.toLocaleString()}</span>
         </div>
       </div>
+      {/* Form */}
       <div style={{ background:"#fff",margin:"0 14px 12px",borderRadius:8,padding:"16px",boxShadow:"0 1px 4px rgba(0,0,0,.07)" }}>
         <div style={{ fontWeight:700,fontSize:14,marginBottom:14,color:C.dark }}>Delivery Details</div>
-        {[["name","Full Name *","text","Your full name"],["phone","Phone *","tel","+91 XXXXX XXXXX"],["email","Email","email","your@email.com"]].map(([fld,lbl,tp,ph])=>(
+        {[["name","Full Name *","text","Your full name"],["phone","Phone *","tel","9XXXXXXXXX"],["address","Delivery Address *","text","Full address with PIN"]].map(([fld,lbl,tp,ph])=>(
           <div key={fld} style={{ marginBottom:12 }}>
             <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>{lbl}</label>
             <input style={{ width:"100%",padding:"10px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:14,fontFamily:"inherit",boxSizing:"border-box" }}
               type={tp} placeholder={ph} value={orderForm[fld]} onChange={e=>setOrderForm(f=>({...f,[fld]:e.target.value}))} />
           </div>
         ))}
-        <div style={{ marginBottom:12 }}>
-          <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Delivery Address *</label>
-          <textarea style={{ width:"100%",padding:"10px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:14,fontFamily:"inherit",height:70,resize:"vertical",boxSizing:"border-box" }}
-            placeholder="Full address with PIN code" value={orderForm.address} onChange={e=>setOrderForm(f=>({...f,address:e.target.value}))} />
-        </div>
         <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:12 }}>
           {[["city","City"],["state","State"]].map(([fld,lbl])=>(
             <div key={fld}>
@@ -427,58 +500,94 @@ export default function NaviArmyStore() {
             </div>
           ))}
         </div>
+        {/* PAYMENT */}
         <div style={{ marginBottom:16 }}>
-          <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Payment Method</label>
-          <select style={{ width:"100%",padding:"10px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:14,fontFamily:"inherit" }}
-            value={orderForm.payment} onChange={e=>setOrderForm(f=>({...f,payment:e.target.value}))}>
-            <option value="cod">Cash on Delivery (COD)</option>
-            <option value="upi">UPI / PhonePe / GPay</option>
-            <option value="neft">NEFT / Bank Transfer</option>
-            <option value="card">Credit / Debit Card</option>
-          </select>
+          <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:8 }}>Payment Method</label>
+          {[["cod","Cash on Delivery (COD)"],["upi","UPI / PhonePe / GPay"],["neft","NEFT / Bank Transfer"],["card","Credit / Debit Card"]].map(([val,label])=>(
+            <label key={val} style={{ display:"flex",alignItems:"center",gap:8,marginBottom:8,cursor:"pointer",fontSize:13 }}>
+              <input type="radio" name="payment" value={val} checked={orderForm.payment===val} onChange={e=>setOrderForm(f=>({...f,payment:e.target.value}))} />
+              <span style={{ fontWeight:600 }}>{label}</span>
+            </label>
+          ))}
+          {(orderForm.payment==="upi")&&(
+            <div style={{ background:"#f0f8f0",border:"1.5px solid #7cb342",borderRadius:8,padding:"14px",marginTop:8,textAlign:"center" }}>
+              <div style={{ fontWeight:700,color:C.olive,fontSize:14,marginBottom:6 }}>UPI Payment Details</div>
+              <div style={{ fontSize:13,color:"#444",marginBottom:8 }}>UPI ID: <strong>9654496474@upi</strong></div>
+              <div style={{ fontWeight:700,fontSize:18,color:C.dark,marginBottom:6 }}>₹{cartTotal.toLocaleString()}</div>
+              <div style={{ fontSize:11,color:"#666" }}>Scan QR or pay to UPI: <strong>9654496474@upi</strong></div>
+              {/* QR representation */}
+              <div style={{ margin:"10px auto", width:120, height:120, background:"#fff", border:"2px solid #333", borderRadius:4, display:"flex", alignItems:"center", justifyContent:"center", fontSize:10, color:"#333", textAlign:"center", padding:8 }}>
+                QR Code<br/>9654496474<br/>@upi<br/>₹{cartTotal.toLocaleString()}
+              </div>
+              <div style={{ fontSize:11,color:"#888",marginTop:6 }}>After payment, share screenshot on WhatsApp: 9654496474</div>
+            </div>
+          )}
         </div>
         <button style={{ ...btnOlive,width:"100%",padding:"13px",fontSize:15 }} onClick={placeOrder}>🎖️ Confirm Order</button>
       </div>
     </div>
   );
 
-  // ─── SUCCESS ──────────────────────────────────────────────────────────────
+  // SUCCESS
   const SuccessPage = () => (
     <div style={{ textAlign:"center",padding:"48px 20px" }}>
       <div style={{ fontSize:60,marginBottom:16 }}>✅</div>
       <div style={{ fontFamily:"Georgia,serif",fontSize:22,fontWeight:700,color:C.dark,marginBottom:8 }}>Order Placed!</div>
-      <div style={{ color:"#666",fontSize:14,lineHeight:1.8,marginBottom:28 }}>
+      <div style={{ color:"#666",fontSize:14,lineHeight:1.8,marginBottom:20 }}>
         Order ID: <strong style={{ color:C.olive }}>{orderDone?.orderId}</strong><br/>
         Dear <strong>{orderDone?.name}</strong>, thank you!<br/>
-        Total: <strong>₹{orderDone?.total?.toLocaleString()}</strong><br/>
-        We'll call <strong>{orderDone?.phone}</strong> to confirm.
+        Subtotal: ₹{orderDone?.subtotal?.toLocaleString()} + Delivery ({orderDone?.deliveryName}): ₹{orderDone?.deliveryFee}<br/>
+        <strong>Total: ₹{orderDone?.total?.toLocaleString()}</strong><br/>
+        We'll confirm at <strong>{orderDone?.phone}</strong> shortly.
       </div>
-      <button style={{ ...btnOlive,padding:"13px 32px",fontSize:15 }} onClick={navHome}>Continue Shopping</button>
+      <a href={`https://wa.me/919654496474?text=Order+${orderDone?.orderId}+placed+for+₹${orderDone?.total}`} target="_blank" rel="noreferrer"
+        style={{ display:"inline-block",background:"#25d366",color:"#fff",padding:"12px 24px",borderRadius:6,fontWeight:700,fontSize:14,textDecoration:"none",marginBottom:12 }}>
+        💬 Confirm on WhatsApp
+      </a><br/>
+      <button style={{ ...btnOlive,padding:"12px 28px",fontSize:14,marginTop:8 }} onClick={navHome}>Continue Shopping</button>
     </div>
   );
 
-  // ─── ADMIN ────────────────────────────────────────────────────────────────
+  // INFO PAGES (T&C, Return Policy, Privacy, Shipping)
+  const InfoPage = () => {
+    const titles = { returns:"Return Policy", terms:"Terms & Conditions", privacy:"Privacy Policy", shipping:"Shipping & Payment Info" };
+    const content = PAGES_CONTENT[infoPage] || "";
+    return (
+      <div>
+        <div style={{ background:C.dark,padding:"16px 14px 12px" }}>
+          <button style={{ background:"none",border:"none",color:"rgba(255,255,255,.6)",fontSize:12,fontWeight:700,cursor:"pointer",padding:"0 0 8px" }} onClick={navHome}>← Back</button>
+          <div style={{ color:C.gold,fontFamily:"Georgia,serif",fontSize:18,fontWeight:700 }}>{titles[infoPage]}</div>
+        </div>
+        <div style={{ padding:"20px 16px",fontSize:13,lineHeight:1.9,color:"#333",whiteSpace:"pre-line" }}>{content}</div>
+      </div>
+    );
+  };
+
+  // ADMIN
   const AdminPage = () => {
-    const EMPTY = { name:"",categoryId:"",price:"",mrp:"",image:"",badge:"",desc:"",sizes:"M,L,XL",stock:50 };
-    const [lp, setLp] = useState(editP ? {...editP, sizes:Array.isArray(editP.sizes)?editP.sizes.join(","):editP.sizes} : EMPTY);
+    const EMPTY = { name:"",categoryId:"",price:"",mrp:"",images:[],badge:"",desc:"",sizes:"M,L,XL",stock:50 };
+    const [lp, setLp] = useState(editP ? {...editP, sizes:Array.isArray(editP.sizes)?editP.sizes.join(","):editP.sizes, images:editP.images||[] } : EMPTY);
     const [search, setSearch] = useState("");
-    const filtered = products.filter(p => p.name.toLowerCase().includes(search.toLowerCase()));
+    const filtered = products.filter(p=>p.name.toLowerCase().includes(search.toLowerCase()));
 
     const handleSave = () => {
       if(!lp.name||!lp.categoryId||!lp.price){ showToast("⚠️ Fill required fields"); return; }
+      // Parse image URLs
+      const parsedImages = adminImgUrls
+        ? adminImgUrls.split("\n").map(u=>u.trim()).filter(Boolean)
+        : (lp.images||[]);
       saveProduct({ ...lp, price:Number(lp.price), mrp:Number(lp.mrp)||Number(lp.price),
         sizes: typeof lp.sizes==="string" ? lp.sizes.split(",").map(s=>s.trim()).filter(Boolean) : lp.sizes,
-        stock: Number(lp.stock)||50 });
+        stock: Number(lp.stock)||50, images: parsedImages });
+      setAdminImgUrls("");
     };
 
     return (
       <div>
         <div style={{ background:C.dark,padding:"16px 14px 12px" }}>
           <button style={{ background:"none",border:"none",color:"rgba(255,255,255,.6)",fontSize:12,fontWeight:700,cursor:"pointer",padding:"0 0 8px" }} onClick={navHome}>← Back to Store</button>
-          <div style={{ color:C.gold,fontFamily:"Georgia,serif",fontSize:18,fontWeight:700 }}>⚙ Admin Dashboard</div>
+          <div style={{ color:C.gold,fontFamily:"Georgia,serif",fontSize:18,fontWeight:700 }}>⚙ Admin — Force5 Collection</div>
         </div>
-
-        {/* Stats */}
         <div style={{ display:"flex",gap:10,padding:"12px 14px",background:"#fff",borderBottom:"1px solid #eee" }}>
           {[["📦",products.length,"Products"],["🗂️",CATEGORIES.length,"Categories"]].map(([ic,n,lb])=>(
             <div key={lb} style={{ flex:1,background:"#f9f8f4",borderRadius:8,padding:"10px",textAlign:"center" }}>
@@ -488,18 +597,14 @@ export default function NaviArmyStore() {
             </div>
           ))}
         </div>
-
-        {/* Admin Tabs */}
         <div style={{ background:"#fff",borderBottom:"1px solid #eee",padding:"0 14px",display:"flex",gap:0,overflowX:"auto" }}>
           {[["products","📋 Products"],["add","➕ Add/Edit"],["cats","🗂️ Categories"]].map(([id,lbl])=>(
-            <button key={id} style={{ padding:"12px 14px",fontSize:11,fontWeight:700,letterSpacing:.5,border:"none",background:"none",cursor:"pointer",
-              color:adminTab===id?C.olive:"#888", borderBottom:adminTab===id?"2px solid "+C.olive:"2px solid transparent",whiteSpace:"nowrap" }}
-              onClick={()=>{ setAdminTab(id); if(id==="add"){ setLp(EMPTY); setEditP(null); } }}>{lbl}</button>
+            <button key={id} style={{ padding:"12px 14px",fontSize:11,fontWeight:700,letterSpacing:.5,border:"none",background:"none",cursor:"pointer",color:adminTab===id?C.olive:"#888",borderBottom:adminTab===id?"2px solid "+C.olive:"2px solid transparent",whiteSpace:"nowrap" }}
+              onClick={()=>{ setAdminTab(id); if(id==="add"){ setLp(EMPTY); setEditP(null); setAdminImgUrls(""); } }}>{lbl}</button>
           ))}
         </div>
 
-        {/* Products list */}
-        {adminTab==="products" && (
+        {adminTab==="products"&&(
           <div>
             <div style={{ padding:"12px 14px" }}>
               <input style={{ width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",boxSizing:"border-box" }}
@@ -510,13 +615,13 @@ export default function NaviArmyStore() {
               const cat=CATEGORIES.find(c=>c.id===prod.categoryId);
               return (
                 <div key={prod.id} style={{ display:"flex",alignItems:"center",gap:10,padding:"10px 14px",borderBottom:"1px solid #f0eeea" }}>
-                  <img src={prod.image} alt="" style={{ width:44,height:44,objectFit:"cover",borderRadius:5,background:C.mid,flexShrink:0 }} />
+                  <img src={prod.images?.[0]||""} alt="" style={{ width:44,height:44,objectFit:"cover",borderRadius:5,background:C.mid,flexShrink:0 }} />
                   <div style={{ flex:1,minWidth:0 }}>
                     <div style={{ fontSize:12,fontWeight:700,color:C.dark,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis" }}>{prod.name}</div>
-                    <div style={{ fontSize:10,color:"#888",marginTop:1 }}>{cat?.icon} {cat?.name} · ₹{prod.price.toLocaleString()}</div>
+                    <div style={{ fontSize:10,color:"#888",marginTop:1 }}>{cat?.icon} {cat?.name} · ₹{prod.price.toLocaleString()} · {(prod.images||[]).length} image(s)</div>
                   </div>
                   <button style={{ background:"#e8f5e9",color:"#2e7d32",border:"none",padding:"5px 9px",borderRadius:4,fontSize:10,fontWeight:700,cursor:"pointer",flexShrink:0 }}
-                    onClick={()=>{ setLp({...prod,sizes:Array.isArray(prod.sizes)?prod.sizes.join(","):prod.sizes}); setAdminTab("add"); }}>Edit</button>
+                    onClick={()=>{ const imgUrls=(prod.images||[]).join("\n"); setLp({...prod,sizes:Array.isArray(prod.sizes)?prod.sizes.join(","):prod.sizes,images:prod.images||[]}); setAdminImgUrls(imgUrls); setAdminTab("add"); }}>Edit</button>
                   <button style={{ background:"#ffebee",color:"#c62828",border:"none",padding:"5px 9px",borderRadius:4,fontSize:10,fontWeight:700,cursor:"pointer",flexShrink:0 }}
                     onClick={()=>delProduct(prod.id)}>Del</button>
                 </div>
@@ -525,18 +630,10 @@ export default function NaviArmyStore() {
           </div>
         )}
 
-        {/* Add / Edit Form */}
-        {adminTab==="add" && (
+        {adminTab==="add"&&(
           <div style={{ background:"#fff",margin:"12px 14px",borderRadius:10,padding:"16px",boxShadow:"0 1px 6px rgba(0,0,0,.08)" }}>
             <div style={{ fontWeight:700,fontSize:15,marginBottom:16,color:C.dark }}>{lp.id?"Edit Product":"Add New Product"}</div>
-            {[
-              ["name","Product Name *","text","e.g. Army Combat Uniform"],
-              ["price","Selling Price ₹ *","number","2499"],
-              ["mrp","MRP / Original Price ₹","number","3200"],
-              ["badge","Badge Label","text","Best Seller / New / Premium"],
-              ["image","Image URL","url","https://..."],
-              ["stock","Stock Qty","number","50"],
-            ].map(([fld,lbl,tp,ph])=>(
+            {[["name","Product Name *","text","e.g. Army Combat Uniform"],["price","Selling Price ₹ *","number","2499"],["mrp","MRP / Original Price ₹","number","3200"],["badge","Badge Label","text","Best Seller / New / Premium"],["stock","Stock Qty","number","50"]].map(([fld,lbl,tp,ph])=>(
               <div key={fld} style={{ marginBottom:12 }}>
                 <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>{lbl}</label>
                 <input style={{ width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",boxSizing:"border-box" }}
@@ -551,6 +648,17 @@ export default function NaviArmyStore() {
                 {CATEGORIES.map(c=><option key={c.id} value={c.id}>{c.icon} {c.name}</option>)}
               </select>
             </div>
+            {/* MULTI IMAGE UPLOAD */}
+            <div style={{ marginBottom:12 }}>
+              <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Product Images (one URL per line) *</label>
+              <textarea style={{ width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",height:80,resize:"vertical",boxSizing:"border-box" }}
+                placeholder={"https://example.com/img1.jpg\nhttps://example.com/img2.jpg"}
+                value={adminImgUrls} onChange={e=>setAdminImgUrls(e.target.value)} />
+              <div style={{ fontSize:10,color:"#888",marginTop:4 }}>Enter one image URL per line. First image will be the main/cover image.</div>
+              {adminImgUrls.split("\n").filter(u=>u.trim()).map((url,i)=>(
+                <img key={i} src={url.trim()} alt="" style={{ width:60,height:60,objectFit:"cover",borderRadius:5,marginTop:6,marginRight:6,border:"1px solid #ddd" }} onError={e=>e.target.style.display="none"} />
+              ))}
+            </div>
             <div style={{ marginBottom:12 }}>
               <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Sizes (comma separated)</label>
               <input style={{ width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",boxSizing:"border-box" }}
@@ -561,21 +669,18 @@ export default function NaviArmyStore() {
               <textarea style={{ width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",height:80,resize:"vertical",boxSizing:"border-box" }}
                 placeholder="Product description..." value={lp.desc||""} onChange={e=>setLp(f=>({...f,desc:e.target.value}))} />
             </div>
-            {lp.image && <img src={lp.image} alt="preview" style={{ width:"100%",height:140,objectFit:"cover",borderRadius:6,marginBottom:12 }} onError={e=>e.target.style.display="none"} />}
             <button style={{ ...btnOlive,width:"100%",padding:"12px",fontSize:14 }} onClick={handleSave}>💾 {lp.id?"Update Product":"Add Product"}</button>
           </div>
         )}
 
-        {/* Categories */}
-        {adminTab==="cats" && (
+        {adminTab==="cats"&&(
           <div style={{ padding:"14px" }}>
             <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:10 }}>
               {CATEGORIES.map(cat=>{
                 const cnt=products.filter(p=>p.categoryId===cat.id).length;
                 return (
                   <div key={cat.id} style={{ background:"#fff",borderRadius:8,padding:"12px",boxShadow:"0 1px 4px rgba(0,0,0,.07)",borderLeft:"4px solid "+cat.color,overflow:"hidden" }}>
-                    <img src={cat.img} alt="" style={{ width:"100%",height:80,objectFit:"cover",borderRadius:5,marginBottom:8 }} />
-                    <div style={{ fontSize:18 }}>{cat.icon}</div>
+                    <div style={{ fontSize:24 }}>{cat.icon}</div>
                     <div style={{ fontWeight:700,fontSize:12,color:C.dark,marginTop:5 }}>{cat.name}</div>
                     <div style={{ fontSize:10,color:"#888",marginTop:2 }}>{cnt} products</div>
                     <button style={{ marginTop:8,background:"#f0f4ec",color:C.olive,border:"none",padding:"4px 10px",borderRadius:4,fontSize:10,fontWeight:700,cursor:"pointer" }}
@@ -590,22 +695,28 @@ export default function NaviArmyStore() {
     );
   };
 
-  // ─── ROOT RENDER ──────────────────────────────────────────────────────────
   return (
     <div ref={wrapRef} style={{ fontFamily:"'Segoe UI',system-ui,sans-serif",background:"#f4f2ed",minHeight:"100vh",maxWidth:"100%",margin:"0 auto",position:"relative",overflowX:"hidden" }}>
-      <style>{`@keyframes fadeUp{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}*{box-sizing:border-box;margin:0;padding:0}::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:#c8b87a;border-radius:2px}.prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(min-width:600px){.prod-grid{grid-template-columns:repeat(3,1fr)}}@media(min-width:900px){.prod-grid{grid-template-columns:repeat(4,1fr)}}.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(min-width:600px){.cat-grid{grid-template-columns:repeat(3,1fr)}}@media(min-width:900px){.cat-grid{grid-template-columns:repeat(5,1fr)}}.page-wrap{max-width:1200px;margin:0 auto;padding:0 16px}.hero-img{width:100%;max-height:520px;object-fit:cover;object-position:top;display:block}`}</style>
+      <style>{`@keyframes fadeUp{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}*{box-sizing:border-box;margin:0;padding:0}::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:#c8b87a;border-radius:2px}.prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(min-width:600px){.prod-grid{grid-template-columns:repeat(3,1fr)}.cat-grid{grid-template-columns:repeat(3,1fr)}}@media(min-width:900px){.prod-grid{grid-template-columns:repeat(4,1fr)}.cat-grid{grid-template-columns:repeat(5,1fr)}}.page-wrap{max-width:1200px;margin:0 auto;padding:0 16px}.hero-img{width:100%;max-height:520px;object-fit:cover;object-position:top;display:block}`}</style>
 
-      {page!=="admin" && <Navbar/>}
-      {cartOpen && <CartDrawer/>}
-
-      {page==="home"     && <HomePage/>}
-      {page==="category" && <CategoryPage/>}
-      {page==="product"  && <ProductPage/>}
-      {page==="checkout" && <CheckoutPage/>}
-      {page==="success"  && <SuccessPage/>}
-      {page==="admin"    && <AdminPage/>}
-
+      {page!=="admin"&&<Navbar/>}
+      {cartOpen&&<CartDrawer/>}
+      {page==="home"&&<HomePage/>}
+      {page==="category"&&<CategoryPage/>}
+      {page==="product"&&<ProductPage/>}
+      {page==="checkout"&&<CheckoutPage/>}
+      {page==="success"&&<SuccessPage/>}
+      {page==="info"&&<InfoPage/>}
+      {page==="admin"&&<AdminPage/>}
       <Toast msg={toast} onClose={()=>setToast("")}/>
+
+      {/* WhatsApp floating - not on admin */}
+      {page!=="admin"&&(
+        <a href="https://wa.me/919654496474" target="_blank" rel="noreferrer"
+          style={{ position:"fixed",bottom:20,right:16,background:"#25d366",color:"#fff",borderRadius:"50%",width:52,height:52,display:"flex",alignItems:"center",justifyContent:"center",fontSize:26,boxShadow:"0 4px 16px rgba(0,0,0,.3)",zIndex:150,textDecoration:"none" }}>
+          💬
+        </a>
+      )}
     </div>
   );
 }
