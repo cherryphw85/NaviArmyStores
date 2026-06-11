@@ -10,595 +10,558 @@ const IMG_TACTICAL= "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA4K
 
 // ─── SEED DATA ────────────────────────────────────────────────────────────────
 const CATEGORIES = [
-  { id:"c1", name:"Combat Dress",     icon:"🪖", img:IMG_SOLDIER,  color:"#3a4f1a", desc:"Army & Paramilitary combat dress uniforms" },
-  { id:"c2", name:"Combat Shoes",     icon:"👢", img:IMG_BOOTS,    color:"#2c1a0e", desc:"Military combat boots & parade shoes" },
-  { id:"c3", name:"Combat Belts",     icon:"🔗", img:IMG_BELT,     color:"#5d2a0e", desc:"Sam Browne, tactical & PT belts" },
-  { id:"c4", name:"Combat Caps",      icon:"🧢", img:IMG_CAPS,     color:"#1a3a1a", desc:"Berets, caps & camouflage headgear" },
-  { id:"c5", name:"Combat Packages",  icon:"🎒", img:IMG_TACTICAL, color:"#1a2a3a", desc:"Full uniform packages & tactical bundles" },
+  { id:"c1", name:"Combat Dress",     icon:"🪖", img:IMG_SOLDIER,  color:"#3a4f1a" },
+  { id:"c2", name:"Combat Shoes",     icon:"👢", img:IMG_BOOTS,    color:"#2c1a0e" },
+  { id:"c3", name:"Combat Belts",     icon:"🔗", img:IMG_BELT,     color:"#5d2a0e" },
+  { id:"c4", name:"Combat Caps",      icon:"🧢", img:IMG_CAPS,     color:"#1a3a1a" },
+  { id:"c5", name:"Combat Packages",  icon:"🎒", img:IMG_TACTICAL, color:"#1a2a3a" },
+  { id:"c6", name:"Tactical Jackets", icon:"🧥", img:IMG_TACTICAL, color:"#2a3a1a" },
+  { id:"c7", name:"Tshirt & Lower",   icon:"👕", img:IMG_SOLDIER,  color:"#1a3a2a" },
+  { id:"c8", name:"Track Suits",      icon:"🏃", img:IMG_SOLDIER,  color:"#2a1a3a" },
+  { id:"c9", name:"Thermal Wear",     icon:"🧤", img:IMG_TACTICAL, color:"#3a2a1a" },
 ];
 
 const SEED_PRODUCTS = [
-  // Combat Dress
-  { id:"p1",  name:"Indian Army BDU Combat Uniform",    categoryId:"c1", price:2499, mrp:3200, badge:"Best Seller", image:IMG_SOLDIER, desc:"Official DPM camouflage BDU. 65/35 poly-cotton ripstop. Shirt + Trousers set. All sizes.", sizes:["S","M","L","XL","2XL","3XL"], stock:50, isNew:false },
-  { id:"p2",  name:"CRPF Khaki Uniform Set",            categoryId:"c1", price:1899, mrp:2400, badge:"",            image:IMG_SOLDIER, desc:"CRPF khaki full uniform set. ISI marked fabric. Reinforced stitching.", sizes:["S","M","L","XL","2XL"], stock:60, isNew:false },
-  { id:"p3",  name:"BSF Olive Green Combat Dress",      categoryId:"c1", price:2199, mrp:2800, badge:"New",         image:IMG_SOLDIER, desc:"Border Security Force OG combat dress. Field-duty specification.", sizes:["S","M","L","XL","2XL"], stock:40, isNew:true  },
-  { id:"p4",  name:"Air Force Blue-Grey Service Dress", categoryId:"c1", price:3499, mrp:4500, badge:"Premium",     image:IMG_SOLDIER, desc:"IAF blue-grey service dress. Tunic + trousers. Official spec.", sizes:["S","M","L","XL","Custom"], stock:30, isNew:false },
-  { id:"p5",  name:"Navy White Tropical Dress Uniform", categoryId:"c1", price:3999, mrp:5000, badge:"",            image:IMG_SOLDIER, desc:"Indian Navy white tropical dress. Premium cotton, with epaulettes.", sizes:["S","M","L","XL","Custom"], stock:25, isNew:false },
-  // Combat Shoes
-  { id:"p6",  name:"DMS Combat Boots (Direct Moulded)", categoryId:"c2", price:1899, mrp:2600, badge:"Best Seller", image:IMG_BOOTS,   desc:"Standard issue DMS boots. Genuine leather upper. Oil-resistant sole.", sizes:["6","7","8","9","10","11","12"], stock:80, isNew:false },
-  { id:"p7",  name:"Hi-Ankle Para Commando Boots",      categoryId:"c2", price:3299, mrp:4500, badge:"Premium",     image:IMG_BOOTS,   desc:"High ankle boots for Para SF. Speed lacing. Composite toe cap. Desert/jungle variants.", sizes:["7","8","9","10","11"], stock:40, isNew:false },
-  { id:"p8",  name:"Black Parade Shoes (High Gloss)",   categoryId:"c2", price:1299, mrp:1800, badge:"",            image:IMG_BOOTS,   desc:"Bull-nosed parade shoes. Mirror-polish compatible leather. Rubber sole.", sizes:["6","7","8","9","10","11","12"], stock:90, isNew:false },
-  { id:"p9",  name:"Jungle Combat Boots (Breathable)",  categoryId:"c2", price:2599, mrp:3400, badge:"New",         image:IMG_BOOTS,   desc:"Lightweight jungle boots. Mesh panels for breathability. Anti-slip sole.", sizes:["7","8","9","10","11"], stock:55, isNew:true  },
-  // Combat Belts
-  { id:"p10", name:"Sam Browne Officer Belt Set",       categoryId:"c3", price:1499, mrp:2000, badge:"",            image:IMG_BELT,    desc:"Full leather Sam Browne belt + shoulder strap. Brass fittings. Officers standard.", sizes:["26\"","28\"","30\"","32\"","34\"","36\""], stock:60, isNew:false },
-  { id:"p11", name:"MOLLE Tactical Battle Belt",        categoryId:"c3", price:1199, mrp:1600, badge:"Best Seller", image:IMG_BELT,    desc:"Nylon MOLLE webbing battle belt. Adjustable. Compatible with all pouches.", sizes:["S/M","L/XL"], stock:75, isNew:false },
-  { id:"p12", name:"OG PT Web Belt",                   categoryId:"c3", price:299,  mrp:450,  badge:"",            image:IMG_BELT,    desc:"Standard olive green PT/working belt. Brass buckle. Military spec.", sizes:["One Size"], stock:200, isNew:false },
-  { id:"p13", name:"Full 58-Pattern Webbing Set",       categoryId:"c3", price:2199, mrp:3000, badge:"",            image:IMG_BELT,    desc:"Complete 58-pat webbing: yoke, pouches, water bottle holder, entrenching tool.", sizes:["One Size"], stock:35, isNew:false },
-  // Combat Caps
-  { id:"p14", name:"Olive Green Army Beret",            categoryId:"c4", price:449,  mrp:650,  badge:"",            image:IMG_CAPS,    desc:"Pure wool OG beret. Metal badge-plate holder stitched. Sizes 54–60 cm.", sizes:["54cm","56cm","58cm","60cm"], stock:150, isNew:false },
-  { id:"p15", name:"DPM Camouflage Baseball Cap",       categoryId:"c4", price:399,  mrp:600,  badge:"New",         image:IMG_CAPS,    desc:"Disruptive Pattern Material field cap. 6-panel structured crown. Velcro adjuster.", sizes:["Free Size"], stock:120, isNew:true  },
-  { id:"p16", name:"Maroon Para SF Beret",              categoryId:"c4", price:599,  mrp:850,  badge:"Special",     image:IMG_CAPS,    desc:"Maroon beret as worn by Parachute Regiment. Merino wool. Dye-fast, shrink-resistant.", sizes:["54cm","56cm","58cm","60cm"], stock:70, isNew:false },
-  { id:"p17", name:"Steel Combat Helmet (Mk2)",         categoryId:"c4", price:2299, mrp:3200, badge:"Premium",     image:IMG_CAPS,    desc:"Steel Mk2 combat helmet. Standard issue pattern. Removable liner. Adjustable chin strap.", sizes:["S","M","L"], stock:30, isNew:false },
-  // Combat Packages
-  { id:"p18", name:"Infantry Combat Full Package",      categoryId:"c5", price:5999, mrp:8500, badge:"Best Value",  image:IMG_TACTICAL, desc:"Complete infantry package: BDU uniform + DMS boots + OG beret + web belt + tactical bag.", sizes:["S","M","L","XL"], stock:30, isNew:false },
-  { id:"p19", name:"Officer Ceremonial Package",        categoryId:"c5", price:9999, mrp:14000,badge:"Premium",     image:IMG_TACTICAL, desc:"Full officer set: service dress + Sam Browne belt + parade shoes + peaked cap.", sizes:["Custom"], stock:15, isNew:false },
-  { id:"p20", name:"Para SF Commando Package",          categoryId:"c5", price:7499, mrp:10500,badge:"Special",     image:IMG_TACTICAL, desc:"Para commando bundle: OG combat dress + hi-ankle boots + maroon beret + MOLLE belt + 60L rucksack.", sizes:["M","L","XL"], stock:20, isNew:true  },
-  { id:"p21", name:"Paramilitary Duty Package",         categoryId:"c5", price:4499, mrp:6200, badge:"New",         image:IMG_TACTICAL, desc:"CRPF/BSF complete duty set: khaki/OG uniform + DMS boots + web belt + field cap.", sizes:["S","M","L","XL","2XL"], stock:40, isNew:true  },
+  { id:"p1",  name:"Indian Army BDU Combat Uniform",  categoryId:"c1", price:2499, mrp:3200, badge:"Best Seller", images:[IMG_SOLDIER],  desc:"Official DPM camouflage BDU. 65/35 poly-cotton ripstop. Shirt + Trousers set.", sizes:["S","M","L","XL","2XL","3XL"], stock:50 },
+  { id:"p2",  name:"CRPF Khaki Uniform Set",          categoryId:"c1", price:1899, mrp:2400, badge:"",            images:[IMG_SOLDIER],  desc:"CRPF khaki full uniform set. ISI marked fabric. Reinforced stitching.",         sizes:["S","M","L","XL","2XL"],      stock:60 },
+  { id:"p3",  name:"BSF Olive Green Combat Dress",    categoryId:"c1", price:2199, mrp:2800, badge:"New",         images:[IMG_SOLDIER],  desc:"Border Security Force OG combat dress. Field-duty specification.",              sizes:["S","M","L","XL","2XL"],      stock:40 },
+  { id:"p6",  name:"DMS Combat Boots",                categoryId:"c2", price:1899, mrp:2600, badge:"Best Seller", images:[IMG_BOOTS],    desc:"Standard issue DMS boots. Genuine leather upper. Oil-resistant sole.",         sizes:["6","7","8","9","10","11","12"],stock:80 },
+  { id:"p7",  name:"Hi-Ankle Para Commando Boots",    categoryId:"c2", price:3299, mrp:4500, badge:"Premium",     images:[IMG_BOOTS],    desc:"High ankle boots for Para SF. Speed lacing. Composite toe cap.",               sizes:["7","8","9","10","11"],        stock:40 },
+  { id:"p10", name:"Sam Browne Officer Belt Set",     categoryId:"c3", price:1499, mrp:2000, badge:"",            images:[IMG_BELT],     desc:"Full leather Sam Browne belt + shoulder strap. Brass fittings.",              sizes:["26\"","28\"","30\"","32\"","34\""], stock:60 },
+  { id:"p11", name:"MOLLE Tactical Battle Belt",      categoryId:"c3", price:1199, mrp:1600, badge:"Best Seller", images:[IMG_BELT],     desc:"Nylon MOLLE webbing battle belt. Adjustable. Compatible with all pouches.",   sizes:["S/M","L/XL"],                stock:75 },
+  { id:"p14", name:"Olive Green Army Beret",          categoryId:"c4", price:449,  mrp:650,  badge:"",            images:[IMG_CAPS],     desc:"Pure wool OG beret. Metal badge-plate holder stitched. Sizes 54–60 cm.",     sizes:["54cm","56cm","58cm","60cm"], stock:150 },
+  { id:"p15", name:"DPM Camouflage Baseball Cap",     categoryId:"c4", price:399,  mrp:600,  badge:"New",         images:[IMG_CAPS],     desc:"Disruptive Pattern Material field cap. 6-panel structured crown.",            sizes:["Free Size"],                 stock:120 },
+  { id:"p18", name:"Infantry Combat Full Package",    categoryId:"c5", price:5999, mrp:8500, badge:"Best Value",  images:[IMG_TACTICAL], desc:"Complete infantry package: BDU + DMS boots + OG beret + web belt.",          sizes:["S","M","L","XL"],            stock:30 },
+  { id:"p19", name:"Officer Ceremonial Package",      categoryId:"c5", price:9999, mrp:14000,badge:"Premium",     images:[IMG_TACTICAL], desc:"Full officer set: service dress + Sam Browne belt + parade shoes + cap.",     sizes:["Custom"],                    stock:15 },
+  { id:"p22", name:"Military Tactical Jacket",        categoryId:"c6", price:2999, mrp:4000, badge:"New",         images:[IMG_TACTICAL], desc:"Heavy duty windproof tactical jacket. Multi-pocket. OG/Camo available.",     sizes:["S","M","L","XL","2XL"],      stock:45 },
+  { id:"p23", name:"Army PT T-Shirt & Lower Set",     categoryId:"c7", price:799,  mrp:1100, badge:"",            images:[IMG_SOLDIER],  desc:"Standard PT half-sleeve t-shirt + lower set. Cotton blend. OG colour.",     sizes:["S","M","L","XL","2XL"],      stock:100 },
+  { id:"p24", name:"Military Track Suit",             categoryId:"c8", price:1499, mrp:2000, badge:"",            images:[IMG_SOLDIER],  desc:"Full track suit – jacket + trousers. Fleece lined. Ideal for PT.",           sizes:["S","M","L","XL","2XL"],      stock:80 },
+  { id:"p25", name:"Army Thermal Inner Wear Set",     categoryId:"c9", price:899,  mrp:1300, badge:"Best Seller", images:[IMG_TACTICAL], desc:"Full-sleeve thermal top + lower. High-altitude rated. Anti-moisture.",       sizes:["S","M","L","XL","2XL"],      stock:120 },
 ];
 
-// ─── STORAGE HELPERS ──────────────────────────────────────────────────────────
-const load = (k, fb) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : fb; } catch { return fb; } };
-const save = (k, v)  => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
+const DELIVERY_OPTIONS = [
+  { id:"dtdc",  name:"DTDC Courier", fee:150, days:"3-7 business days" },
+  { id:"ipost", name:"Indian Post",  fee:100, days:"5-15 business days" },
+];
 
-// ─── TOAST ─────────────────────────────────────────────────────────────────────
+const PAGES_CONTENT = {
+  returns:`Return Policy\n\nIf you are not happy with your purchase, we will accept a return of an unused product within 14 days from the date of delivery. Some items are non returnable as explained in product description.\n\nOnce we receive the returned item, refund process will start (excluding shipping cost) and razorpay gateway charges 3% after post verification of the product. Refund may take 07-14 additional business days to reflect in your account.\n\nFor returning or exchanging an item you have to send items back at your own cost.\n\nNOTE: 3 percent of total Order Billing amount will be deducted if you raise for Refund or cancellation of order. Coupon Code amount is not refundable.\n\nWRONG PRODUCT DELIVERED: In Case Of delivery of wrong product maximum liability of company is to refund you full amount with shipping charges. After receiving items back, company will refund all amount within 7-10 days.\n\nFor Damaged Product: For Exchange of any damaged products you have to provide video of unboxing of item. If exchange is approved, we will dispatch product within 2-3 days.`,
+  terms:`Terms & Conditions\n\nBy accessing and placing an order with Force5Collection, you confirm that you are in agreement with and bound by these Terms & Conditions.\n\nForce5Collection will not be responsible for any outcome that may occur during the course of usage of our resources. We reserve the right to change prices and revise the resources usage policy at any moment without prior notice.\n\nORDER CANCELLATIONS: If you cancel your order before shipping, 2.5 percent of order amount will be deducted and rest amount will be refunded within 7-10 working days.\n\nIn case of NOT ABLE TO SEND ITEMS, the Maximum Liability of the Company shall be limited up to return of Product/Items charges only.`,
+  privacy:`Privacy Policy\n\nWe take security and privacy with the utmost regard. By visiting this Website you agree to be bound by the terms and conditions of this Privacy Policy.\n\nWe collect information to enable us to provide a safe, personalized, and optimized experience. We only collect information that we consider necessary.\n\nWe use "cookies" for data collection to analyze effectiveness of the website features. We collect information on buying behaviour on purchases being made on the website.\n\nWe may share personal information with our corporate entities to help detect and prevent identity theft, fraud, and other potentially illegal acts. We may disclose personal information if required to do so by law.\n\nFor questions about security at our website, please contact us on 9654496474.`,
+  shipping:`Shipping & Payment Info\n\nWe endeavour to dispatch all products ordered within 96 hrs if all items are available.\n\nDELIVERY CHARGES: Our Delivery charges include Booking Charges, Packing Charges, Pickup Charges. Delivery Charges are non-refundable.\n\nDELIVERY TIME: We endeavour to deliver orders within 4 to 15 Business days depending upon distance of your location (excludes public holidays).\n\nDELIVERY AREAS: We deliver PAN India. For further information please call us on 9654496474, 10 AM to 5 PM, Monday to Saturday.\n\nPAYMENT MODE: You can pay via UPI / PhonePe / GPay. Pay to UPI: ashokpahwa114@okaxis`
+};
+
+const load = (k,fb)=>{ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):fb; }catch{ return fb; } };
+const save = (k,v) =>{ try{ localStorage.setItem(k,JSON.stringify(v)); }catch{} };
+
 function Toast({ msg, onClose }) {
-  useEffect(() => { const t = setTimeout(onClose, 2600); return () => clearTimeout(t); }, [msg]);
-  if (!msg) return null;
-  return (
-    <div style={{ position:"fixed", bottom:24, left:"50%", transform:"translateX(-50%)",
-      background:"#1a1f0e", color:"#fff", padding:"11px 22px", borderRadius:6,
-      fontSize:13, fontWeight:700, zIndex:9999, borderLeft:"4px solid #f0c040",
-      boxShadow:"0 4px 20px rgba(0,0,0,.5)", whiteSpace:"nowrap",
-      animation:"fadeUp .3s ease" }}>{msg}</div>
-  );
+  useEffect(()=>{ const t=setTimeout(onClose,2600); return ()=>clearTimeout(t); },[msg]);
+  if(!msg) return null;
+  return <div style={{ position:"fixed",bottom:24,left:"50%",transform:"translateX(-50%)",background:"#1a1f0e",color:"#fff",padding:"11px 22px",borderRadius:6,fontSize:13,fontWeight:700,zIndex:9999,borderLeft:"4px solid #f0c040",boxShadow:"0 4px 20px rgba(0,0,0,.5)",whiteSpace:"nowrap" }}>{msg}</div>;
 }
+const Stars=({n=4})=><span style={{color:"#f9a825",fontSize:11}}>{"★".repeat(n)}{"☆".repeat(5-n)}</span>;
 
-// ─── STAR RATING ──────────────────────────────────────────────────────────────
-const Stars = ({ n=4 }) => <span style={{ color:"#f9a825", fontSize:11 }}>{"★".repeat(n)}{"☆".repeat(5-n)}</span>;
-
-// ═══════════════════════════════════════════════════════════════════════════════
-export default function NaviArmyStore() {
-  const [products, setProducts] = useState(() => load("nas_products", SEED_PRODUCTS));
-  const [cart, setCart]         = useState(() => load("nas_cart", []));
-  const [page, setPage]         = useState("home");
-  const [activeCatId, setActiveCatId] = useState(null);
-  const [activeProd,  setActiveProd]  = useState(null);
-  const [selSize,     setSelSize]     = useState("");
-  const [toast,       setToast]       = useState("");
-  const [cartOpen,    setCartOpen]    = useState(false);
-  const [adminTab,    setAdminTab]    = useState("products");
-  const [editP,       setEditP]       = useState(null);
-  const [orderForm,   setOrderForm]   = useState({ name:"", phone:"", address:"", city:"", state:"", pin:"", payment:"upi" });
-  const [orderDone,   setOrderDone]   = useState(null);
+export default function Force5Store() {
+  const [products,  setProducts]  = useState(()=>load("f5_products", SEED_PRODUCTS));
+  const [cart,      setCart]      = useState(()=>load("f5_cart",[]));
+  const [page,      setPage]      = useState("home");
+  const [activeCatId,setActiveCatId]=useState(null);
+  const [activeProd, setActiveProd]=useState(null);
+  const [selSize,    setSelSize]  = useState("");
+  const [selImgIdx,  setSelImgIdx]=useState(0);
+  const [toast,      setToast]    = useState("");
+  const [cartOpen,   setCartOpen] = useState(false);
+  const [adminTab,   setAdminTab] = useState("products");
+  const [editP,      setEditP]    = useState(null);
+  const [delivery,   setDelivery] = useState("dtdc");
+  const [payment,    setPayment]  = useState("upi");
+  const [orderDone,  setOrderDone]= useState(null);
+  const [infoPage,   setInfoPage] = useState(null);
+  const [adminImgUrls,setAdminImgUrls]=useState("");
   const wrapRef = useRef();
 
-  useEffect(() => { save("nas_products", products); }, [products]);
-  useEffect(() => { save("nas_cart", cart); }, [cart]);
+  useEffect(()=>{ save("f5_products",products); },[products]);
+  useEffect(()=>{ save("f5_cart",cart); },[cart]);
 
   const showToast = msg => setToast(msg);
-  const scrollTop = () => wrapRef.current?.scrollTo({ top:0, behavior:"smooth" });
+  const scrollTop = () => wrapRef.current?.scrollTo({top:0,behavior:"smooth"});
 
-  const cartCount = cart.reduce((s,i) => s+i.qty, 0);
-  const cartTotal = cart.reduce((s,i) => s+i.price*i.qty, 0);
+  const selDel     = DELIVERY_OPTIONS.find(d=>d.id===delivery)||DELIVERY_OPTIONS[0];
+  const cartSub    = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const cartTotal  = cartSub + (cart.length>0 ? selDel.fee : 0);
+  const cartCount  = cart.reduce((s,i)=>s+i.qty,0);
 
-  const addToCart = (prod, size) => {
-    const sz = size || prod.sizes?.[0] || "";
-    setCart(c => {
-      const ex = c.find(x => x.id===prod.id && x.size===sz);
-      if (ex) return c.map(x => x.id===prod.id&&x.size===sz ? {...x,qty:x.qty+1} : x);
-      return [...c, { id:prod.id, name:prod.name, price:prod.price, image:prod.image, size:sz, qty:1 }];
-    });
+  const addToCart=(prod,size)=>{
+    const sz=size||prod.sizes?.[0]||""; const img=prod.images?.[0]||"";
+    setCart(c=>{ const ex=c.find(x=>x.id===prod.id&&x.size===sz); if(ex) return c.map(x=>x.id===prod.id&&x.size===sz?{...x,qty:x.qty+1}:x); return [...c,{id:prod.id,name:prod.name,price:prod.price,image:img,size:sz,qty:1}]; });
     showToast("✅ Added to cart!");
   };
-  const removeItem  = (id,sz) => setCart(c => c.filter(x => !(x.id===id&&x.size===sz)));
-  const changeQty   = (id,sz,d) => setCart(c => c.map(x => x.id===id&&x.size===sz ? {...x,qty:Math.max(1,x.qty+d)} : x));
+  const removeItem=(id,sz)=>setCart(c=>c.filter(x=>!(x.id===id&&x.size===sz)));
+  const changeQty=(id,sz,d)=>setCart(c=>c.map(x=>x.id===id&&x.size===sz?{...x,qty:Math.max(1,x.qty+d)}:x));
+  const navCategory=catId=>{setActiveCatId(catId);setPage("category");scrollTop();};
+  const navProduct=prod=>{setActiveProd(prod);setSelSize(prod.sizes?.[0]||"");setSelImgIdx(0);setPage("product");scrollTop();};
+  const navHome=()=>{setPage("home");scrollTop();};
+  const navInfo=pg=>{setInfoPage(pg);setPage("info");scrollTop();};
 
-  const navCategory = catId => { setActiveCatId(catId); setPage("category"); scrollTop(); };
-  const navProduct  = prod  => { setActiveProd(prod); setSelSize(prod.sizes?.[0]||""); setPage("product"); scrollTop(); };
-  const navHome     = ()    => { setPage("home"); scrollTop(); };
+  const catProds=CATEGORIES.find(c=>c.id===activeCatId);
+  const catItems=products.filter(p=>p.categoryId===activeCatId);
 
-  const catProds    = CATEGORIES.find(c=>c.id===activeCatId);
-  const catItems    = products.filter(p=>p.categoryId===activeCatId);
-
-  // Admin ops
-  const saveProduct = prod => {
-    if (prod.id) { setProducts(ps => ps.map(p => p.id===prod.id ? prod : p)); showToast("✅ Updated!"); }
-    else { setProducts(ps => [...ps, {...prod, id:"p"+Date.now(), isNew:true}]); showToast("✅ Product added!"); }
-    setEditP(null); setAdminTab("products");
+  const saveProduct=prod=>{
+    const imgList=adminImgUrls?adminImgUrls.split("\n").map(u=>u.trim()).filter(Boolean):(prod.images||[]);
+    const p2={...prod,price:Number(prod.price),mrp:Number(prod.mrp)||Number(prod.price),sizes:typeof prod.sizes==="string"?prod.sizes.split(",").map(s=>s.trim()).filter(Boolean):prod.sizes,stock:Number(prod.stock)||50,images:imgList};
+    if(prod.id&&products.find(p=>p.id===prod.id)){setProducts(ps=>ps.map(p=>p.id===prod.id?p2:p));showToast("✅ Updated!");}
+    else{setProducts(ps=>[...ps,{...p2,id:"p"+Date.now()}]);showToast("✅ Added!");}
+    setEditP(null);setAdminTab("products");setAdminImgUrls("");
   };
-  const delProduct  = id => { setProducts(ps => ps.filter(p=>p.id!==id)); showToast("🗑️ Deleted"); };
+  const delProduct=id=>{setProducts(ps=>ps.filter(p=>p.id!==id));showToast("🗑️ Deleted");};
 
-  const placeOrder = () => {
-    if (!orderForm.name||!orderForm.phone||!orderForm.address) { showToast("⚠️ Fill required fields"); return; }
-    const oid = "NAS"+Date.now().toString().slice(-6);
-    setOrderDone({ orderId:oid, items:[...cart], total:cartTotal, ...orderForm });
-    setCart([]); setPage("success"); scrollTop();
-  };
+  const C={dark:"#0f1309",olive:"#3a4f1a",gold:"#f0c040",tan:"#c8b87a",cream:"#f5f0e8",mid:"#e8e3d5",red:"#b22222",white:"#fff"};
+  const btnGold ={background:C.gold,color:C.dark,border:"none",fontWeight:800,cursor:"pointer",borderRadius:5};
+  const btnDark ={background:C.dark,color:C.white,border:"none",fontWeight:700,cursor:"pointer",borderRadius:5};
+  const btnOlive={background:C.olive,color:C.white,border:"none",fontWeight:700,cursor:"pointer",borderRadius:5};
 
-  // ─── PALETTE & SHARED STYLES ──────────────────────────────────────────────
-  const C = { dark:"#0f1309", olive:"#3a4f1a", gold:"#f0c040", tan:"#c8b87a", cream:"#f5f0e8", mid:"#e8e3d5", red:"#b22222", white:"#fff" };
-
-  const btnGold   = { background:C.gold, color:C.dark, border:"none", fontWeight:800, cursor:"pointer", borderRadius:5 };
-  const btnDark   = { background:C.dark, color:C.white, border:"none", fontWeight:700, cursor:"pointer", borderRadius:5 };
-  const btnOlive  = { background:C.olive, color:C.white, border:"none", fontWeight:700, cursor:"pointer", borderRadius:5 };
-  const btnOutline= { background:"transparent", color:C.white, border:"1.5px solid rgba(255,255,255,.45)", fontWeight:600, cursor:"pointer", borderRadius:5 };
-
-  // ─── NAVBAR ───────────────────────────────────────────────────────────────
-  const Navbar = () => (
-    <nav style={{ background:C.dark, height:56, display:"flex", alignItems:"center", justifyContent:"space-between",
-      padding:"0 14px", position:"sticky", top:0, zIndex:200, boxShadow:"0 2px 10px rgba(0,0,0,.6)" }}>
-      {/* Logo */}
-      <div onClick={navHome} style={{ display:"flex", alignItems:"center", gap:8, cursor:"pointer" }}>
-        <span style={{ fontSize:22 }}>🪖</span>
-        <div>
-          <div style={{ color:C.gold, fontSize:14, fontWeight:900, letterSpacing:1, lineHeight:1, fontFamily:"Georgia,serif" }}>NAVI ARMY</div>
-          <div style={{ color:"rgba(255,255,255,.5)", fontSize:9, letterSpacing:3, textTransform:"uppercase" }}>STORE</div>
-        </div>
+  const Navbar=()=>(
+    <nav style={{background:C.dark,height:56,display:"flex",alignItems:"center",justifyContent:"space-between",padding:"0 14px",position:"sticky",top:0,zIndex:200,boxShadow:"0 2px 10px rgba(0,0,0,.6)"}}>
+      <div onClick={navHome} style={{display:"flex",alignItems:"center",gap:8,cursor:"pointer"}}>
+        <span style={{fontSize:22}}>🪖</span>
+        <div><div style={{color:C.gold,fontSize:14,fontWeight:900,letterSpacing:1,lineHeight:1,fontFamily:"Georgia,serif"}}>FORCE5</div><div style={{color:"rgba(255,255,255,.5)",fontSize:9,letterSpacing:3,textTransform:"uppercase"}}>COLLECTION</div></div>
       </div>
-      {/* Right */}
-      <div style={{ display:"flex", gap:8, alignItems:"center" }}>
-        <button onClick={()=>setPage("admin")} style={{ background:"none", border:"1px solid "+C.tan, color:C.tan, fontSize:10, padding:"4px 8px", borderRadius:3, cursor:"pointer", letterSpacing:.5 }}>⚙ ADMIN</button>
-        <button onClick={()=>setCartOpen(true)} style={{ ...btnOlive, padding:"7px 13px", fontSize:13, display:"flex", alignItems:"center", gap:5 }}>
-          🛒
-          {cartCount>0 && <span style={{ background:C.red, color:"#fff", borderRadius:"50%", width:17, height:17, fontSize:10, fontWeight:800, display:"flex", alignItems:"center", justifyContent:"center" }}>{cartCount}</span>}
+      <div style={{display:"flex",gap:8,alignItems:"center"}}>
+        <button onClick={()=>setPage("admin")} style={{background:"none",border:"1px solid "+C.tan,color:C.tan,fontSize:10,padding:"4px 8px",borderRadius:3,cursor:"pointer"}}>⚙ ADMIN</button>
+        <button onClick={()=>setCartOpen(true)} style={{...btnOlive,padding:"7px 13px",fontSize:13,display:"flex",alignItems:"center",gap:5}}>
+          🛒{cartCount>0&&<span style={{background:C.red,color:"#fff",borderRadius:"50%",width:17,height:17,fontSize:10,fontWeight:800,display:"flex",alignItems:"center",justifyContent:"center"}}>{cartCount}</span>}
         </button>
       </div>
     </nav>
   );
 
-  // ─── CART DRAWER ──────────────────────────────────────────────────────────
-  const CartDrawer = () => (
+  const CartDrawer=()=>(
     <>
-      <div style={{ position:"fixed",inset:0,background:"rgba(0,0,0,.55)",zIndex:300 }} onClick={()=>setCartOpen(false)} />
-      <div style={{ position:"fixed",right:0,top:0,height:"100%",width:"min(100%,390px)",background:"#fff",zIndex:301,display:"flex",flexDirection:"column",boxShadow:"-4px 0 28px rgba(0,0,0,.25)" }}>
-        <div style={{ background:C.dark, padding:"16px 18px", display:"flex", justifyContent:"space-between", alignItems:"center" }}>
-          <span style={{ color:C.gold, fontFamily:"Georgia,serif", fontSize:17, fontWeight:700 }}>🛒 Your Cart</span>
-          <button style={{ background:"none",border:"none",color:"#fff",fontSize:20,cursor:"pointer" }} onClick={()=>setCartOpen(false)}>✕</button>
+      <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,.55)",zIndex:300}} onClick={()=>setCartOpen(false)}/>
+      <div style={{position:"fixed",right:0,top:0,height:"100%",width:"min(100%,390px)",background:"#fff",zIndex:301,display:"flex",flexDirection:"column",boxShadow:"-4px 0 28px rgba(0,0,0,.25)"}}>
+        <div style={{background:C.dark,padding:"16px 18px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <span style={{color:C.gold,fontFamily:"Georgia,serif",fontSize:17,fontWeight:700}}>🛒 Your Cart</span>
+          <button style={{background:"none",border:"none",color:"#fff",fontSize:20,cursor:"pointer"}} onClick={()=>setCartOpen(false)}>✕</button>
         </div>
-        <div style={{ flex:1, overflowY:"auto", padding:"10px 14px" }}>
+        <div style={{flex:1,overflowY:"auto",padding:"10px 14px"}}>
           {cart.length===0
-            ? <div style={{ textAlign:"center", padding:"50px 0", color:"#bbb" }}><div style={{ fontSize:40 }}>🛒</div><p style={{ marginTop:10, fontWeight:600 }}>Cart is empty</p></div>
-            : cart.map(item => (
-              <div key={item.id+item.size} style={{ display:"flex", gap:10, padding:"12px 0", borderBottom:"1px solid #f0eeea" }}>
-                <img src={item.image} alt="" style={{ width:60,height:60,objectFit:"cover",borderRadius:6,background:C.mid,flexShrink:0 }} />
-                <div style={{ flex:1 }}>
-                  <div style={{ fontSize:12,fontWeight:700,color:C.dark,lineHeight:1.3 }}>{item.name}</div>
-                  <div style={{ fontSize:10,color:"#888",marginTop:2 }}>Size: {item.size}</div>
-                  <div style={{ fontSize:13,fontWeight:800,color:C.olive,marginTop:3 }}>₹{(item.price*item.qty).toLocaleString()}</div>
-                  <div style={{ display:"flex", alignItems:"center", gap:7, marginTop:6 }}>
-                    <button onClick={()=>changeQty(item.id,item.size,-1)} style={{ width:24,height:24,border:"1.5px solid #ddd",borderRadius:4,background:"#f9f9f9",cursor:"pointer",fontSize:13,display:"flex",alignItems:"center",justifyContent:"center" }}>−</button>
-                    <span style={{ fontSize:13,fontWeight:700,minWidth:18,textAlign:"center" }}>{item.qty}</span>
-                    <button onClick={()=>changeQty(item.id,item.size,1)}  style={{ width:24,height:24,border:"1.5px solid #ddd",borderRadius:4,background:"#f9f9f9",cursor:"pointer",fontSize:13,display:"flex",alignItems:"center",justifyContent:"center" }}>+</button>
-                    <button onClick={()=>removeItem(item.id,item.size)} style={{ background:"none",border:"none",color:C.red,fontSize:10,cursor:"pointer",textDecoration:"underline",marginLeft:"auto" }}>Remove</button>
+            ?<div style={{textAlign:"center",padding:"50px 0",color:"#bbb"}}><div style={{fontSize:40}}>🛒</div><p style={{marginTop:10,fontWeight:600}}>Cart is empty</p></div>
+            :cart.map(item=>(
+              <div key={item.id+item.size} style={{display:"flex",gap:10,padding:"12px 0",borderBottom:"1px solid #f0eeea"}}>
+                <img src={item.image} alt="" style={{width:60,height:60,objectFit:"cover",borderRadius:6,background:C.mid,flexShrink:0}}/>
+                <div style={{flex:1}}>
+                  <div style={{fontSize:12,fontWeight:700,color:C.dark,lineHeight:1.3}}>{item.name}</div>
+                  <div style={{fontSize:10,color:"#888",marginTop:2}}>Size: {item.size}</div>
+                  <div style={{fontSize:13,fontWeight:800,color:C.olive,marginTop:3}}>₹{(item.price*item.qty).toLocaleString()}</div>
+                  <div style={{display:"flex",alignItems:"center",gap:7,marginTop:6}}>
+                    <button onClick={()=>changeQty(item.id,item.size,-1)} style={{width:24,height:24,border:"1.5px solid #ddd",borderRadius:4,background:"#f9f9f9",cursor:"pointer",fontSize:13}}>−</button>
+                    <span style={{fontSize:13,fontWeight:700,minWidth:18,textAlign:"center"}}>{item.qty}</span>
+                    <button onClick={()=>changeQty(item.id,item.size,1)} style={{width:24,height:24,border:"1.5px solid #ddd",borderRadius:4,background:"#f9f9f9",cursor:"pointer",fontSize:13}}>+</button>
+                    <button onClick={()=>removeItem(item.id,item.size)} style={{background:"none",border:"none",color:C.red,fontSize:10,cursor:"pointer",textDecoration:"underline",marginLeft:"auto"}}>Remove</button>
                   </div>
                 </div>
               </div>
             ))
           }
         </div>
-        {cart.length>0 && (
-          <div style={{ padding:"14px 16px", borderTop:"2px solid #f0eeea", background:"#fafaf8" }}>
-            <div style={{ display:"flex",justifyContent:"space-between",fontFamily:"Georgia,serif",fontSize:17,fontWeight:700,marginBottom:12 }}>
-              <span>Total</span><span>₹{cartTotal.toLocaleString()}</span>
-            </div>
-            <button style={{ ...btnOlive, width:"100%",padding:"12px",fontSize:14 }}
-              onClick={()=>{ setCartOpen(false); setPage("checkout"); scrollTop(); }}>
-              Proceed to Checkout →
-            </button>
+        {cart.length>0&&(
+          <div style={{padding:"14px 16px",borderTop:"2px solid #f0eeea",background:"#fafaf8"}}>
+            <div style={{fontSize:11,color:"#888",marginBottom:8}}>Select Delivery Partner:</div>
+            {DELIVERY_OPTIONS.map(d=>(
+              <label key={d.id} style={{display:"flex",alignItems:"center",gap:8,marginBottom:6,cursor:"pointer",fontSize:12}}>
+                <input type="radio" name="delivery" checked={delivery===d.id} onChange={()=>setDelivery(d.id)}/>
+                <span style={{fontWeight:600}}>{d.name}</span><span style={{color:C.olive,fontWeight:700}}>₹{d.fee}</span><span style={{color:"#999"}}>({d.days})</span>
+              </label>
+            ))}
+            <div style={{display:"flex",justifyContent:"space-between",fontSize:12,marginBottom:4,marginTop:8}}><span>Subtotal</span><span>₹{cartSub.toLocaleString()}</span></div>
+            <div style={{display:"flex",justifyContent:"space-between",fontSize:12,marginBottom:8}}><span>Delivery ({selDel.name})</span><span>₹{selDel.fee}</span></div>
+            <div style={{display:"flex",justifyContent:"space-between",fontFamily:"Georgia,serif",fontSize:17,fontWeight:700,marginBottom:12}}><span>Total</span><span>₹{cartTotal.toLocaleString()}</span></div>
+            <button style={{...btnOlive,width:"100%",padding:"12px",fontSize:14}} onClick={()=>{setCartOpen(false);setPage("checkout");scrollTop();}}>Proceed to Checkout →</button>
           </div>
         )}
       </div>
     </>
   );
 
-  // ─── HOME PAGE ────────────────────────────────────────────────────────────
-  const HomePage = () => (
-    <div>
-      {/* Announce */}
-      <div style={{ background:C.olive, color:"#e8d98a", textAlign:"center", padding:"7px 12px", fontSize:11, letterSpacing:1, fontWeight:600 }}>
-        🚚 FREE Delivery on Orders above ₹4,999 &nbsp;|&nbsp; 📞 9654496474 &nbsp;|&nbsp; 📍 Shop No 244, First Floor, Behlana, Chandigarh
+  const ProdCard=({prod})=>(
+    <div style={{background:"#fff",borderRadius:10,overflow:"hidden",cursor:"pointer",boxShadow:"0 1px 6px rgba(0,0,0,.09)",transition:"transform .2s"}}
+      onClick={()=>navProduct(prod)}
+      onMouseEnter={e=>e.currentTarget.style.transform="translateY(-3px)"}
+      onMouseLeave={e=>e.currentTarget.style.transform="none"}>
+      <div style={{position:"relative"}}>
+        <img src={prod.images?.[0]||""} alt={prod.name} style={{width:"100%",height:150,objectFit:"cover",background:C.mid,display:"block"}}/>
+        {prod.badge&&<span style={{position:"absolute",top:8,left:8,background:C.red,color:"#fff",fontSize:9,fontWeight:800,padding:"3px 7px",borderRadius:2,letterSpacing:.8,textTransform:"uppercase"}}>{prod.badge}</span>}
       </div>
-
-      {/* ── HERO BANNER (your uploaded image) ── */}
-      <div style={{ position:"relative", width:"100%", background:C.dark }}>
-        <img src={IMG_BANNER} alt="Trusted Uniforms for Real Heroes" className="hero-img" />
-        {/* Overlay Shop Now button */}
-        <div style={{ position:"absolute", bottom:16, left:"50%", transform:"translateX(-50%)" }}>
-          <button style={{ ...btnGold, padding:"11px 32px", fontSize:14, letterSpacing:1, textTransform:"uppercase", boxShadow:"0 4px 16px rgba(0,0,0,.5)" }}
-            onClick={()=>{ document.getElementById("cats")?.scrollIntoView({behavior:"smooth"}); }}>
-            Shop Now ↓
-          </button>
+      <div style={{padding:"10px"}}>
+        <div style={{fontSize:12,fontWeight:700,color:C.dark,lineHeight:1.3,marginBottom:4}}>{prod.name}</div>
+        <Stars n={4}/>
+        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:7}}>
+          <div>
+            <span style={{fontSize:14,fontWeight:800,color:C.olive,fontFamily:"Georgia,serif"}}>₹{prod.price.toLocaleString()}</span>
+            {prod.mrp>prod.price&&<div style={{fontSize:10,color:"#bbb",textDecoration:"line-through"}}>₹{prod.mrp.toLocaleString()}</div>}
+          </div>
+          <button style={{...btnDark,padding:"6px 10px",fontSize:10}} onClick={e=>{e.stopPropagation();addToCart(prod);}}>+Cart</button>
         </div>
       </div>
+    </div>
+  );
 
-      {/* ── CATEGORIES ── */}
-      <div className="page-wrap" style={{ padding:"22px 0 8px" }} id="cats">
-        <div style={{ fontFamily:"Georgia,serif", fontSize:18, fontWeight:700, color:C.dark, marginBottom:4 }}>Shop by Category</div>
-        <div style={{ color:"#888", fontSize:12, marginBottom:16 }}>Choose from our 5 product categories</div>
+  const HomePage=()=>(
+    <div>
+      <div style={{background:C.olive,color:"#e8d98a",textAlign:"center",padding:"7px 12px",fontSize:11,letterSpacing:1,fontWeight:600}}>
+        🚚 FREE Delivery on Orders above ₹4,999 &nbsp;|&nbsp; 📞 9654496474 &nbsp;|&nbsp; 📍 Shop No 244, First Floor, Behlana, Chandigarh
+      </div>
+      <div style={{position:"relative",width:"100%",background:C.dark}}>
+        <img src={IMG_BANNER} alt="Force5 Collection" className="hero-img"/>
+        <div style={{position:"absolute",bottom:16,left:"50%",transform:"translateX(-50%)"}}>
+          <button style={{...btnGold,padding:"11px 32px",fontSize:14,letterSpacing:1,textTransform:"uppercase",boxShadow:"0 4px 16px rgba(0,0,0,.5)"}}
+            onClick={()=>document.getElementById("cats")?.scrollIntoView({behavior:"smooth"})}>Shop Now ↓</button>
+        </div>
+      </div>
+      <div className="page-wrap" style={{padding:"22px 0 8px"}} id="cats">
+        <div style={{fontFamily:"Georgia,serif",fontSize:18,fontWeight:700,color:C.dark,marginBottom:4}}>Shop by Category</div>
+        <div style={{color:"#888",fontSize:12,marginBottom:16}}>Choose from our {CATEGORIES.length} product categories</div>
         <div className="cat-grid">
-          {CATEGORIES.map((cat,i) => {
-            const cnt = products.filter(p=>p.categoryId===cat.id).length;
-            const isLast = i===4;
-            return (
-              <div key={cat.id}
-                style={{ gridColumn: isLast ? "1/-1" : "auto",
-                  borderRadius:12, overflow:"hidden", cursor:"pointer", boxShadow:"0 2px 8px rgba(0,0,0,.12)",
-                  position:"relative", height: isLast ? 140 : 160, background:C.dark }}
+          {CATEGORIES.map(cat=>{
+            const cnt=products.filter(p=>p.categoryId===cat.id).length;
+            return(
+              <div key={cat.id} style={{borderRadius:12,overflow:"hidden",cursor:"pointer",boxShadow:"0 2px 8px rgba(0,0,0,.12)",position:"relative",height:160,background:C.dark,transition:"transform .2s"}}
                 onClick={()=>navCategory(cat.id)}
                 onMouseEnter={e=>e.currentTarget.style.transform="scale(1.02)"}
-                onMouseLeave={e=>e.currentTarget.style.transform="none"}
-              >
-                <img src={cat.img} alt={cat.name} style={{ width:"100%",height:"100%",objectFit:"cover",opacity:.55,display:"block" }} />
-                <div style={{ position:"absolute",inset:0,background:`linear-gradient(to top, ${cat.color}ee 0%, transparent 60%)` }} />
-                <div style={{ position:"absolute",bottom:0,left:0,right:0,padding:"10px 12px" }}>
-                  <div style={{ display:"flex",alignItems:"center",gap:6 }}>
-                    <span style={{ fontSize:18 }}>{cat.icon}</span>
-                    <div>
-                      <div style={{ color:"#fff",fontWeight:800,fontSize:13,letterSpacing:.5 }}>{cat.name}</div>
-                      <div style={{ color:"rgba(255,255,255,.6)",fontSize:10 }}>{cnt} products</div>
-                    </div>
-                  </div>
+                onMouseLeave={e=>e.currentTarget.style.transform="none"}>
+                <img src={cat.img} alt={cat.name} style={{width:"100%",height:"100%",objectFit:"cover",opacity:.55,display:"block"}}/>
+                <div style={{position:"absolute",inset:0,background:`linear-gradient(to top, ${cat.color}ee 0%, transparent 60%)`}}/>
+                <div style={{position:"absolute",bottom:0,left:0,right:0,padding:"10px 12px"}}>
+                  <span style={{fontSize:18}}>{cat.icon}</span>
+                  <div style={{color:"#fff",fontWeight:800,fontSize:13}}>{cat.name}</div>
+                  <div style={{color:"rgba(255,255,255,.6)",fontSize:10}}>{cnt} products</div>
                 </div>
-                <div style={{ position:"absolute",top:10,right:10,background:C.gold,color:C.dark,fontSize:9,fontWeight:800,padding:"3px 8px",borderRadius:3,letterSpacing:1 }}>SHOP →</div>
+                <div style={{position:"absolute",top:10,right:10,background:C.gold,color:C.dark,fontSize:9,fontWeight:800,padding:"3px 8px",borderRadius:3}}>SHOP →</div>
               </div>
             );
           })}
         </div>
       </div>
-
-      {/* ── FEATURED PRODUCTS ── */}
-      <div style={{ background:"#fff", padding:"20px 0", marginTop:8 }}><div className="page-wrap">
-        <div style={{ fontFamily:"Georgia,serif", fontSize:18, fontWeight:700, color:C.dark, marginBottom:4 }}>Featured Products</div>
-        <div style={{ color:"#888", fontSize:12, marginBottom:16 }}>Our best-selling uniforms & gear</div>
-        <div className="prod-grid">
-          {products.filter((_,i)=>i<6).map(prod=><ProdCard key={prod.id} prod={prod}/>)}</div>
+      <div style={{background:"#fff",padding:"20px 0",marginTop:8}}>
+        <div className="page-wrap">
+          <div style={{fontFamily:"Georgia,serif",fontSize:18,fontWeight:700,color:C.dark,marginBottom:4}}>Featured Products</div>
+          <div style={{color:"#888",fontSize:12,marginBottom:16}}>Our best-selling uniforms & gear</div>
+          <div className="prod-grid">{products.filter((_,i)=>i<8).map(p=><ProdCard key={p.id} prod={p}/>)}</div>
         </div>
       </div>
-
-      {/* ── WHY US ── */}
-      <div className="page-wrap" style={{ padding:"20px 0" }}>
-        <div style={{ fontFamily:"Georgia,serif", fontSize:18, fontWeight:700, color:C.dark, marginBottom:14 }}>Why Navi Army Store?</div>
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:10 }}>
+      <div className="page-wrap" style={{padding:"20px 0"}}>
+        <div style={{fontFamily:"Georgia,serif",fontSize:18,fontWeight:700,color:C.dark,marginBottom:14}}>Why Force5 Collection?</div>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
           {[["🏅","Authentic Quality","All uniforms meet official military specs"],
-            ["🚚","Pan India Delivery","Fast & secure across all states in India"],
-            ["💰","Bulk Discounts","Special rates for regiments & battalions"],
-            ["🔄","Easy Returns","30-day returns, free size exchange"]].map(([icon,title,sub])=>(
-            <div key={title} style={{ background:"#fff",borderRadius:8,padding:"14px 12px",boxShadow:"0 1px 4px rgba(0,0,0,.07)" }}>
-              <div style={{ fontSize:22,marginBottom:6 }}>{icon}</div>
-              <div style={{ fontWeight:700,fontSize:12,color:C.dark,marginBottom:3 }}>{title}</div>
-              <div style={{ color:"#888",fontSize:11,lineHeight:1.5 }}>{sub}</div>
+            ["🚚","Pan India Delivery","Fast & secure delivery across all states"],
+            ["💬","WhatsApp Support","Chat with us at 9654496474"],
+            ["📍","Located in Chandigarh","Shop No 244, First Floor, Behlana"]].map(([icon,title,sub])=>(
+            <div key={title} style={{background:"#fff",borderRadius:8,padding:"14px 12px",boxShadow:"0 1px 4px rgba(0,0,0,.07)"}}>
+              <div style={{fontSize:22,marginBottom:6}}>{icon}</div>
+              <div style={{fontWeight:700,fontSize:12,color:C.dark,marginBottom:3}}>{title}</div>
+              <div style={{color:"#888",fontSize:11,lineHeight:1.5}}>{sub}</div>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Footer */}
-      <div style={{ background:C.dark, padding:"24px 16px", textAlign:"center" }}>
-        <div style={{ color:C.gold, fontFamily:"Georgia,serif", fontSize:16, marginBottom:8, fontWeight:700 }}>🪖 NAVI ARMY STORE</div>
-        <p style={{ color:"#666", fontSize:11, lineHeight:1.9 }}>India's trusted supplier of authentic military uniforms since 2008.<br/>📞 +91-98765-43210 &nbsp;|&nbsp; 📧 info@navimilitarystore.in<br/>📍 New Delhi, India</p>
-        <div style={{ display:"flex",justifyContent:"center",gap:16,marginTop:12 }}>
-          {["Combat Dress","Combat Shoes","Combat Belts","Combat Caps","Packages"].map(n=>(
-            <span key={n} style={{ color:"#555",fontSize:10,cursor:"pointer" }} onClick={()=>{ const c=CATEGORIES.find(x=>x.name.includes(n.split(" ")[1]||n)); if(c)navCategory(c.id); }}>{n}</span>
+      <div style={{background:C.dark,padding:"24px 16px",textAlign:"center"}}>
+        <div style={{color:C.gold,fontFamily:"Georgia,serif",fontSize:16,marginBottom:8,fontWeight:700}}>🪖 FORCE5 COLLECTION</div>
+        <p style={{color:"#666",fontSize:11,lineHeight:1.9}}>📞 9654496474 &nbsp;|&nbsp; 📍 Shop No 244, First Floor, Behlana, Chandigarh</p>
+        <div style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:14,marginTop:14}}>
+          {[["Terms & Conditions","terms"],["Return Policy","returns"],["Privacy Policy","privacy"],["Shipping Info","shipping"]].map(([label,pg])=>(
+            <span key={pg} style={{color:"#888",fontSize:11,cursor:"pointer",textDecoration:"underline"}} onClick={()=>navInfo(pg)}>{label}</span>
           ))}
         </div>
-        <p style={{ fontSize:10,marginTop:14,color:"#333" }}>© 2024 Navi Army Store — All Rights Reserved</p>
+        <p style={{fontSize:10,marginTop:12,color:"#333"}}>© 2025 Force5Collection — All Rights Reserved</p>
       </div>
     </div>
   );
 
-  // ─── PRODUCT CARD ─────────────────────────────────────────────────────────
-  const ProdCard = ({ prod }) => (
-    <div style={{ background:"#fff",borderRadius:10,overflow:"hidden",cursor:"pointer",boxShadow:"0 1px 6px rgba(0,0,0,.09)",transition:"transform .2s" }}
-      onClick={()=>navProduct(prod)}
-      onMouseEnter={e=>e.currentTarget.style.transform="translateY(-3px)"}
-      onMouseLeave={e=>e.currentTarget.style.transform="none"}>
-      <div style={{ position:"relative" }}>
-        <img src={prod.image} alt={prod.name} style={{ width:"100%",height:150,objectFit:"cover",background:C.mid,display:"block" }} />
-        {prod.badge && <span style={{ position:"absolute",top:8,left:8,background:C.red,color:"#fff",fontSize:9,fontWeight:800,padding:"3px 7px",borderRadius:2,letterSpacing:.8,textTransform:"uppercase" }}>{prod.badge}</span>}
-      </div>
-      <div style={{ padding:"10px" }}>
-        <div style={{ fontSize:12,fontWeight:700,color:C.dark,lineHeight:1.3,marginBottom:4 }}>{prod.name}</div>
-        <Stars n={4} />
-        <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:7 }}>
-          <div>
-            <span style={{ fontSize:14,fontWeight:800,color:C.olive,fontFamily:"Georgia,serif" }}>₹{prod.price.toLocaleString()}</span>
-            {prod.mrp>prod.price && <div style={{ fontSize:10,color:"#bbb",textDecoration:"line-through" }}>₹{prod.mrp.toLocaleString()}</div>}
-          </div>
-          <button style={{ ...btnDark,padding:"6px 10px",fontSize:10 }} onClick={e=>{e.stopPropagation();addToCart(prod);}}>+Cart</button>
-        </div>
-      </div>
-    </div>
-  );
-
-  // ─── CATEGORY PAGE ────────────────────────────────────────────────────────
-  const CategoryPage = () => (
+  const CategoryPage=()=>(
     <div>
-      <div style={{ background:catProds?.color||C.dark, padding:"0 14px 18px" }}>
-        <button style={{ background:"none",border:"none",color:"rgba(255,255,255,.7)",fontSize:12,fontWeight:700,cursor:"pointer",padding:"14px 0 8px",display:"flex",alignItems:"center",gap:5 }} onClick={navHome}>← Back</button>
-        <div style={{ fontSize:28 }}>{catProds?.icon}</div>
-        <div style={{ fontFamily:"Georgia,serif",fontSize:20,fontWeight:700,color:C.gold,marginTop:4 }}>{catProds?.name}</div>
-        <div style={{ color:"rgba(255,255,255,.55)",fontSize:12,marginTop:3 }}>{catItems.length} products available</div>
+      <div style={{background:catProds?.color||C.dark,padding:"0 14px 18px"}}>
+        <button style={{background:"rgba(255,255,255,.15)",border:"1px solid rgba(255,255,255,.4)",color:"#fff",fontSize:15,fontWeight:700,cursor:"pointer",padding:"8px 20px",borderRadius:6,margin:"12px 0 8px"}} onClick={navHome}>← Back</button>
+        <div style={{fontSize:28}}>{catProds?.icon}</div>
+        <div style={{fontFamily:"Georgia,serif",fontSize:20,fontWeight:700,color:C.gold,marginTop:4}}>{catProds?.name}</div>
+        <div style={{color:"rgba(255,255,255,.55)",fontSize:12,marginTop:3}}>{catItems.length} products</div>
       </div>
-      <div style={{ padding:"16px 14px" }}>
+      <div style={{padding:"16px 14px"}}>
         {catItems.length===0
-          ? <div style={{ textAlign:"center",padding:"48px 0",color:"#bbb" }}><div style={{ fontSize:36 }}>📦</div><p style={{ marginTop:10,fontWeight:600 }}>No products yet</p><p style={{ fontSize:12,marginTop:6 }}>Add from Admin panel</p></div>
-          : <div className="prod-grid">
-              {catItems.map(p=><ProdCard key={p.id} prod={p}/>)}
-            </div>
+          ?<div style={{textAlign:"center",padding:"48px 0",color:"#bbb"}}><div style={{fontSize:36}}>📦</div><p style={{marginTop:10,fontWeight:600}}>No products yet</p></div>
+          :<div className="prod-grid">{catItems.map(p=><ProdCard key={p.id} prod={p}/>)}</div>
         }
       </div>
     </div>
   );
 
-  // ─── PRODUCT DETAIL ───────────────────────────────────────────────────────
-  const ProductPage = () => {
-    const prod = activeProd;
-    if(!prod) return null;
-    const cat  = CATEGORIES.find(c=>c.id===prod.categoryId);
-    const save = prod.mrp>prod.price ? Math.round((prod.mrp-prod.price)/prod.mrp*100) : 0;
-    return (
+  const ProductPage=()=>{
+    const prod=activeProd; if(!prod) return null;
+    const cat=CATEGORIES.find(c=>c.id===prod.categoryId);
+    const sv=prod.mrp>prod.price?Math.round((prod.mrp-prod.price)/prod.mrp*100):0;
+    const imgs=prod.images||[];
+    return(
       <div>
-        <button style={{ background:"none",border:"none",color:C.olive,fontSize:13,fontWeight:700,cursor:"pointer",padding:"12px 14px 4px",display:"flex",alignItems:"center",gap:5 }}
-          onClick={()=>{ if(activeCatId) setPage("category"); else navHome(); scrollTop(); }}>← {cat?.name}</button>
-        <img src={prod.image} alt={prod.name} style={{ width:"100%",height:270,objectFit:"cover",background:C.mid,display:"block" }} />
-        <div style={{ padding:"16px 14px" }}>
-          {prod.badge && <span style={{ background:C.red,color:"#fff",fontSize:9,fontWeight:800,padding:"3px 8px",borderRadius:2,letterSpacing:1,textTransform:"uppercase",display:"inline-block",marginBottom:8 }}>{prod.badge}</span>}
-          <div style={{ color:C.olive,fontSize:11,fontWeight:700,letterSpacing:1,textTransform:"uppercase",marginBottom:6 }}>{cat?.icon} {cat?.name}</div>
-          <h2 style={{ fontFamily:"Georgia,serif",fontSize:20,fontWeight:700,color:C.dark,lineHeight:1.3,marginBottom:10 }}>{prod.name}</h2>
-          <div style={{ display:"flex",alignItems:"baseline",gap:8,marginBottom:14 }}>
-            <span style={{ fontFamily:"Georgia,serif",fontSize:22,fontWeight:800,color:C.olive }}>₹{prod.price.toLocaleString()}</span>
-            {prod.mrp>prod.price && <>
-              <span style={{ fontSize:13,color:"#bbb",textDecoration:"line-through" }}>₹{prod.mrp.toLocaleString()}</span>
-              <span style={{ fontSize:12,color:C.red,fontWeight:700 }}>{save}% OFF</span>
-            </>}
+        <button style={{background:"#f0f4ec",border:"1.5px solid #3a4f1a",color:"#3a4f1a",fontSize:15,fontWeight:700,cursor:"pointer",padding:"9px 20px",borderRadius:6,margin:"12px 14px 4px",display:"inline-block"}}
+          onClick={()=>{if(activeCatId)setPage("category");else navHome();scrollTop();}}>← {cat?.name||"Back"}</button>
+        <div style={{position:"relative"}}>
+          <img src={imgs[selImgIdx]||""} alt={prod.name} style={{width:"100%",height:270,objectFit:"cover",background:C.mid,display:"block"}}/>
+          {imgs.length>1&&<div style={{display:"flex",gap:6,padding:"8px 14px",overflowX:"auto"}}>
+            {imgs.map((img,i)=>(
+              <img key={i} src={img} alt="" onClick={()=>setSelImgIdx(i)}
+                style={{width:52,height:52,objectFit:"cover",borderRadius:4,cursor:"pointer",border:i===selImgIdx?`2px solid ${C.olive}`:"2px solid transparent",flexShrink:0}}/>
+            ))}
+          </div>}
+        </div>
+        <div style={{padding:"16px 14px"}}>
+          {prod.badge&&<span style={{background:C.red,color:"#fff",fontSize:9,fontWeight:800,padding:"3px 8px",borderRadius:2,letterSpacing:1,textTransform:"uppercase",display:"inline-block",marginBottom:8}}>{prod.badge}</span>}
+          <div style={{color:C.olive,fontSize:11,fontWeight:700,letterSpacing:1,textTransform:"uppercase",marginBottom:6}}>{cat?.icon} {cat?.name}</div>
+          <h2 style={{fontFamily:"Georgia,serif",fontSize:20,fontWeight:700,color:C.dark,lineHeight:1.3,marginBottom:10}}>{prod.name}</h2>
+          <div style={{display:"flex",alignItems:"baseline",gap:8,marginBottom:14}}>
+            <span style={{fontFamily:"Georgia,serif",fontSize:22,fontWeight:800,color:C.olive}}>₹{prod.price.toLocaleString()}</span>
+            {prod.mrp>prod.price&&<><span style={{fontSize:13,color:"#bbb",textDecoration:"line-through"}}>₹{prod.mrp.toLocaleString()}</span><span style={{fontSize:12,color:C.red,fontWeight:700}}>{sv}% OFF</span></>}
           </div>
-          <Stars n={4}/><span style={{ fontSize:11,color:"#888",marginLeft:6 }}>(124 reviews)</span>
-          <p style={{ color:"#555",fontSize:13.5,lineHeight:1.7,margin:"14px 0 16px" }}>{prod.desc}</p>
-          <div style={{ fontWeight:700,fontSize:12,color:"#444",marginBottom:8,letterSpacing:.5,textTransform:"uppercase" }}>Select Size</div>
-          <div style={{ display:"flex",flexWrap:"wrap",gap:8,marginBottom:18 }}>
+          <Stars n={4}/><span style={{fontSize:11,color:"#888",marginLeft:6}}>(124 reviews)</span>
+          <p style={{color:"#555",fontSize:13.5,lineHeight:1.7,margin:"14px 0 16px"}}>{prod.desc}</p>
+          <div style={{fontWeight:700,fontSize:12,color:"#444",marginBottom:8,letterSpacing:.5,textTransform:"uppercase"}}>Select Size</div>
+          <div style={{display:"flex",flexWrap:"wrap",gap:8,marginBottom:18}}>
             {prod.sizes?.map(sz=>(
-              <button key={sz} style={{ padding:"7px 14px",borderRadius:4,border:`1.5px solid ${selSize===sz?C.olive:"#ddd"}`,background:selSize===sz?C.olive:"#fff",color:selSize===sz?"#fff":"#444",fontSize:12,fontWeight:600,cursor:"pointer" }}
+              <button key={sz} style={{padding:"7px 14px",borderRadius:4,border:`1.5px solid ${selSize===sz?C.olive:"#ddd"}`,background:selSize===sz?C.olive:"#fff",color:selSize===sz?"#fff":"#444",fontSize:12,fontWeight:600,cursor:"pointer"}}
                 onClick={()=>setSelSize(sz)}>{sz}</button>
             ))}
           </div>
-          <button style={{ ...btnDark,width:"100%",padding:"13px",fontSize:14,marginBottom:10,letterSpacing:.5 }} onClick={()=>addToCart(prod,selSize)}>🛒 Add to Cart</button>
-          <button style={{ ...btnOlive,width:"100%",padding:"13px",fontSize:14 }} onClick={()=>{ addToCart(prod,selSize); setCartOpen(true); }}>⚡ Buy Now</button>
-          <div style={{ marginTop:18,borderTop:"1px solid #eee",paddingTop:14 }}>
-            {[["🚚","Free delivery above ₹4,999"],["✅","100% authentic military-grade"],["📞","Call: 9654496474"],["📍","Shop No 244, 1st Floor, Behlana, Chandigarh"]].map(([ic,tx])=>(
-              <div key={tx} style={{ display:"flex",gap:8,alignItems:"center",marginBottom:7 }}>
-                <span style={{ fontSize:14 }}>{ic}</span><span style={{ fontSize:12,color:"#555" }}>{tx}</span>
-              </div>
-            ))}
-          </div>
+          <button style={{...btnDark,width:"100%",padding:"13px",fontSize:14,marginBottom:10}} onClick={()=>addToCart(prod,selSize)}>🛒 Add to Cart</button>
+          <button style={{...btnOlive,width:"100%",padding:"13px",fontSize:14}} onClick={()=>{addToCart(prod,selSize);setCartOpen(true);}}>⚡ Buy Now</button>
+          <a href="https://wa.me/919654496474" target="_blank" rel="noreferrer"
+            style={{...btnDark,width:"100%",padding:"13px",fontSize:14,marginTop:10,display:"flex",alignItems:"center",justifyContent:"center",gap:8,textDecoration:"none",background:"#25d366"}}>
+            💬 Chat on WhatsApp
+          </a>
         </div>
       </div>
     );
   };
 
-  // ─── CHECKOUT ─────────────────────────────────────────────────────────────
-  const CheckoutPage = () => (
-    <div>
-      <div style={{ background:C.dark,padding:"16px 14px 12px" }}>
-        <button style={{ background:"none",border:"none",color:"rgba(255,255,255,.6)",fontSize:12,fontWeight:700,cursor:"pointer",padding:"0 0 8px",display:"flex",alignItems:"center",gap:5 }} onClick={()=>{ setCartOpen(true); setPage("home"); }}>← Back</button>
-        <div style={{ color:C.gold,fontFamily:"Georgia,serif",fontSize:18,fontWeight:700 }}>Place Your Order</div>
-      </div>
-      <div style={{ background:"#fff",margin:"12px 14px",borderRadius:8,padding:"14px",boxShadow:"0 1px 4px rgba(0,0,0,.07)" }}>
-        <div style={{ fontWeight:700,fontSize:13,marginBottom:10,color:C.dark }}>Order Summary</div>
-        {cart.map(it=>(
-          <div key={it.id+it.size} style={{ display:"flex",justifyContent:"space-between",fontSize:12,padding:"5px 0",borderBottom:"1px solid #f5f5f5" }}>
-            <span style={{ color:"#444",flex:1,paddingRight:8 }}>{it.name} ({it.size}) ×{it.qty}</span>
-            <span style={{ fontWeight:700,color:C.olive,flexShrink:0 }}>₹{(it.price*it.qty).toLocaleString()}</span>
-          </div>
-        ))}
-        <div style={{ display:"flex",justifyContent:"space-between",marginTop:10,fontWeight:800,fontSize:15,color:C.dark }}>
-          <span>Total</span><span>₹{cartTotal.toLocaleString()}</span>
-        </div>
-      </div>
-      <div style={{ background:"#fff",margin:"0 14px 12px",borderRadius:8,padding:"16px",boxShadow:"0 1px 4px rgba(0,0,0,.07)" }}>
-        <div style={{ fontWeight:700,fontSize:14,marginBottom:14,color:C.dark }}>Delivery Details</div>
-        {[["name","Full Name *","text","Your full name"],["phone","Phone *","tel","+91 XXXXX XXXXX"]].map(([fld,lbl,tp,ph])=>(
-          <div key={fld} style={{ marginBottom:12 }}>
-            <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>{lbl}</label>
-            <input style={{ width:"100%",padding:"10px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:14,fontFamily:"inherit",boxSizing:"border-box" }}
-              type={tp} placeholder={ph} value={orderForm[fld]} onChange={e=>setOrderForm(f=>({...f,[fld]:e.target.value}))} />
-          </div>
-        ))}
-        <div style={{ marginBottom:12 }}>
-          <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Delivery Address *</label>
-          <textarea style={{ width:"100%",padding:"10px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:14,fontFamily:"inherit",height:70,resize:"vertical",boxSizing:"border-box" }}
-            placeholder="Full address with PIN code" defaultValue={orderForm.address} onBlur={e=>setOrderForm(f=>({...f,address:e.target.value}))} onChange={e=>setOrderForm(f=>({...f,address:e.target.value}))} />
-        </div>
-        <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:12 }}>
-          {[["city","City"],["state","State"]].map(([fld,lbl])=>(
-            <div key={fld}>
-              <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>{lbl}</label>
-              <input style={{ width:"100%",padding:"10px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:14,fontFamily:"inherit",boxSizing:"border-box" }}
-                placeholder={lbl} value={orderForm[fld]} onChange={e=>setOrderForm(f=>({...f,[fld]:e.target.value}))} />
-            </div>
-          ))}
-        </div>
-        <div style={{ marginBottom:16 }}>
-          <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Payment Method</label>
-          <select style={{ width:"100%",padding:"10px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:14,fontFamily:"inherit" }}
-            value={orderForm.payment} onChange={e=>setOrderForm(f=>({...f,payment:e.target.value}))}>
-            <option value="upi">UPI / PhonePe / GPay</option>
-            <option value="neft">NEFT / Bank Transfer</option>
-            <option value="card">Credit / Debit Card</option>
-          </select>
-        </div>
-        <button style={{ ...btnOlive,width:"100%",padding:"13px",fontSize:15 }} onClick={placeOrder}>🎖️ Confirm Order</button>
-      </div>
-    </div>
-  );
-
-  // ─── SUCCESS ──────────────────────────────────────────────────────────────
-  const SuccessPage = () => (
-    <div style={{ textAlign:"center",padding:"48px 20px" }}>
-      <div style={{ fontSize:60,marginBottom:16 }}>✅</div>
-      <div style={{ fontFamily:"Georgia,serif",fontSize:22,fontWeight:700,color:C.dark,marginBottom:8 }}>Order Placed!</div>
-      <div style={{ color:"#666",fontSize:14,lineHeight:1.8,marginBottom:28 }}>
-        Order ID: <strong style={{ color:C.olive }}>{orderDone?.orderId}</strong><br/>
-        Dear <strong>{orderDone?.name}</strong>, thank you!<br/>
-        Total: <strong>₹{orderDone?.total?.toLocaleString()}</strong><br/>
-        We'll call <strong>{orderDone?.phone}</strong> to confirm.
-      </div>
-      <button style={{ ...btnOlive,padding:"13px 32px",fontSize:15 }} onClick={navHome}>Continue Shopping</button>
-    </div>
-  );
-
-  // ─── ADMIN ────────────────────────────────────────────────────────────────
-  const AdminPage = () => {
-    const EMPTY = { name:"",categoryId:"",price:"",mrp:"",image:"",badge:"",desc:"",sizes:"M,L,XL",stock:50 };
-    const [lp, setLp] = useState(editP ? {...editP, sizes:Array.isArray(editP.sizes)?editP.sizes.join(","):editP.sizes} : EMPTY);
-    const [search, setSearch] = useState("");
-    const filtered = products.filter(p => p.name.toLowerCase().includes(search.toLowerCase()));
-
-    const handleSave = () => {
-      if(!lp.name||!lp.categoryId||!lp.price){ showToast("⚠️ Fill required fields"); return; }
-      saveProduct({ ...lp, price:Number(lp.price), mrp:Number(lp.mrp)||Number(lp.price),
-        sizes: typeof lp.sizes==="string" ? lp.sizes.split(",").map(s=>s.trim()).filter(Boolean) : lp.sizes,
-        stock: Number(lp.stock)||50 });
+  // CHECKOUT — using refs to fix cursor bug completely
+  const CheckoutPage=()=>{
+    const nameRef=useRef(); const phoneRef=useRef(); const addrRef=useRef(); const cityRef=useRef(); const stateRef=useRef();
+    const handleOrder=()=>{
+      const name=nameRef.current?.value?.trim()||"";
+      const phone=phoneRef.current?.value?.trim()||"";
+      const address=addrRef.current?.value?.trim()||"";
+      const city=cityRef.current?.value?.trim()||"";
+      const state=stateRef.current?.value?.trim()||"";
+      if(!name||!phone||!address){showToast("⚠️ Fill required fields");return;}
+      const oid="F5-"+Date.now().toString().slice(-6);
+      setOrderDone({orderId:oid,items:[...cart],subtotal:cartSub,deliveryFee:selDel.fee,deliveryName:selDel.name,total:cartTotal,name,phone,address,city,state,payment});
+      setCart([]);setPage("success");scrollTop();
     };
-
-    return (
+    const inp={width:"100%",padding:"10px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:14,fontFamily:"inherit",boxSizing:"border-box"};
+    const lbl={display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5};
+    return(
       <div>
-        <div style={{ background:C.dark,padding:"16px 14px 12px" }}>
-          <button style={{ background:"none",border:"none",color:"rgba(255,255,255,.6)",fontSize:12,fontWeight:700,cursor:"pointer",padding:"0 0 8px" }} onClick={navHome}>← Back to Store</button>
-          <div style={{ color:C.gold,fontFamily:"Georgia,serif",fontSize:18,fontWeight:700 }}>⚙ Admin Dashboard</div>
+        <div style={{background:C.dark,padding:"16px 14px 12px"}}>
+          <button style={{background:"rgba(255,255,255,.15)",border:"1px solid rgba(255,255,255,.4)",color:"#fff",fontSize:15,fontWeight:700,cursor:"pointer",padding:"8px 20px",borderRadius:6,margin:"8px 0"}} onClick={()=>{setCartOpen(true);setPage("home");}}>← Back to Cart</button>
+          <div style={{color:C.gold,fontFamily:"Georgia,serif",fontSize:18,fontWeight:700,marginTop:8}}>Place Your Order</div>
         </div>
+        <div style={{background:"#fff",margin:"12px 14px",borderRadius:8,padding:"14px",boxShadow:"0 1px 4px rgba(0,0,0,.07)"}}>
+          <div style={{fontWeight:700,fontSize:13,marginBottom:10,color:C.dark}}>Order Summary</div>
+          {cart.map(it=>(
+            <div key={it.id+it.size} style={{display:"flex",justifyContent:"space-between",fontSize:12,padding:"5px 0",borderBottom:"1px solid #f5f5f5"}}>
+              <span style={{color:"#444",flex:1,paddingRight:8}}>{it.name} ({it.size}) ×{it.qty}</span>
+              <span style={{fontWeight:700,color:C.olive,flexShrink:0}}>₹{(it.price*it.qty).toLocaleString()}</span>
+            </div>
+          ))}
+          <div style={{marginTop:12}}>
+            <div style={{fontWeight:700,fontSize:12,marginBottom:8,color:C.dark}}>Delivery Partner</div>
+            {DELIVERY_OPTIONS.map(d=>(
+              <label key={d.id} style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,cursor:"pointer"}}>
+                <input type="radio" name="deliveryCO" checked={delivery===d.id} onChange={()=>setDelivery(d.id)}/>
+                <span style={{fontSize:13,fontWeight:600}}>{d.name}</span>
+                <span style={{fontSize:12,color:C.olive,fontWeight:700}}>₹{d.fee}</span>
+                <span style={{fontSize:11,color:"#888"}}>({d.days})</span>
+              </label>
+            ))}
+          </div>
+          <div style={{display:"flex",justifyContent:"space-between",marginTop:8,fontSize:12,paddingTop:8,borderTop:"1px solid #eee"}}><span>Subtotal</span><span>₹{cartSub.toLocaleString()}</span></div>
+          <div style={{display:"flex",justifyContent:"space-between",fontSize:12,marginTop:4}}><span>Delivery ({selDel.name})</span><span>₹{selDel.fee}</span></div>
+          <div style={{display:"flex",justifyContent:"space-between",marginTop:10,fontWeight:800,fontSize:16,color:C.dark}}><span>Total</span><span>₹{cartTotal.toLocaleString()}</span></div>
+        </div>
+        <div style={{background:"#fff",margin:"0 14px 12px",borderRadius:8,padding:"16px",boxShadow:"0 1px 4px rgba(0,0,0,.07)"}}>
+          <div style={{fontWeight:700,fontSize:14,marginBottom:14,color:C.dark}}>Delivery Details</div>
+          <div style={{marginBottom:12}}><label style={lbl}>Full Name *</label><input ref={nameRef} style={inp} type="text" placeholder="Your full name"/></div>
+          <div style={{marginBottom:12}}><label style={lbl}>Phone *</label><input ref={phoneRef} style={inp} type="tel" placeholder="9XXXXXXXXX"/></div>
+          <div style={{marginBottom:12}}><label style={lbl}>Delivery Address *</label><textarea ref={addrRef} style={{...inp,height:72,resize:"vertical"}} placeholder="Full address with PIN code"/></div>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:16}}>
+            <div><label style={lbl}>City</label><input ref={cityRef} style={inp} type="text" placeholder="City"/></div>
+            <div><label style={lbl}>State</label><input ref={stateRef} style={inp} type="text" placeholder="State"/></div>
+          </div>
+          <div style={{marginBottom:16}}>
+            <label style={lbl}>Payment Method</label>
+            <div style={{display:"flex",alignItems:"center",gap:10,padding:"12px 14px",background:"#f0f8f0",border:"1.5px solid #7cb342",borderRadius:6}}>
+              <input type="radio" checked readOnly style={{width:18,height:18}}/>
+              <span style={{fontWeight:700,fontSize:14}}>📱 UPI / PhonePe / GPay</span>
+            </div>
+            <div style={{background:"#f0f8f0",border:"1.5px solid #7cb342",borderRadius:8,padding:"16px",marginTop:10,textAlign:"center"}}>
+              <div style={{fontWeight:800,color:C.olive,fontSize:15,marginBottom:4}}>Scan to Pay</div>
+              <div style={{fontWeight:800,fontSize:20,color:C.dark,marginBottom:12}}>₹{cartTotal.toLocaleString()}</div>
+              <img src="data:image/png;base64,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" alt="UPI QR Code" style={{width:180,height:180,margin:"0 auto",display:"block",borderRadius:8,border:"2px solid #ccc"}}/>
+              <div style={{fontSize:12,color:"#666",marginTop:10}}>Scan with PhonePe / GPay / Paytm / Any UPI App</div>
+              <div style={{fontSize:12,color:"#888",marginTop:4}}>After payment, share screenshot on WhatsApp: <strong>9654496474</strong></div>
+            </div>
+          </div>
+          <button style={{...btnOlive,width:"100%",padding:"14px",fontSize:15}} onClick={handleOrder}>🎖️ Confirm Order</button>
+        </div>
+      </div>
+    );
+  };
 
-        {/* Stats */}
-        <div style={{ display:"flex",gap:10,padding:"12px 14px",background:"#fff",borderBottom:"1px solid #eee" }}>
+  const SuccessPage=()=>(
+    <div style={{textAlign:"center",padding:"48px 20px"}}>
+      <div style={{fontSize:60,marginBottom:16}}>✅</div>
+      <div style={{fontFamily:"Georgia,serif",fontSize:22,fontWeight:700,color:C.dark,marginBottom:8}}>Order Placed!</div>
+      <div style={{color:"#666",fontSize:14,lineHeight:1.8,marginBottom:20}}>
+        Order ID: <strong style={{color:C.olive}}>{orderDone?.orderId}</strong><br/>
+        Dear <strong>{orderDone?.name}</strong>, thank you!<br/>
+        Total: <strong>₹{orderDone?.total?.toLocaleString()}</strong> via {orderDone?.deliveryName}<br/>
+        We'll confirm at <strong>{orderDone?.phone}</strong> shortly.
+      </div>
+      <a href={`https://wa.me/919654496474?text=Order+${orderDone?.orderId}+placed+for+₹${orderDone?.total}`} target="_blank" rel="noreferrer"
+        style={{display:"inline-block",background:"#25d366",color:"#fff",padding:"12px 24px",borderRadius:6,fontWeight:700,fontSize:14,textDecoration:"none",marginBottom:12}}>
+        💬 Confirm on WhatsApp
+      </a><br/>
+      <button style={{...btnOlive,padding:"12px 28px",fontSize:14,marginTop:8}} onClick={navHome}>Continue Shopping</button>
+    </div>
+  );
+
+  const InfoPage=()=>{
+    const titles={returns:"Return Policy",terms:"Terms & Conditions",privacy:"Privacy Policy",shipping:"Shipping & Payment Info"};
+    return(
+      <div>
+        <div style={{background:C.dark,padding:"16px 14px 12px"}}>
+          <button style={{background:"rgba(255,255,255,.15)",border:"1px solid rgba(255,255,255,.4)",color:"#fff",fontSize:15,fontWeight:700,cursor:"pointer",padding:"8px 20px",borderRadius:6,margin:"8px 0"}} onClick={navHome}>← Back</button>
+          <div style={{color:C.gold,fontFamily:"Georgia,serif",fontSize:18,fontWeight:700,marginTop:8}}>{titles[infoPage]}</div>
+        </div>
+        <div style={{padding:"20px 16px",fontSize:13,lineHeight:1.9,color:"#333",whiteSpace:"pre-line"}}>{PAGES_CONTENT[infoPage]}</div>
+      </div>
+    );
+  };
+
+  const AdminPage=()=>{
+    const EMPTY={name:"",categoryId:"",price:"",mrp:"",images:[],badge:"",desc:"",sizes:"M,L,XL",stock:50};
+    const [lp,setLp]=useState(editP?{...editP,sizes:Array.isArray(editP.sizes)?editP.sizes.join(","):editP.sizes,images:editP.images||[]}:EMPTY);
+    const [search,setSearch]=useState("");
+    const filtered=products.filter(p=>p.name.toLowerCase().includes(search.toLowerCase()));
+    const handleSave=()=>{
+      if(!lp.name||!lp.categoryId||!lp.price){showToast("⚠️ Fill required fields");return;}
+      saveProduct(lp);
+    };
+    return(
+      <div>
+        <div style={{background:C.dark,padding:"16px 14px 12px"}}>
+          <button style={{background:"rgba(255,255,255,.15)",border:"1px solid rgba(255,255,255,.4)",color:"#fff",fontSize:15,fontWeight:700,cursor:"pointer",padding:"8px 20px",borderRadius:6,margin:"8px 0"}} onClick={navHome}>← Back to Store</button>
+          <div style={{color:C.gold,fontFamily:"Georgia,serif",fontSize:18,fontWeight:700,marginTop:8}}>⚙ Admin — Force5 Collection</div>
+        </div>
+        <div style={{display:"flex",gap:10,padding:"12px 14px",background:"#fff",borderBottom:"1px solid #eee"}}>
           {[["📦",products.length,"Products"],["🗂️",CATEGORIES.length,"Categories"]].map(([ic,n,lb])=>(
-            <div key={lb} style={{ flex:1,background:"#f9f8f4",borderRadius:8,padding:"10px",textAlign:"center" }}>
-              <div style={{ fontSize:20 }}>{ic}</div>
-              <div style={{ fontFamily:"Georgia,serif",fontSize:20,fontWeight:700,color:C.dark }}>{n}</div>
-              <div style={{ fontSize:10,color:"#888",textTransform:"uppercase",letterSpacing:1 }}>{lb}</div>
+            <div key={lb} style={{flex:1,background:"#f9f8f4",borderRadius:8,padding:"10px",textAlign:"center"}}>
+              <div style={{fontSize:20}}>{ic}</div><div style={{fontFamily:"Georgia,serif",fontSize:20,fontWeight:700,color:C.dark}}>{n}</div>
+              <div style={{fontSize:10,color:"#888",textTransform:"uppercase",letterSpacing:1}}>{lb}</div>
             </div>
           ))}
         </div>
-
-        {/* Admin Tabs */}
-        <div style={{ background:"#fff",borderBottom:"1px solid #eee",padding:"0 14px",display:"flex",gap:0,overflowX:"auto" }}>
+        <div style={{background:"#fff",borderBottom:"1px solid #eee",padding:"0 14px",display:"flex",gap:0,overflowX:"auto"}}>
           {[["products","📋 Products"],["add","➕ Add/Edit"],["cats","🗂️ Categories"]].map(([id,lbl])=>(
-            <button key={id} style={{ padding:"12px 14px",fontSize:11,fontWeight:700,letterSpacing:.5,border:"none",background:"none",cursor:"pointer",
-              color:adminTab===id?C.olive:"#888", borderBottom:adminTab===id?"2px solid "+C.olive:"2px solid transparent",whiteSpace:"nowrap" }}
-              onClick={()=>{ setAdminTab(id); if(id==="add"){ setLp(EMPTY); setEditP(null); } }}>{lbl}</button>
+            <button key={id} style={{padding:"12px 14px",fontSize:11,fontWeight:700,letterSpacing:.5,border:"none",background:"none",cursor:"pointer",color:adminTab===id?C.olive:"#888",borderBottom:adminTab===id?"2px solid "+C.olive:"2px solid transparent",whiteSpace:"nowrap"}}
+              onClick={()=>{setAdminTab(id);if(id==="add"){setLp(EMPTY);setEditP(null);setAdminImgUrls("");} }}>{lbl}</button>
           ))}
         </div>
-
-        {/* Products list */}
-        {adminTab==="products" && (
+        {adminTab==="products"&&(
           <div>
-            <div style={{ padding:"12px 14px" }}>
-              <input style={{ width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",boxSizing:"border-box" }}
-                placeholder="🔍 Search products..." value={search} onChange={e=>setSearch(e.target.value)} />
+            <div style={{padding:"12px 14px"}}>
+              <input style={{width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",boxSizing:"border-box"}}
+                placeholder="🔍 Search products..." value={search} onChange={e=>setSearch(e.target.value)}/>
             </div>
-            <div style={{ fontSize:11,color:"#888",padding:"0 14px 8px" }}>{filtered.length} products</div>
             {filtered.map(prod=>{
               const cat=CATEGORIES.find(c=>c.id===prod.categoryId);
-              return (
-                <div key={prod.id} style={{ display:"flex",alignItems:"center",gap:10,padding:"10px 14px",borderBottom:"1px solid #f0eeea" }}>
-                  <img src={prod.image} alt="" style={{ width:44,height:44,objectFit:"cover",borderRadius:5,background:C.mid,flexShrink:0 }} />
-                  <div style={{ flex:1,minWidth:0 }}>
-                    <div style={{ fontSize:12,fontWeight:700,color:C.dark,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis" }}>{prod.name}</div>
-                    <div style={{ fontSize:10,color:"#888",marginTop:1 }}>{cat?.icon} {cat?.name} · ₹{prod.price.toLocaleString()}</div>
+              return(
+                <div key={prod.id} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 14px",borderBottom:"1px solid #f0eeea"}}>
+                  <img src={prod.images?.[0]||""} alt="" style={{width:44,height:44,objectFit:"cover",borderRadius:5,background:C.mid,flexShrink:0}}/>
+                  <div style={{flex:1,minWidth:0}}>
+                    <div style={{fontSize:12,fontWeight:700,color:C.dark,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{prod.name}</div>
+                    <div style={{fontSize:10,color:"#888",marginTop:1}}>{cat?.icon} {cat?.name} · ₹{prod.price.toLocaleString()}</div>
                   </div>
-                  <button style={{ background:"#e8f5e9",color:"#2e7d32",border:"none",padding:"5px 9px",borderRadius:4,fontSize:10,fontWeight:700,cursor:"pointer",flexShrink:0 }}
-                    onClick={()=>{ setLp({...prod,sizes:Array.isArray(prod.sizes)?prod.sizes.join(","):prod.sizes}); setAdminTab("add"); }}>Edit</button>
-                  <button style={{ background:"#ffebee",color:"#c62828",border:"none",padding:"5px 9px",borderRadius:4,fontSize:10,fontWeight:700,cursor:"pointer",flexShrink:0 }}
+                  <button style={{background:"#e8f5e9",color:"#2e7d32",border:"none",padding:"5px 9px",borderRadius:4,fontSize:10,fontWeight:700,cursor:"pointer",flexShrink:0}}
+                    onClick={()=>{setLp({...prod,sizes:Array.isArray(prod.sizes)?prod.sizes.join(","):prod.sizes});setAdminImgUrls((prod.images||[]).join("\n"));setAdminTab("add");}}>Edit</button>
+                  <button style={{background:"#ffebee",color:"#c62828",border:"none",padding:"5px 9px",borderRadius:4,fontSize:10,fontWeight:700,cursor:"pointer",flexShrink:0}}
                     onClick={()=>delProduct(prod.id)}>Del</button>
                 </div>
               );
             })}
           </div>
         )}
-
-        {/* Add / Edit Form */}
-        {adminTab==="add" && (
-          <div style={{ background:"#fff",margin:"12px 14px",borderRadius:10,padding:"16px",boxShadow:"0 1px 6px rgba(0,0,0,.08)" }}>
-            <div style={{ fontWeight:700,fontSize:15,marginBottom:16,color:C.dark }}>{lp.id?"Edit Product":"Add New Product"}</div>
-            {[
-              ["name","Product Name *","text","e.g. Army Combat Uniform"],
-              ["price","Selling Price ₹ *","number","2499"],
-              ["mrp","MRP / Original Price ₹","number","3200"],
-              ["badge","Badge Label","text","Best Seller / New / Premium"],
-              ["stock","Stock Qty","number","50"],
-            ].map(([fld,lbl,tp,ph])=>(
-              <div key={fld} style={{ marginBottom:12 }}>
-                <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>{lbl}</label>
-                <input style={{ width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",boxSizing:"border-box" }}
-                  type={tp} placeholder={ph} value={lp[fld]||""} onChange={e=>setLp(f=>({...f,[fld]:e.target.value}))} />
+        {adminTab==="add"&&(
+          <div style={{background:"#fff",margin:"12px 14px",borderRadius:10,padding:"16px",boxShadow:"0 1px 6px rgba(0,0,0,.08)"}}>
+            <div style={{fontWeight:700,fontSize:15,marginBottom:16,color:C.dark}}>{lp.id?"Edit Product":"Add New Product"}</div>
+            {[["name","Product Name *","text","e.g. Army Combat Uniform"],["price","Selling Price ₹ *","number","2499"],["mrp","MRP ₹","number","3200"],["badge","Badge","text","Best Seller / New"],["stock","Stock Qty","number","50"]].map(([fld,lbl,tp,ph])=>(
+              <div key={fld} style={{marginBottom:12}}>
+                <label style={{display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5}}>{lbl}</label>
+                <input style={{width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",boxSizing:"border-box"}}
+                  type={tp} placeholder={ph} value={lp[fld]||""} onChange={e=>setLp(f=>({...f,[fld]:e.target.value}))}/>
               </div>
             ))}
-            <div style={{ marginBottom:12 }}>
-              <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Category *</label>
-              <select style={{ width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit" }}
+            <div style={{marginBottom:12}}>
+              <label style={{display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5}}>Category *</label>
+              <select style={{width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit"}}
                 value={lp.categoryId||""} onChange={e=>setLp(f=>({...f,categoryId:e.target.value}))}>
                 <option value="">— Select Category —</option>
                 {CATEGORIES.map(c=><option key={c.id} value={c.id}>{c.icon} {c.name}</option>)}
               </select>
             </div>
-            {/* Image Upload */}
-            <div style={{ marginBottom:12 }}>
-              <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Product Image *</label>
-              {/* Option 1: Upload from device */}
-              <div style={{ background:"#f9f8f4",border:"2px dashed #ddd",borderRadius:6,padding:"12px",marginBottom:8,textAlign:"center" }}>
-                <div style={{ fontSize:11,color:"#888",marginBottom:6 }}>📁 Upload from device</div>
-                <input type="file" accept="image/*" style={{ fontSize:12,fontFamily:"inherit" }}
-                  onChange={e => {
-                    const file = e.target.files[0];
-                    if(!file) return;
-                    const reader = new FileReader();
-                    reader.onload = ev => setLp(f => ({...f, image: ev.target.result}));
-                    reader.readAsDataURL(file);
-                  }} />
+            <div style={{marginBottom:12}}>
+              <label style={{display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5}}>Product Images *</label>
+              <div style={{background:"#f0f4ec",border:"2px dashed #7cb342",borderRadius:8,padding:"12px",marginBottom:8,textAlign:"center"}}>
+                <div style={{fontSize:12,fontWeight:700,color:"#444",marginBottom:6}}>📁 Upload from Device</div>
+                <input type="file" accept="image/*" multiple style={{fontSize:12}}
+                  onChange={e=>{
+                    const files=Array.from(e.target.files);
+                    const readers=files.map(file=>new Promise(res=>{const r=new FileReader();r.onload=ev=>res(ev.target.result);r.readAsDataURL(file);}));
+                    Promise.all(readers).then(urls=>{setAdminImgUrls(prev=>[prev,...urls].filter(Boolean).join("\n"));});
+                  }}/>
+                <div style={{fontSize:10,color:"#888",marginTop:4}}>Select multiple images at once</div>
               </div>
-              {/* Option 2: Enter URL */}
-              <div style={{ fontSize:11,color:"#888",textAlign:"center",marginBottom:6 }}>— OR paste image URL —</div>
-              <input style={{ width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",boxSizing:"border-box" }}
-                type="url" placeholder="https://example.com/image.jpg"
-                value={lp.image && lp.image.startsWith("data:") ? "" : (lp.image||"")}
-                onChange={e=>setLp(f=>({...f,image:e.target.value}))} />
+              <div style={{fontSize:11,fontWeight:700,color:"#888",marginBottom:4,textAlign:"center"}}>— OR enter image URLs —</div>
+              <textarea style={{width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",height:60,resize:"vertical",boxSizing:"border-box"}}
+                placeholder={"https://example.com/img1.jpg\nhttps://example.com/img2.jpg"}
+                value={adminImgUrls} onChange={e=>setAdminImgUrls(e.target.value)}/>
+              <div style={{display:"flex",flexWrap:"wrap",gap:6,marginTop:6}}>
+                {adminImgUrls.split("\n").filter(u=>u.trim()).map((url,i)=>(
+                  <img key={i} src={url.trim()} alt="" style={{width:70,height:70,objectFit:"cover",borderRadius:5,border:"2px solid "+(i===0?"#3a4f1a":"#ddd")}} onError={e=>e.target.style.display="none"}/>
+                ))}
+              </div>
             </div>
-            <div style={{ marginBottom:12 }}>
-              <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Sizes (comma separated)</label>
-              <input style={{ width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",boxSizing:"border-box" }}
-                placeholder="S,M,L,XL or 6,7,8,9,10" value={typeof lp.sizes==="string"?lp.sizes:(lp.sizes||[]).join(",")} onChange={e=>setLp(f=>({...f,sizes:e.target.value}))} />
+            <div style={{marginBottom:12}}>
+              <label style={{display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5}}>Sizes (comma separated)</label>
+              <input style={{width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",boxSizing:"border-box"}}
+                placeholder="S,M,L,XL or 6,7,8,9,10" value={typeof lp.sizes==="string"?lp.sizes:(lp.sizes||[]).join(",")} onChange={e=>setLp(f=>({...f,sizes:e.target.value}))}/>
             </div>
-            <div style={{ marginBottom:14 }}>
-              <label style={{ display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5 }}>Description *</label>
-              <textarea style={{ width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",height:80,resize:"vertical",boxSizing:"border-box" }}
-                placeholder="Product description..." value={lp.desc||""} onChange={e=>setLp(f=>({...f,desc:e.target.value}))} />
+            <div style={{marginBottom:14}}>
+              <label style={{display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5}}>Description</label>
+              <textarea style={{width:"100%",padding:"9px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:13,fontFamily:"inherit",height:80,resize:"vertical",boxSizing:"border-box"}}
+                placeholder="Product description..." value={lp.desc||""} onChange={e=>setLp(f=>({...f,desc:e.target.value}))}/>
             </div>
-            {lp.image && <img src={lp.image} alt="preview" style={{ width:"100%",height:140,objectFit:"cover",borderRadius:6,marginBottom:12 }} onError={e=>e.target.style.display="none"} />}
-            <button style={{ ...btnOlive,width:"100%",padding:"12px",fontSize:14 }} onClick={handleSave}>💾 {lp.id?"Update Product":"Add Product"}</button>
+            <button style={{...btnOlive,width:"100%",padding:"12px",fontSize:14}} onClick={handleSave}>💾 {lp.id?"Update Product":"Add Product"}</button>
           </div>
         )}
-
-        {/* Categories */}
-        {adminTab==="cats" && (
-          <div style={{ padding:"14px" }}>
-            <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:10 }}>
+        {adminTab==="cats"&&(
+          <div style={{padding:"14px"}}>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
               {CATEGORIES.map(cat=>{
                 const cnt=products.filter(p=>p.categoryId===cat.id).length;
-                return (
-                  <div key={cat.id} style={{ background:"#fff",borderRadius:8,padding:"12px",boxShadow:"0 1px 4px rgba(0,0,0,.07)",borderLeft:"4px solid "+cat.color,overflow:"hidden" }}>
-                    <img src={cat.img} alt="" style={{ width:"100%",height:80,objectFit:"cover",borderRadius:5,marginBottom:8 }} />
-                    <div style={{ fontSize:18 }}>{cat.icon}</div>
-                    <div style={{ fontWeight:700,fontSize:12,color:C.dark,marginTop:5 }}>{cat.name}</div>
-                    <div style={{ fontSize:10,color:"#888",marginTop:2 }}>{cnt} products</div>
-                    <button style={{ marginTop:8,background:"#f0f4ec",color:C.olive,border:"none",padding:"4px 10px",borderRadius:4,fontSize:10,fontWeight:700,cursor:"pointer" }}
+                return(
+                  <div key={cat.id} style={{background:"#fff",borderRadius:8,padding:"12px",boxShadow:"0 1px 4px rgba(0,0,0,.07)",borderLeft:"4px solid "+cat.color}}>
+                    <div style={{fontSize:24}}>{cat.icon}</div>
+                    <div style={{fontWeight:700,fontSize:12,color:C.dark,marginTop:5}}>{cat.name}</div>
+                    <div style={{fontSize:10,color:"#888",marginTop:2}}>{cnt} products</div>
+                    <button style={{marginTop:8,background:"#f0f4ec",color:C.olive,border:"none",padding:"4px 10px",borderRadius:4,fontSize:10,fontWeight:700,cursor:"pointer"}}
                       onClick={()=>navCategory(cat.id)}>View →</button>
                   </div>
                 );
@@ -610,22 +573,25 @@ export default function NaviArmyStore() {
     );
   };
 
-  // ─── ROOT RENDER ──────────────────────────────────────────────────────────
-  return (
-    <div ref={wrapRef} style={{ fontFamily:"'Segoe UI',system-ui,sans-serif",background:"#f4f2ed",minHeight:"100vh",maxWidth:"100%",margin:"0 auto",position:"relative",overflowX:"hidden" }}>
-      <style>{`@keyframes fadeUp{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}*{box-sizing:border-box;margin:0;padding:0}::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:#c8b87a;border-radius:2px}.prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(min-width:600px){.prod-grid{grid-template-columns:repeat(3,1fr)}}@media(min-width:900px){.prod-grid{grid-template-columns:repeat(4,1fr)}}.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(min-width:600px){.cat-grid{grid-template-columns:repeat(3,1fr)}}@media(min-width:900px){.cat-grid{grid-template-columns:repeat(5,1fr)}}.page-wrap{max-width:1200px;margin:0 auto;padding:0 16px}.hero-img{width:100%;max-height:520px;object-fit:cover;object-position:top;display:block}`}</style>
-
-      {page!=="admin" && <Navbar/>}
-      {cartOpen && <CartDrawer/>}
-
-      {page==="home"     && <HomePage/>}
-      {page==="category" && <CategoryPage/>}
-      {page==="product"  && <ProductPage/>}
-      {page==="checkout" && <CheckoutPage/>}
-      {page==="success"  && <SuccessPage/>}
-      {page==="admin"    && <AdminPage/>}
-
+  return(
+    <div ref={wrapRef} style={{fontFamily:"'Segoe UI',system-ui,sans-serif",background:"#f4f2ed",minHeight:"100vh",maxWidth:"100%",margin:"0 auto",position:"relative",overflowX:"hidden"}}>
+      <style>{`@keyframes fadeUp{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}*{box-sizing:border-box;margin:0;padding:0}::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:#c8b87a;border-radius:2px}.prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(min-width:600px){.prod-grid{grid-template-columns:repeat(3,1fr)}.cat-grid{grid-template-columns:repeat(3,1fr)}}@media(min-width:900px){.prod-grid{grid-template-columns:repeat(4,1fr)}.cat-grid{grid-template-columns:repeat(5,1fr)}}.page-wrap{max-width:1200px;margin:0 auto;padding:0 16px}.hero-img{width:100%;max-height:520px;object-fit:cover;object-position:top;display:block}`}</style>
+      {page!=="admin"&&<Navbar/>}
+      {cartOpen&&<CartDrawer/>}
+      {page==="home"&&<HomePage/>}
+      {page==="category"&&<CategoryPage/>}
+      {page==="product"&&<ProductPage/>}
+      {page==="checkout"&&<CheckoutPage/>}
+      {page==="success"&&<SuccessPage/>}
+      {page==="info"&&<InfoPage/>}
+      {page==="admin"&&<AdminPage/>}
       <Toast msg={toast} onClose={()=>setToast("")}/>
+      {page!=="admin"&&(
+        <a href="https://wa.me/919654496474" target="_blank" rel="noreferrer"
+          style={{position:"fixed",bottom:20,right:16,background:"#25d366",color:"#fff",borderRadius:"50%",width:52,height:52,display:"flex",alignItems:"center",justifyContent:"center",fontSize:26,boxShadow:"0 4px 16px rgba(0,0,0,.3)",zIndex:150,textDecoration:"none"}}>
+          💬
+        </a>
+      )}
     </div>
   );
 }
