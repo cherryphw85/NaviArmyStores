@@ -12,7 +12,7 @@ const QR_CODE = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADHCAIAAADTb
 
 // Size config per category type
 const SIZE_CONFIG = {
-  uniform: { label:"Uniform Size", hint:"Chest / Waist measurement", sizes:["36","38","40","42","44","46","48","50"] },
+  uniform: { label:"Uniform Size", hint:"Select Waist + Chest combination", sizes:["Waist 28/Chest 34","Waist 30/Chest 36","Waist 30/Chest 38","Waist 32/Chest 36","Waist 32/Chest 38","Waist 32/Chest 40","Waist 34/Chest 38","Waist 34/Chest 40","Waist 34/Chest 42","Waist 36/Chest 40","Waist 36/Chest 42","Waist 36/Chest 44","Waist 38/Chest 42","Waist 38/Chest 44","Waist 40/Chest 44","Waist 40/Chest 46","Waist 42/Chest 46","Waist 42/Chest 48","Waist 44/Chest 48","Waist 44/Chest 50"] },
   shoes:   { label:"Shoe Size",    hint:"UK size",                   sizes:["6","7","8","9","10","11","12"] },
   belt:    { label:"Belt Size",    hint:"Waist in inches",           sizes:['26"','28"','30"','32"','34"','36"'] },
   caps:    { label:"Cap Size",     hint:"Head circumference in cm",  sizes:["54cm","56cm","58cm","60cm","Free Size"] },
@@ -21,9 +21,31 @@ const SIZE_CONFIG = {
 };
 
 const RANKS = [
-  "Sepoy / Constable","Lance Naik / Head Constable","Naik / ASI","Havildar / SI",
-  "Naib Subedar / Inspector","Subedar / DSP","Subedar Major","Lieutenant","Captain",
-  "Major","Lieutenant Colonel","Colonel","Brigadier","Major General","Other / Custom",
+  { label:"Without Rank",       price:0   },
+  { label:"AC (Agniveer)",      price:30  },
+  { label:"LAC Rank Set",       price:60  },
+  { label:"Cpl Rank Set",       price:70  },
+  { label:"Sgt Rank Set",       price:70  },
+  { label:"JWO Rank Set",       price:60  },
+  { label:"WO Rank Set",        price:70  },
+  { label:"MWO Rank Set",       price:70  },
+  { label:"Subedar",            price:80  },
+  { label:"Subedar Major",      price:90  },
+  { label:"Naib Subedar",       price:80  },
+  { label:"2nd Lieutenant",     price:100 },
+  { label:"Lieutenant",         price:100 },
+  { label:"Captain",            price:100 },
+  { label:"Major",              price:110 },
+  { label:"Lt Colonel",         price:120 },
+  { label:"Colonel",            price:130 },
+  { label:"Brigadier",          price:140 },
+  { label:"Major General",      price:150 },
+  { label:"Inspector / DSP",    price:80  },
+  { label:"SI Rank Set",        price:70  },
+  { label:"ASI Rank Set",       price:60  },
+  { label:"Head Constable",     price:50  },
+  { label:"Constable / Sepoy",  price:40  },
+  { label:"Custom / Other",     price:50  },
 ];
 
 const CATEGORIES = [
@@ -148,7 +170,7 @@ function SizeRankModal({prod, cat, onConfirm, onClose}){
             <div style={{fontSize:11,color:"#888",marginBottom:12}}>🎖️ Required for rank-specific customisation</div>
             <div style={{maxHeight:240,overflowY:"auto",border:"1.5px solid #eee",borderRadius:8,marginBottom:16}}>
               {RANKS.map(r=>(
-                <div key={r} style={{padding:"11px 14px",cursor:"pointer",borderBottom:"1px solid #f5f5f5",
+                <div key={r.label} style={{padding:"11px 14px",cursor:"pointer",borderBottom:"1px solid #f5f5f5",
                   background:rank===r?"#f0f8f0":"#fff",display:"flex",alignItems:"center",gap:10}}
                   onClick={()=>setRank(r)}>
                   <div style={{width:18,height:18,borderRadius:"50%",border:`2px solid ${rank===r?C.olive:"#ddd"}`,
@@ -214,10 +236,12 @@ export default function Force5Store(){
 
   const confirmAddToCart=(prod,size,rank)=>{
     const img=prod.images?.[0]||"";
+    const totalPrice=prod.price+(rank.price||0);
+    const rankLabel=rank.label||rank;
     setCart(c=>{
-      const ex=c.find(x=>x.id===prod.id&&x.size===size&&x.rank===rank);
-      if(ex) return c.map(x=>x.id===prod.id&&x.size===size&&x.rank===rank?{...x,qty:x.qty+1}:x);
-      return[...c,{id:prod.id,name:prod.name,price:prod.price,image:img,size,rank,qty:1}];
+      const ex=c.find(x=>x.id===prod.id&&x.size===size&&x.rank===rankLabel);
+      if(ex) return c.map(x=>x.id===prod.id&&x.size===size&&x.rank===rankLabel?{...x,qty:x.qty+1}:x);
+      return[...c,{id:prod.id,name:prod.name,price:totalPrice,basePrice:prod.price,rankPrice:rank.price||0,image:img,size,rank:rankLabel,qty:1}];
     });
     setModalProd(null);
     showToast("✅ Added to cart!");
@@ -262,7 +286,7 @@ export default function Force5Store(){
                 <div style={{flex:1}}>
                   <div style={{fontSize:12,fontWeight:700,color:C.dark,lineHeight:1.3}}>{item.name}</div>
                   <div style={{fontSize:10,color:"#888",marginTop:2}}>Size: {item.size}</div>
-                  <div style={{fontSize:10,color:C.olive,marginTop:1,fontWeight:600}}>Rank: {item.rank}</div>
+                  <div style={{fontSize:10,color:C.olive,marginTop:1,fontWeight:600}}>Rank: {typeof item.rank==="object"?item.rank.label:item.rank}{item.rankPrice>0&&<span style={{color:"#888"}}> (+₹{item.rankPrice})</span>}</div>
                   <div style={{fontSize:13,fontWeight:800,color:C.olive,marginTop:3}}>₹{(item.price*item.qty).toLocaleString()}</div>
                   <div style={{display:"flex",alignItems:"center",gap:7,marginTop:6}}>
                     <button onClick={()=>changeQty(item.id,item.size,item.rank,-1)} style={{width:24,height:24,border:"1.5px solid #ddd",borderRadius:4,background:"#f9f9f9",cursor:"pointer",fontSize:13}}>−</button>
@@ -450,11 +474,8 @@ export default function Force5Store(){
             <div style={{fontSize:11,color:"#888",marginTop:3}}>💡 {cfg.hint} &nbsp;·&nbsp; 🎖️ Rank selection required at checkout</div>
           </div>
 
-          <button style={{...btnDark,width:"100%",padding:"14px",fontSize:15,marginBottom:10}} onClick={()=>openModal(prod)}>
-            🛒 Select Size & Add to Cart
-          </button>
-          <button style={{...btnOlive,width:"100%",padding:"14px",fontSize:15}} onClick={()=>{openModal(prod);}}>
-            ⚡ Buy Now — Select Size & Rank
+          <button style={{...btnOlive,width:"100%",padding:"14px",fontSize:15,marginBottom:10}} onClick={()=>openModal(prod)}>
+            🛒 Select Size & Rank — Add to Cart
           </button>
           <a href="https://wa.me/919654496474" target="_blank" rel="noreferrer"
             style={{display:"flex",alignItems:"center",justifyContent:"center",gap:8,width:"100%",padding:"13px",fontSize:14,marginTop:10,background:"#25d366",color:"#fff",borderRadius:5,textDecoration:"none",fontWeight:700,boxSizing:"border-box"}}>
@@ -473,8 +494,14 @@ export default function Force5Store(){
       const address=addrRef.current?.value?.trim()||"";
       if(!name||!phone||!address){showToast("⚠️ Fill required fields");return;}
       const oid="F5-"+Date.now().toString().slice(-6);
-      setOrderDone({orderId:oid,items:[...cart],subtotal:cartSub,deliveryFee:selDel.fee,deliveryName:selDel.name,total:cartTotal,name,phone,address,city:cityRef.current?.value||"",state:stateRef.current?.value||""});
+      const city=cityRef.current?.value||""; const state=stateRef.current?.value||"";
+      const orderObj={orderId:oid,items:[...cart],subtotal:cartSub,deliveryFee:selDel.fee,deliveryName:selDel.name,total:cartTotal,name,phone,address,city,state};
+      setOrderDone(orderObj);
       setCart([]);setPage("success");scrollTop();
+      // Auto WhatsApp notification to shop owner
+      const itemLines=cart.map(i=>`• ${i.name} | Size: ${i.size} | Rank: ${typeof i.rank==="object"?i.rank.label:i.rank} | Qty: ${i.qty} | ₹${(i.price*i.qty).toLocaleString()}`).join("%0A");
+      const msg=`🛒 *NEW ORDER — Force5 Collection*%0A%0A*Order ID:* ${oid}%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${address}, ${city}, ${state}%0A%0A*Items:*%0A${itemLines}%0A%0A*Subtotal:* ₹${cartSub.toLocaleString()}%0A*Delivery (${selDel.name}):* ₹${selDel.fee}%0A*TOTAL:* ₹${cartTotal.toLocaleString()}%0A%0A*Payment:* UPI — awaiting confirmation`;
+      setTimeout(()=>window.open(`https://wa.me/919654496474?text=${msg}`,"_blank"),800);
     };
     const inp={width:"100%",padding:"11px 12px",border:"1.5px solid #ddd",borderRadius:5,fontSize:14,fontFamily:"inherit",boxSizing:"border-box"};
     const lbl={display:"block",fontSize:11,fontWeight:700,color:"#444",letterSpacing:.5,textTransform:"uppercase",marginBottom:5};
