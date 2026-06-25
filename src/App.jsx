@@ -179,10 +179,10 @@ function SizeRankModal({prod, cat, onConfirm, onClose}){
                   background:rank?.label===r.label?"#f0f8f0":"#fff",display:"flex",alignItems:"center",gap:10}}
                   onClick={()=>setRank(r)}>
                   <div style={{width:18,height:18,borderRadius:"50%",border:`2px solid ${rank?.label===r.label?C.olive:"#ddd"}`,
-                    background:rank===r?C.olive:"#fff",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center"}}>
+                    background:rank?.label===r.label?C.olive:"#fff",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center"}}>
                     {rank?.label===r.label&&<div style={{width:8,height:8,borderRadius:"50%",background:"#fff"}}/>}
                   </div>
-                  <span style={{fontSize:13,fontWeight:rank?.label===r.label?700:400,color:rank?.label===r.label?C.olive:C.dark}}>{r}</span>
+                  <div style={{flex:1}}><span style={{fontSize:13,fontWeight:rank?.label===r.label?700:400,color:rank?.label===r.label?C.olive:C.dark}}>{r.label}</span>{r.price>0&&<span style={{fontSize:11,color:"#888",marginLeft:6}}>(+₹{r.price})</span>}</div>
                 </div>
               ))}
             </div>
