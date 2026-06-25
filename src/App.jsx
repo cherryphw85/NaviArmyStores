@@ -104,7 +104,20 @@ const PAGES = {
   shipping:`Shipping & Payment Info\n\nAll products dispatched within 96 hours of order placement.\n\nDELIVERY TIME: 4-15 business days depending on location.\n\nDELIVERY AREAS: PAN India. Call 9654496474, 10AM-5PM Mon-Sat.\n\nPAYMENT: UPI / PhonePe / GPay to UPI ID: ashokpahwa114@okaxis`,
 };
 
-const load=(k,fb)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):fb;}catch{return fb;}};
+const load=(k,fb)=>{try{
+  const v=localStorage.getItem(k);
+  if(!v)return fb;
+  const parsed=JSON.parse(v);
+  // Fix old cart items that stored rank as object instead of string
+  if(k==="f5_cart"&&Array.isArray(parsed)){
+    return parsed.map(item=>({
+      ...item,
+      rank: typeof item.rank==="object"?(item.rank?.label||""):String(item.rank||""),
+      rankPrice: Number(item.rankPrice)||0
+    }));
+  }
+  return parsed;
+}catch{return fb;}};
 const save=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));}catch{}};
 const Stars=({n=4})=><span style={{color:"#f9a825",fontSize:11}}>{"★".repeat(n)}{"☆".repeat(5-n)}</span>;
 function Toast({msg,onClose}){
@@ -116,16 +129,19 @@ function Toast({msg,onClose}){
 // SIZE + RANK SELECTOR MODAL
 function SizeRankModal({prod, cat, onConfirm, onClose}){
   const cfg = SIZE_CONFIG[cat?.sizeType || "apparel"];
-  const [size, setSize] = useState("");
-  const [rank, setRank] = useState("");
-  const [step, setStep] = useState(1); // 1=size, 2=rank
-  const C={dark:"#0f1309",olive:"#3a4f1a",gold:"#f0c040"};
+  const isUniform = cat?.sizeType === "uniform";
+  const [size,      setSize]      = useState("");
+  const [rankLabel, setRankLabel] = useState("");
+  const [rankPrice, setRankPrice] = useState(0);
+  const [step,      setStep]      = useState(1);
+  const C={dark:"#0f1309",olive:"#3a4f1a"};
   const btnOlive={background:C.olive,color:"#fff",border:"none",fontWeight:700,cursor:"pointer",borderRadius:6};
 
+  const selectRank=(r)=>{ setRankLabel(String(r.label)); setRankPrice(Number(r.price)||0); };
+
   return(
-    <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,.65)",zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center"}}>
-      <div style={{background:"#fff",width:"min(100%,480px)",borderRadius:"16px 16px 0 0",padding:"24px 20px 32px",boxShadow:"0 -8px 40px rgba(0,0,0,.3)"}}>
-        {/* Header */}
+    <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,.65)",zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center"}} onClick={onClose}>
+      <div style={{background:"#fff",width:"min(100%,480px)",borderRadius:"16px 16px 0 0",padding:"24px 20px 32px",boxShadow:"0 -8px 40px rgba(0,0,0,.3)"}} onClick={e=>e.stopPropagation()}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
           <div>
             <div style={{fontFamily:"Georgia,serif",fontSize:16,fontWeight:700,color:C.dark}}>{prod.name}</div>
@@ -133,64 +149,64 @@ function SizeRankModal({prod, cat, onConfirm, onClose}){
           </div>
           <button style={{background:"none",border:"none",fontSize:22,cursor:"pointer",color:"#888"}} onClick={onClose}>✕</button>
         </div>
-
-        {/* Step indicator — rank step only for uniform/combat dress */}
-        {cat?.sizeType==="uniform"&&(
-        <div style={{display:"flex",gap:6,marginBottom:20}}>
-          {["Select Size","Select Rank"].map((s,i)=>(
-            <div key={s} style={{flex:1,padding:"6px 0",textAlign:"center",borderRadius:6,fontSize:11,fontWeight:700,
-              background:step===i+1?C.olive:step>i+1?"#e8f5e9":"#f5f5f5",
-              color:step===i+1?"#fff":step>i+1?C.olive:"#aaa"}}>
-              {step>i+1?"✓ ":""}{s}
-            </div>
-          ))}
-        </div>
+        {isUniform&&(
+          <div style={{display:"flex",gap:6,marginBottom:20}}>
+            {["1. Select Size","2. Select Rank"].map((s,i)=>(
+              <div key={s} style={{flex:1,padding:"7px 0",textAlign:"center",borderRadius:6,fontSize:11,fontWeight:700,
+                background:step===i+1?C.olive:step>i+1?"#e8f5e9":"#f0f0f0",
+                color:step===i+1?"#fff":step>i+1?C.olive:"#aaa"}}>
+                {step>i+1?"✓ ":""}{s}
+              </div>
+            ))}
+          </div>
         )}
-
-        {/* STEP 1: SIZE */}
         {step===1&&(
           <div>
-            <div style={{fontSize:13,fontWeight:700,color:C.dark,marginBottom:4}}>{cfg.label}</div>
+            <div style={{fontWeight:700,fontSize:13,color:C.dark,marginBottom:4}}>{cfg.label}</div>
             <div style={{fontSize:11,color:"#888",marginBottom:12}}>📏 {cfg.hint}</div>
-            <div style={{display:"flex",flexWrap:"wrap",gap:10,marginBottom:20}}>
+            <div style={{display:"flex",flexWrap:"wrap",gap:8,marginBottom:20}}>
               {cfg.sizes.map(sz=>(
-                <button key={sz} style={{padding:"10px 16px",borderRadius:6,border:`2px solid ${size===sz?C.olive:"#e0e0e0"}`,
-                  background:size===sz?C.olive:"#fff",color:size===sz?"#fff":"#333",
-                  fontSize:14,fontWeight:600,cursor:"pointer",minWidth:56,transition:"all .15s"}}
+                <button key={sz} style={{padding:"10px 14px",borderRadius:6,fontSize:13,fontWeight:600,cursor:"pointer",transition:"all .15s",
+                  border:`2px solid ${size===sz?C.olive:"#ddd"}`,background:size===sz?C.olive:"#fff",color:size===sz?"#fff":"#333"}}
                   onClick={()=>setSize(sz)}>{sz}</button>
               ))}
             </div>
-            <button style={{...btnOlive,width:"100%",padding:"13px",fontSize:14,opacity:size?1:.5}}
-              disabled={!size} onClick={()=>{
-                if(cat?.sizeType==="uniform"){setStep(2);}
-                else{onConfirm(size,{label:"N/A",price:0});}
-              }}>{cat?.sizeType==="uniform"?"Next: Select Rank →":"Add to Cart ✓"}</button>
+            <button style={{...btnOlive,width:"100%",padding:"13px",fontSize:14,opacity:size?1:.5,cursor:size?"pointer":"not-allowed"}}
+              disabled={!size}
+              onClick={()=>{ if(isUniform){setStep(2);}else{onConfirm(size,"",0);} }}>
+              {isUniform?"Next: Select Rank →":"Add to Cart ✓"}
+            </button>
           </div>
         )}
-
-        {/* STEP 2: RANK */}
-        {step===2&&(
+        {step===2&&isUniform&&(
           <div>
-            <div style={{fontSize:13,fontWeight:700,color:C.dark,marginBottom:4}}>Select Rank / Position</div>
-            <div style={{fontSize:11,color:"#888",marginBottom:12}}>🎖️ Required for rank-specific customisation</div>
-            <div style={{maxHeight:240,overflowY:"auto",border:"1.5px solid #eee",borderRadius:8,marginBottom:16}}>
-              {RANKS.map(r=>(
-                <div key={r.label} style={{padding:"11px 14px",cursor:"pointer",borderBottom:"1px solid #f5f5f5",
-                  background:rank?.label===r.label?"#f0f8f0":"#fff",display:"flex",alignItems:"center",gap:10}}
-                  onClick={()=>setRank(r)}>
-                  <div style={{width:18,height:18,borderRadius:"50%",border:`2px solid ${rank?.label===r.label?C.olive:"#ddd"}`,
-                    background:rank?.label===r.label?C.olive:"#fff",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center"}}>
-                    {rank?.label===r.label&&<div style={{width:8,height:8,borderRadius:"50%",background:"#fff"}}/>}
+            <div style={{fontWeight:700,fontSize:13,color:C.dark,marginBottom:4}}>Select Rank / Position</div>
+            <div style={{fontSize:11,color:"#888",marginBottom:10}}>🎖️ Rank determines badge on the uniform</div>
+            <div style={{maxHeight:260,overflowY:"auto",border:"1.5px solid #eee",borderRadius:8,marginBottom:14}}>
+              {RANKS.map(r=>{
+                const sel=rankLabel===r.label;
+                return(
+                  <div key={r.label} style={{padding:"11px 14px",cursor:"pointer",borderBottom:"1px solid #f5f5f5",
+                    background:sel?"#f0f8f0":"#fff",display:"flex",alignItems:"center",gap:10}}
+                    onClick={()=>selectRank(r)}>
+                    <div style={{width:18,height:18,borderRadius:"50%",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",
+                      border:`2px solid ${sel?C.olive:"#ddd"}`,background:sel?C.olive:"#fff"}}>
+                      {sel&&<div style={{width:8,height:8,borderRadius:"50%",background:"#fff"}}/>}
+                    </div>
+                    <span style={{fontSize:13,fontWeight:sel?700:400,color:sel?C.olive:"#333",flex:1}}>{r.label}</span>
+                    {r.price>0&&<span style={{fontSize:12,color:"#888"}}>+₹{r.price}</span>}
                   </div>
-                  <div style={{flex:1}}><span style={{fontSize:13,fontWeight:rank?.label===r.label?700:400,color:rank?.label===r.label?C.olive:C.dark}}>{r.label}</span>{r.price>0&&<span style={{fontSize:11,color:"#888",marginLeft:6}}>(+₹{r.price})</span>}</div>
-                </div>
-              ))}
+                );
+              })}
             </div>
             <div style={{display:"flex",gap:10}}>
               <button style={{flex:1,padding:"12px",borderRadius:6,border:"1.5px solid #ddd",background:"#f9f9f9",cursor:"pointer",fontWeight:600,fontSize:13,color:"#666"}}
                 onClick={()=>setStep(1)}>← Back</button>
-              <button style={{...btnOlive,flex:2,padding:"13px",fontSize:14,opacity:rank?1:.5}}
-                disabled={!rank} onClick={()=>onConfirm(size,rank)}>Add to Cart ✓</button>
+              <button style={{...btnOlive,flex:2,padding:"13px",fontSize:14,opacity:rankLabel?1:.4,cursor:rankLabel?"pointer":"not-allowed"}}
+                disabled={!rankLabel}
+                onClick={()=>onConfirm(size,rankLabel,rankPrice)}>
+                Add to Cart ✓
+              </button>
             </div>
           </div>
         )}
@@ -198,6 +214,7 @@ function SizeRankModal({prod, cat, onConfirm, onClose}){
     </div>
   );
 }
+
 
 export default function Force5Store(){
   const C={dark:"#0f1309",olive:"#3a4f1a",gold:"#f0c040",tan:"#c8b87a",mid:"#e8e3d5",red:"#b22222",white:"#fff"};
@@ -239,14 +256,15 @@ export default function Force5Store(){
   // Open size+rank modal
   const openModal=prod=>setModalProd(prod);
 
-  const confirmAddToCart=(prod,size,rank)=>{
+  const confirmAddToCart=(prod,size,rankLabel,rankPrice)=>{
     const img=prod.images?.[0]||"";
-    const totalPrice=prod.price+(rank.price||0);
-    const rankLabel=rank.label||rank;
+    const rLabel=String(rankLabel||"");          // always string
+    const rPrice=Number(rankPrice)||0;           // always number
+    const totalPrice=prod.price+rPrice;
     setCart(c=>{
-      const ex=c.find(x=>x.id===prod.id&&x.size===size&&x.rank===rankLabel);
-      if(ex) return c.map(x=>x.id===prod.id&&x.size===size&&x.rank===rankLabel?{...x,qty:x.qty+1}:x);
-      return[...c,{id:prod.id,name:prod.name,price:totalPrice,basePrice:prod.price,rankPrice:rank.price||0,image:img,size,rank:rankLabel,qty:1}];
+      const ex=c.find(x=>x.id===prod.id&&x.size===size&&x.rank===rLabel);
+      if(ex) return c.map(x=>x.id===prod.id&&x.size===size&&x.rank===rLabel?{...x,qty:x.qty+1}:x);
+      return[...c,{id:prod.id,name:prod.name,price:totalPrice,basePrice:prod.price,rankPrice:rPrice,image:img,size,rank:rLabel,qty:1}];
     });
     setModalProd(null);
     showToast("✅ Added to cart!");
@@ -291,7 +309,7 @@ export default function Force5Store(){
                 <div style={{flex:1}}>
                   <div style={{fontSize:12,fontWeight:700,color:C.dark,lineHeight:1.3}}>{item.name}</div>
                   <div style={{fontSize:10,color:"#888",marginTop:2}}>Size: {item.size}</div>
-                  {(typeof item.rank==="string"?item.rank:item.rank?.label)!=="N/A"&&<div style={{fontSize:10,color:C.olive,marginTop:1,fontWeight:600}}>🎖️ Rank: {typeof item.rank==="object"?item.rank.label:item.rank}{item.rankPrice>0&&<span style={{color:"#888"}}> (+₹{item.rankPrice})</span>}</div>}
+                  {item.rank&&item.rank!=="N/A"&&item.rank!==""&&<div style={{fontSize:10,color:C.olive,marginTop:1,fontWeight:600}}>🎖️ {item.rank}{item.rankPrice>0&&<span style={{color:"#888"}}> (+₹{item.rankPrice})</span>}</div>}
                   <div style={{fontSize:13,fontWeight:800,color:C.olive,marginTop:3}}>₹{(item.price*item.qty).toLocaleString()}</div>
                   <div style={{display:"flex",alignItems:"center",gap:7,marginTop:6}}>
                     <button onClick={()=>changeQty(item.id,item.size,item.rank,-1)} style={{width:24,height:24,border:"1.5px solid #ddd",borderRadius:4,background:"#f9f9f9",cursor:"pointer",fontSize:13}}>−</button>
@@ -524,7 +542,7 @@ export default function Force5Store(){
                 <span style={{color:"#444",flex:1,paddingRight:8,fontWeight:600}}>{it.name} ×{it.qty}</span>
                 <span style={{fontWeight:700,color:C.olive,flexShrink:0}}>₹{(it.price*it.qty).toLocaleString()}</span>
               </div>
-              <div style={{fontSize:10,color:"#888",marginTop:2}}>Size: {it.size}{(typeof it.rank==="string"?it.rank:it.rank?.label)!=="N/A"&&<span> &nbsp;·&nbsp; 🎖️ Rank: {typeof it.rank==="object"?it.rank.label:it.rank}</span>}</div>
+              <div style={{fontSize:10,color:"#888",marginTop:2}}>Size: {it.size}{it.rank&&it.rank!=="N/A"&&it.rank!==""&&<span> &nbsp;·&nbsp; 🎖️ {it.rank}</span>}</div>
             </div>
           ))}
           <div style={{marginTop:12}}>
@@ -606,7 +624,7 @@ export default function Force5Store(){
       <style>{`@keyframes fadeUp{from{opacity:0;transform:translateX(-50%) translateY(16px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}*{box-sizing:border-box;margin:0;padding:0}::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:#c8b87a;border-radius:2px}.prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(min-width:600px){.prod-grid{grid-template-columns:repeat(3,1fr)}.cat-grid{grid-template-columns:repeat(3,1fr)}}@media(min-width:900px){.prod-grid{grid-template-columns:repeat(4,1fr)}.cat-grid{grid-template-columns:repeat(5,1fr)}}.page-wrap{max-width:1200px;margin:0 auto;padding:0 16px}.hero-img{width:100%;max-height:520px;object-fit:cover;object-position:top;display:block}`}</style>
       <Navbar/>
       {cartOpen&&<CartDrawer/>}
-      {modalProd&&<SizeRankModal prod={modalProd} cat={catOf(modalProd)} onConfirm={(sz,rk)=>confirmAddToCart(modalProd,sz,rk)} onClose={()=>setModalProd(null)}/>}
+      {modalProd&&<SizeRankModal prod={modalProd} cat={catOf(modalProd)} onConfirm={(sz,rl,rp)=>confirmAddToCart(modalProd,sz,rl,rp)} onClose={()=>setModalProd(null)}/>}
       {page==="home"&&<HomePage/>}
       {page==="category"&&<CategoryPage/>}
       {page==="product"&&<ProductPage/>}
